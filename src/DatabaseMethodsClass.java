@@ -8,7 +8,7 @@ public class DatabaseMethodsClass {
         try {
             // 1. Get a connection to the Database
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://35.228.89.148:3306/testCreationOfDB", "root","password");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://35.228.89.148:3306/hangerDatabase", "root","password");
             System.out.println("Connection established \n");
 
             // 2. Create a statement
