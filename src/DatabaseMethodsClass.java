@@ -4,19 +4,6 @@ import java.util.logging.Logger;
 
 public class DatabaseMethodsClass {
 
-    public static void createConnection() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://35.228.89.148:3306/testCreationOfDB", "root","password");
-            System.out.println("Connection established");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DatabaseMethodsClass.class.getName()).log(Level.SEVERE, null, ex);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseMethodsClass.class.getName()).log(Level.SEVERE,null, ex);
-        }
-    }
-
     public static void printAllUsers(){
         try {
             // 1. Get a connection to the Database
@@ -46,14 +33,35 @@ public class DatabaseMethodsClass {
         }
     }
 
-    public void addNewUser(){
+    public static void addNewUser(){
+        try {
+            String url = "jdbc:mysql://35.228.89.148:3306/hangerDatabase";
+            Connection conn = DriverManager.getConnection(url,"root","password");
+            Statement st = conn.createStatement();
+
+
+            st.executeUpdate("INSERT INTO users VALUES (id ,'Zimpson', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')");
+           /* st.executeUpdate("INSERT INTO Customers " +
+                    "VALUES (2, 'McBeal', 'Ms.', 'Boston', 2004)");
+            st.executeUpdate("INSERT INTO Customers " +
+                    "VALUES (3, 'Flinstone', 'Mr.', 'Bedrock', 2003)");
+            st.executeUpdate("INSERT INTO Customers " +
+                    "VALUES (4, 'Cramden', 'Mr.', 'New York', 2001)");
+*/
+           //conn.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+
+        System.out.println("Jesteś zajebisty!");
 
     }
 
 
     public static void main(String args[]){
-        createConnection();
         printAllUsers();
+        addNewUser();
     }
 
 }
