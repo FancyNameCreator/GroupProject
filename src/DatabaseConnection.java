@@ -14,7 +14,7 @@ public class DatabaseConnection {
         try {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://35.228.89.148:3306/testCreationOfDB", "root","password");
+            Connection con = DriverManager.getConnection("jdbc:mysql://35.228.89.148:3306/hangerDatabase", "root","password");
             System.out.println("Connection established");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
