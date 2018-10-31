@@ -74,8 +74,47 @@ public class DatabaseMethodsClass {
         }
     }
 
+    public static void updateFirstName(int id) {
+
+        Scanner input = new Scanner(System.in);
+        String firstName = input.nextLine();
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER,PASS);
+            stmt = conn.createStatement();
+
+            String sql = "update users set first_name= '"+firstName+"' where id='"+id+"'";
+
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void update(String email){
+        Scanner input = new Scanner(System.in);
+        System.out.println("What thing you wanna change? Choose one option: ");
+        int choice=input.nextInt();
+        while(choice!=0){
+            choice=input.nextInt();
+        }
+        System.out.println("");
+    }
+
+
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Insert the user's mail you wanna change in sth: ");
+        int userId = input.nextInt();
         printAllUsers();
-        addNewUser(); //("INSERT INTO users" + " VALUES (id ,'Zimpson', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')");
+        update();
+        updateFirstName(userId);
+        //addNewUser(); //("INSERT INTO users" + " VALUES (id ,'Zimpson', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')");
     }
 }
