@@ -1,6 +1,5 @@
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.lang.*;
 
 public class DatabaseMethodsClass {
 
@@ -50,17 +49,18 @@ public class DatabaseMethodsClass {
         try {
             conn = DriverManager.getConnection(DB_URL, USER,PASS);
             stmt = conn.createStatement();
-            stmt.executeUpdate( "INSERT INTO users  VALUES (id ,'Zimpson', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')");
+            String sql = "insert into users "
+            + "(first_name, last_name, email, password, address, postal_code, city, country)"
+                    + "values ('Szymonek', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')";
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
-            try { stmt.close(); } catch (Exception e) { /* ignored */ }
-            try { conn.close(); } catch (Exception e) { /* ignored */ }
         }
     }
 
     public static void main(String args[]){
-       // printAllUsers();
+        //printAllUsers();
         addNewUser(); //("INSERT INTO users" + " VALUES (id ,'Zimpson', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')");
     }
 
