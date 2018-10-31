@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.lang.*;
+import java.util.Scanner;
 
 public class DatabaseMethodsClass {
 
@@ -12,8 +13,9 @@ public class DatabaseMethodsClass {
     static final String PASS = "password";
 
 
-    public static void printAllUsers(){
+    public static void printAllUsers() {
         try {
+
             // 1. Get a connection to the Database
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection myConn = DriverManager.getConnection(DB_URL, USER,PASS);
@@ -31,7 +33,6 @@ public class DatabaseMethodsClass {
                 System.out.println(myResults.getString("email"));
                 System.out.println(myResults.getString("address") + ", " + myResults.getString("postal_code") + " " + myResults.getString("city"));
                 System.out.println();
-
             }
         }
 
@@ -43,6 +44,16 @@ public class DatabaseMethodsClass {
 
     public static void addNewUser() {
 
+      Scanner input = new Scanner(System.in);
+      String firstName = input.nextLine();
+      String lastName = input.nextLine();
+      String email = input.nextLine();
+      String password = input.nextLine();
+      String address = input.nextLine();
+      String postalCode = input.nextLine();
+      String city = input.nextLine();
+      String country = input.nextLine();
+
         Connection conn = null;
         Statement stmt = null;
 
@@ -52,7 +63,7 @@ public class DatabaseMethodsClass {
 
             String sql = "insert into users "
                 + "(first_name, last_name, email, password, address, postal_code, city, country)"
-                + "values ('Szymonek', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')";
+                + "values ('"+firstName+"','"+lastName+"','"+email+"','"+password+"','"+address+"','"+postalCode+"','"+city+"','"+country+"')";
 
             stmt.executeUpdate(sql);
             System.out.println("Data inserted!");
@@ -64,7 +75,7 @@ public class DatabaseMethodsClass {
     }
 
     public static void main(String[] args) {
-        //printAllUsers();
+        printAllUsers();
         addNewUser(); //("INSERT INTO users" + " VALUES (id ,'Zimpson', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')");
     }
 }
