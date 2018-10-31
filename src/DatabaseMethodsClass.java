@@ -86,7 +86,7 @@ public class DatabaseMethodsClass {
             conn = DriverManager.getConnection(DB_URL, USER,PASS);
             stmt = conn.createStatement();
 
-            String sql = "update users set first_name= '"+firstName+"' where id='"+id+"'";
+            String sql = "update users set first_name= '"+firstName+"' where email='"+email+"'";
 
             stmt.executeUpdate(sql);
             System.out.println("Data inserted!");
@@ -103,7 +103,7 @@ public class DatabaseMethodsClass {
 
         while(choice!=0){
             System.out.println("What thing you wanna change? Choose one option: ");
-            System.out.print("1. first_name\n2. last_name\n3. email\n4. password\n5. address\n6. postal_code\n7. city\n8. country\nINSERT NUMBER>>> ");
+            System.out.print("1. first_name\n2. last_name\n3. email\n4. password\n5. address\n6. postal_code\n7. city\n8. country\n0.GO OUT!\nINSERT NUMBER>>> ");
             choice=input.nextInt();
             switch (choice){
                 case 1: updateFirstName(email);
@@ -126,7 +126,7 @@ public class DatabaseMethodsClass {
                     break;
             }
         }
-        System.out.println("");
+
     }
 
 
