@@ -49,19 +49,22 @@ public class DatabaseMethodsClass {
         try {
             conn = DriverManager.getConnection(DB_URL, USER,PASS);
             stmt = conn.createStatement();
+
             String sql = "insert into users "
-            + "(first_name, last_name, email, password, address, postal_code, city, country)"
-                    + "values ('Szymonek', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')";
+                + "(first_name, last_name, email, password, address, postal_code, city, country)"
+                + "values ('Szymonek', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')";
+
             stmt.executeUpdate(sql);
             System.out.println("Data inserted!");
-        } catch (SQLException e) {
+          }
+
+        catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static void main(String args[]){
+    public static void main(String[] args) {
         //printAllUsers();
         addNewUser(); //("INSERT INTO users" + " VALUES (id ,'Zimpson', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')");
     }
-
 }
