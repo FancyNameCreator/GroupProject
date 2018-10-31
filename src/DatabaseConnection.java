@@ -1,4 +1,4 @@
-/*// Just testing with a comments bla
+
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -26,4 +26,3 @@ public class DatabaseConnection {
         }
     }
 }
-*/
