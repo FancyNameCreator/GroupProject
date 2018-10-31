@@ -13,6 +13,9 @@ public class DatabaseMethodsClass {
     static final String PASS = "password";
 
 
+    /**
+     * the class prints all users from the database
+     */
     public static void printAllUsers() {
         try {
 
@@ -42,6 +45,9 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * this class adds a new user to the database
+     */
     public static void addNewUser() {
 
       Scanner input = new Scanner(System.in);
@@ -74,6 +80,10 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * updates an first name based on an email of a user
+     * @param email
+     */
     public static void updateFirstName(String email) {
 
         Scanner input = new Scanner(System.in);
@@ -97,6 +107,10 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * updates a last name based on an email of a user
+     * @param email
+     */
     public static void updateLastName(String email) {
 
         Scanner input = new Scanner(System.in);
@@ -120,6 +134,10 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * updates a email based on an email of a user
+     * @param email
+     */
     public static void updateEmail(String email) {
 
         Scanner input = new Scanner(System.in);
@@ -143,6 +161,10 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * updates a password based on an email of a user
+     * @param email
+     */
     public static void updatePassword(String email) {
 
         Scanner input = new Scanner(System.in);
@@ -166,6 +188,10 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * updates an address based on an email of a user
+     * @param email
+     */
     public static void updateAddress(String email) {
 
         Scanner input = new Scanner(System.in);
@@ -189,6 +215,10 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * updates a postal code based on an email of a user
+     * @param email
+     */
     public static void updatePostalCode(String email) {
 
         Scanner input = new Scanner(System.in);
@@ -212,6 +242,11 @@ public class DatabaseMethodsClass {
         }
     }
 
+
+    /**
+     * updates a city based on an email of a user
+     * @param email
+     */
     public static void updateCity(String email) {
 
         Scanner input = new Scanner(System.in);
@@ -235,6 +270,10 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * updates a country based on an email of a user
+     * @param email
+     */
     public static void updateCountry(String email) {
 
         Scanner input = new Scanner(System.in);
@@ -258,6 +297,10 @@ public class DatabaseMethodsClass {
         }
     }
 
+    /**
+     * in this class you can chooose what you want to update
+     * @param email
+     */
     public static void update(String email){
         Scanner input = new Scanner(System.in);
         int choice=1;
