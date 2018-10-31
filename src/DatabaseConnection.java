@@ -1,11 +1,11 @@
-/*// Just testing with a comments bla
+
 
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DatabaseConnection {
-    public static void main(String[] args) {
+    public static void databaseConnection() {
         DatabaseConnection pro = new DatabaseConnection();
         pro.createConnection();
 
@@ -26,4 +26,3 @@ public class DatabaseConnection {
         }
     }
 }
-*/
