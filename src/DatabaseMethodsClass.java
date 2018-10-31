@@ -74,7 +74,7 @@ public class DatabaseMethodsClass {
         }
     }
 
-    public static void updateFirstName(int id) {
+    public static void updateFirstName(String email) {
 
         Scanner input = new Scanner(System.in);
         String firstName = input.nextLine();
@@ -99,10 +99,32 @@ public class DatabaseMethodsClass {
 
     public static void update(String email){
         Scanner input = new Scanner(System.in);
-        System.out.println("What thing you wanna change? Choose one option: ");
-        int choice=input.nextInt();
+        int choice=1;
+
         while(choice!=0){
+            System.out.println("What thing you wanna change? Choose one option: ");
+            System.out.print("1. first_name\n2. last_name\n3. email\n4. password\n5. address\n6. postal_code\n7. city\n8. country\nINSERT NUMBER>>> ");
             choice=input.nextInt();
+            switch (choice){
+                case 1: updateFirstName(email);
+                        break;
+                case 2: updateLastName(email);
+                    break;
+                case 3: updateEmail(email);
+                    break;
+                case 4: updatePassword(email);
+                    break;
+                case 5: updateAddress(email);
+                    break;
+                case 6: updatePostalCode(email);
+                    break;
+                case 7: updateCity(email);
+                    break;
+                case 8: updateCountry(email);
+                    break;
+                case 0: System.out.println("You are about to exit this site!");
+                    break;
+            }
         }
         System.out.println("");
     }
@@ -111,10 +133,9 @@ public class DatabaseMethodsClass {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Insert the user's mail you wanna change in sth: ");
-        int userId = input.nextInt();
-        printAllUsers();
-        update();
-        updateFirstName(userId);
+        String email = input.nextLine();
+        //printAllUsers();
+        update(email);
         //addNewUser(); //("INSERT INTO users" + " VALUES (id ,'Zimpson', 'Gab', 'kupa@gmail.com', 'password', 'address', 'postalcode','city', 'country')");
     }
 }
