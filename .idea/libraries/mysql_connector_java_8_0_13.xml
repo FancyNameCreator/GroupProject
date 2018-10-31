@@ -2,8 +2,21 @@
   <library name="mysql-connector-java-8.0.13">
     <CLASSES>
       <root url="jar://C:/mysql-connector-java-8.0.13/mysql-connector-java-8.0.13.jar!/" />
+      <root url="file://C:/mysql-connector-java-8.0.13" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://C:/mysql-connector-java-8.0.13/src/build/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/demo/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/generated/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/legacy/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/main/core-api/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/main/core-impl/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/main/protocol-impl/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/main/user-api/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/main/user-impl/java" />
+      <root url="file://C:/mysql-connector-java-8.0.13/src/test/java" />
+    </SOURCES>
+    <jarDirectory url="file://C:/mysql-connector-java-8.0.13" recursive="false" />
   </library>
 </component>
