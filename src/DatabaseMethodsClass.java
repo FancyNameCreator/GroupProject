@@ -86,7 +86,168 @@ public class DatabaseMethodsClass {
             conn = DriverManager.getConnection(DB_URL, USER,PASS);
             stmt = conn.createStatement();
 
-            String sql = "update users set first_name= '"+firstName+"' where id='"+id+"'";
+            String sql = "update users set first_name = '"+firstName+"' where email ='"+email+"'";
+
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateLastName(String email) {
+
+        Scanner input = new Scanner(System.in);
+        String lastName = input.nextLine();
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER,PASS);
+            stmt = conn.createStatement();
+
+            String sql = "update users set last_name = '"+lastName+"' where email ='"+email+"'";
+
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateEmail(String email) {
+
+        Scanner input = new Scanner(System.in);
+        String mail = input.nextLine();
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER,PASS);
+            stmt = conn.createStatement();
+
+            String sql = "update users set email = '"+mail+"' where email ='"+email+"'";
+
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updatePassword(String email) {
+
+        Scanner input = new Scanner(System.in);
+        String password = input.nextLine();
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER,PASS);
+            stmt = conn.createStatement();
+
+            String sql = "update users set password = '"+password+"' where email ='"+email+"'";
+
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateAddress(String email) {
+
+        Scanner input = new Scanner(System.in);
+        String address = input.nextLine();
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER,PASS);
+            stmt = conn.createStatement();
+
+            String sql = "update users set address = '"+address+"' where email ='"+email+"'";
+
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updatePostalCode(String email) {
+
+        Scanner input = new Scanner(System.in);
+        String postalCode = input.nextLine();
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER,PASS);
+            stmt = conn.createStatement();
+
+            String sql = "update users set postal_code = '"+postalCode+"' where email ='"+email+"'";
+
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateCity(String email) {
+
+        Scanner input = new Scanner(System.in);
+        String city = input.nextLine();
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER,PASS);
+            stmt = conn.createStatement();
+
+            String sql = "update users set city = '"+city+"' where email ='"+email+"'";
+
+            stmt.executeUpdate(sql);
+            System.out.println("Data inserted!");
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateCountry(String email) {
+
+        Scanner input = new Scanner(System.in);
+        String country = input.nextLine();
+
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER,PASS);
+            stmt = conn.createStatement();
+
+            String sql = "update users set country = '"+country+"' where email ='"+email+"'";
 
             stmt.executeUpdate(sql);
             System.out.println("Data inserted!");
@@ -103,7 +264,7 @@ public class DatabaseMethodsClass {
 
         while(choice!=0){
             System.out.println("What thing you wanna change? Choose one option: ");
-            System.out.print("1. first_name\n2. last_name\n3. email\n4. password\n5. address\n6. postal_code\n7. city\n8. country\nINSERT NUMBER>>> ");
+            System.out.print("1. first_name\n2. last_name\n3. email\n4. password\n5. address\n6. postal_code\n7. city\n8. country\n0. end\nINSERT NUMBER>>> ");
             choice=input.nextInt();
             switch (choice){
                 case 1: updateFirstName(email);
