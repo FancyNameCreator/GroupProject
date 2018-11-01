@@ -51,13 +51,38 @@ public class DatabaseMethodsClass {
     public static void addNewUser() {
 
       Scanner input = new Scanner(System.in);
+      String password;
+      String passwordconfirmation;
+
+      System.out.println("Okey, you are new here! Welcome mate!");
+      System.out.print("Insert your first name: ");
       String firstName = input.nextLine();
+      System.out.print("Insert your last name: ");
       String lastName = input.nextLine();
+      System.out.print("Insert your email: ");
       String email = input.nextLine();
-      String password = input.nextLine();
+
+      do {
+          System.out.print("Insert your password: ");
+          password = input.nextLine();
+          System.out.print("confirm your password: ");
+          passwordconfirmation = input.nextLine();
+          if(password.equals(passwordconfirmation)){
+              System.out.println("Password confirmed!");
+              break;
+          }else {
+              System.out.println("You will have to do it again mate!");
+          }
+      }while(!password.equals(passwordconfirmation));
+
+
+      System.out.print("Insert your address: ");
       String address = input.nextLine();
+      System.out.print("Insert your postal code: ");
       String postalCode = input.nextLine();
+      System.out.print("Insert your city: ");
       String city = input.nextLine();
+      System.out.print("Insert your country: ");
       String country = input.nextLine();
 
         Connection conn = null;
@@ -81,7 +106,7 @@ public class DatabaseMethodsClass {
     }
 
     /**
-     * updates an first name based on an email of a user
+     * updates a first name based on an email of a user
      * @param email
      */
     public static void updateFirstName(String email) {
@@ -334,7 +359,7 @@ public class DatabaseMethodsClass {
     }
 
 
-    public static void main(String[] args) {
+    public static void testOneToChangeLater() {
         Scanner input = new Scanner(System.in);
         System.out.print("Insert the user's mail you wanna change in sth: ");
         String email = input.nextLine();

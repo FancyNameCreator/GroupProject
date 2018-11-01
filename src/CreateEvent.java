@@ -9,7 +9,9 @@ import java.util.logging.Logger;
 
 public class CreateEvent {
 
-    public static void main(String[] args) {
+    public static void eventsMenu() {
+       //to wszystko do usunięcia
+
         DatabaseConnection connect = new DatabaseConnection();
         connect.databaseConnection();
         Scanner sc = new Scanner(System.in);
@@ -20,8 +22,19 @@ public class CreateEvent {
         String event_description = sc.next();
 
 
+
     }
 
+    /*
+    funkcja co chcesz robic z eventami{
+
+    wybierz co chcesz robić - switch
+    1. update sth in events - wywołaj funkcje "updateEvent" (wzór funkcja update z DatabaseMethodsClass)
+    2. add event - wywołaj funkcje "add event" - (wzór funkcja addNewUser)
+    3. remove an event - wywołaj funkcję remove - do napisania
+
+
+     */
 
 
 }
