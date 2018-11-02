@@ -7,13 +7,13 @@ public class MainClass {
         DatabaseMethodsClass database = new DatabaseMethodsClass();
 
         Scanner input = new Scanner(System.in);
-        int myChoice=1;
+        int myChoice = 1;
 
         if (login.welcomeScreen()) {
             System.out.println("OK mate now you are in da GAME!");
         }
 
-        else{
+        else {
             System.out.println("STH WENT WRONG SU MATE!");
             System.exit(0);
         }

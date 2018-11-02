@@ -75,7 +75,7 @@ public class DatabaseMethodsClass {
           System.out.print("confirm your password: ");
           passwordconfirmation = input.nextLine();
 
-          if(password.equals(passwordconfirmation)){
+          if (password.equals(passwordconfirmation)){
               System.out.println("Password confirmed!");
               break;
           }
@@ -118,11 +118,11 @@ public class DatabaseMethodsClass {
 
     /**
      * updates a first name based on an email of a user
-     * @param email
      */
 
     public static void updateFirstName(String email) {
 
+        System.out.println("Enter new first name: ");
         Scanner input = new Scanner(System.in);
         String firstName = input.nextLine();
 
@@ -150,6 +150,7 @@ public class DatabaseMethodsClass {
 
     public static void updateLastName(String email) {
 
+        System.out.println("Enter new last name: ");
         Scanner input = new Scanner(System.in);
         String lastName = input.nextLine();
 
@@ -177,6 +178,7 @@ public class DatabaseMethodsClass {
 
     public static void updateEmail(String email) {
 
+        System.out.println("Enter new email: ");
         Scanner input = new Scanner(System.in);
         String mail = input.nextLine();
 
@@ -204,6 +206,7 @@ public class DatabaseMethodsClass {
 
     public static void updatePassword(String email) {
 
+        System.out.println("Enter new password: ");
         Scanner input = new Scanner(System.in);
         String password = input.nextLine();
 
@@ -231,6 +234,7 @@ public class DatabaseMethodsClass {
 
     public static void updateAddress(String email) {
 
+        System.out.println("Enter new address: ");
         Scanner input = new Scanner(System.in);
         String address = input.nextLine();
 
@@ -258,6 +262,7 @@ public class DatabaseMethodsClass {
 
     public static void updatePostalCode(String email) {
 
+        System.out.println("Enter new postal code: ");
         Scanner input = new Scanner(System.in);
         String postalCode = input.nextLine();
 
@@ -283,8 +288,10 @@ public class DatabaseMethodsClass {
     /**
      * updates a city based on an email of a user
      */
+
     public static void updateCity(String email) {
 
+        System.out.println("Enter new city: ");
         Scanner input = new Scanner(System.in);
         String city = input.nextLine();
 
@@ -312,6 +319,7 @@ public class DatabaseMethodsClass {
 
     public static void updateCountry(String email) {
 
+        System.out.println("Enter new country: ");
         Scanner input = new Scanner(System.in);
         String country = input.nextLine();
 
@@ -342,32 +350,44 @@ public class DatabaseMethodsClass {
 
         int choice = 1;
 
-        while(choice!=0){
+        while(choice != 0){
             System.out.println("What thing you wanna change? Choose one option: ");
             System.out.print("1. first_name\n2. last_name\n3. email\n4. password\n5. address\n6. postal_code\n7. city\n8. country\n0. end\nINSERT NUMBER>>> ");
 
             choice = input.nextInt();
+            boolean mailUpdate = false;
 
-            switch (choice){
+            switch (choice) {
                 case 1: updateFirstName(email);
+                    System.out.println("First name updated");
                         break;
                 case 2: updateLastName(email);
+                    System.out.println("Last name updated");
                     break;
                 case 3: updateEmail(email);
+                    System.out.println("Email was updated");
+                    mailUpdate = true;
                     break;
                 case 4: updatePassword(email);
+                    System.out.println("Password updated");
                     break;
                 case 5: updateAddress(email);
+                    System.out.println("Address updated");
                     break;
                 case 6: updatePostalCode(email);
+                    System.out.println("Postal code updated");
                     break;
                 case 7: updateCity(email);
+                    System.out.println("City updated");
                     break;
                 case 8: updateCountry(email);
+                    System.out.println("Country updated");
                     break;
                 case 0: System.out.println("Your new settings have been saved!");
                     break;
             }
+
+            if (mailUpdate) break;
         }
 
         System.out.println("");
