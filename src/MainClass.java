@@ -1,16 +1,19 @@
 import java.util.Scanner;
 
 public class MainClass {
-    public static void main(String args[]){
-        LogInOrCreateUserClass logging = new LogInOrCreateUserClass();
+    public static void main(String[] args) {
+
+        LogInOrCreateUserClass login = new LogInOrCreateUserClass();
         DatabaseMethodsClass database = new DatabaseMethodsClass();
 
         Scanner input = new Scanner(System.in);
         int myChoice=1;
 
-        if (logging.welcomeScreen()) {
+        if (login.welcomeScreen()) {
             System.out.println("OK mate now you are in da GAME!");
-        }else{
+        }
+
+        else{
             System.out.println("STH WENT WRONG SU MATE!");
             System.exit(0);
         }
@@ -37,10 +40,9 @@ public class MainClass {
                 case 7: //
                 case 0 : break;
             }
+        }
 
-        }while(myChoice!=0);
-
-
+        while(myChoice!=0);
         //while (!logOut()){
         // }
     }
