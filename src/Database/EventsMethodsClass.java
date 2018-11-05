@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 
 public class EventsMethodsClass {
-   /* public static void main (String[] args) {
-       // menuEvents();
+   public static void main (String[] args) {
+       menuEvents();
     }
-    */
+
         // JDBC driver name and database URL
         static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
@@ -55,16 +55,16 @@ public class EventsMethodsClass {
             eventChoice = input.nextInt();
             switch (eventChoice) {
                 case 1:
-                    changeEventName();
+                    changeEventName(id);
                     break;
                 case 2:
-                    changeEventDate();
+                    changeEventDate(id);
                     break;
                 case 3:
-                    changeEventLocation();
+                    changeEventLocation(id);
                     break;
                 case 4:
-                    changeEventDescription();
+                    changeEventDescription(id);
                     break;
                 case 0:
                     System.out.println("You are about to exit this page");
@@ -77,11 +77,11 @@ public class EventsMethodsClass {
             System.out.print("Add event name: ");
             String eventName = input.nextLine();
             System.out.print("Add the date\n ");
-            System.out.print("Day: ");
+            System.out.print("Day (insert a number): ");
             String eventDateDay = input.nextLine();
-            System.out.print("\nMonth: ");
+            System.out.print("\nMonth(insert a number): ");
             String eventDateMonth = input.nextLine();
-            System.out.print("\nYear: ");
+            System.out.print("\nYear(insert last two digits of year: ");
             String eventDateYear = input.nextLine();
             String eventDate = eventDateDay + "." + eventDateMonth + "." + eventDateYear;
             System.out.print("Add event location: ");
@@ -113,7 +113,7 @@ public class EventsMethodsClass {
         }
 
         //changing part
-        public static void changeEventName() {
+        public static void changeEventName(int id) {
             System.out.println("Enter new event name: ");
             Scanner input = new Scanner(System.in);
             String eventName = input.nextLine();
@@ -123,7 +123,7 @@ public class EventsMethodsClass {
                 conn = DriverManager.getConnection(DB_URL, USER,PASS);
                 stmt = conn.createStatement();
 
-                String sql = "update events set event_name = '"+eventName+"' ";
+                String sql = "update events set event_name = '"+eventName+"' where event_id = "+id+" ";
 
                 stmt.executeUpdate(sql);
                 System.out.println("Data inserted!");
@@ -132,17 +132,22 @@ public class EventsMethodsClass {
             }
 
         }
-        public static void changeEventDate() {
-            System.out.println("Enter new event date: ");
+        public static void changeEventDate(int id) {
+            System.out.println("Enter new event date:\n Day (insert number): ");
             Scanner input = new Scanner(System.in);
-            String eventDate = input.nextLine();
+            int eventDateDay = input.nextInt();
+            System.out.println("\n Month(insert number): ");
+            int eventDateMonth = input.nextInt();
+            System.out.println("\n Year (insert two last digits of the year): ");
+            int eventDateYear = input.nextInt();
+            String eventDate = eventDateDay + "." + eventDateMonth + "." + eventDateYear;
             Connection conn = null;
             Statement stmt = null;
             try {
                 conn = DriverManager.getConnection(DB_URL, USER,PASS);
                 stmt = conn.createStatement();
 
-                String sql = "update events set event_date = '"+eventDate+"' ";
+                String sql = "update events set event_date = '"+eventDate+"' where event_id = "+id+" ";
 
                 stmt.executeUpdate(sql);
                 System.out.println("Data inserted!");
@@ -151,7 +156,7 @@ public class EventsMethodsClass {
             }
 
         }
-        public static void changeEventLocation() {
+        public static void changeEventLocation(int id) {
             System.out.println("Enter new event location: ");
             Scanner input = new Scanner(System.in);
             String eventLocation = input.nextLine();
@@ -161,7 +166,7 @@ public class EventsMethodsClass {
                 conn = DriverManager.getConnection(DB_URL, USER,PASS);
                 stmt = conn.createStatement();
 
-                String sql = "update events set event_location = '"+eventLocation+"' ";
+                String sql = "update events set event_location = '"+eventLocation+"' where event_id = "+id+" ";
 
                 stmt.executeUpdate(sql);
                 System.out.println("Data inserted!");
@@ -170,7 +175,7 @@ public class EventsMethodsClass {
             }
 
         }
-        public static void changeEventDescription() {
+        public static void changeEventDescription(int id) {
             System.out.println("Enter new event description: ");
             Scanner input = new Scanner(System.in);
             String eventDescription = input.nextLine();
@@ -180,7 +185,7 @@ public class EventsMethodsClass {
                 conn = DriverManager.getConnection(DB_URL, USER,PASS);
                 stmt = conn.createStatement();
 
-                String sql = "update events set event_description = '"+eventDescription+"' ";
+                String sql = "update events set event_description = '"+eventDescription+"' where event_id = "+id+"";
 
                 stmt.executeUpdate(sql);
                 System.out.println("Data inserted!");
@@ -193,6 +198,7 @@ public class EventsMethodsClass {
         Scanner input = new Scanner(System.in);
         System.out.print("Which event would you like to change? Insert event id:  ");
         int id = input.nextInt();
+
         updateEvent(id);
         }
     }
