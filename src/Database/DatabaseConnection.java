@@ -1,3 +1,6 @@
+/**
+ * we are not longer using it
+ */
 package Database;
 
 import java.sql.*;

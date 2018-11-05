@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.Scanner;
 
 
-public class CreateEvent {
+public class EventsMethodsClass {
    /* public static void main (String[] args) {
        // menuEvents();
     }

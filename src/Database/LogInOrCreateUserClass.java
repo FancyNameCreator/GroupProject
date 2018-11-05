@@ -1,6 +1,7 @@
 package Database;
 
 import java.sql.*;
+import java.lang.*;
 import java.util.Scanner;
 
 public class LogInOrCreateUserClass {
@@ -23,16 +24,17 @@ public class LogInOrCreateUserClass {
         String password = input.nextLine();
 
         if(loginAndPasswordChecking(email,password)){
+            //if login and password matches then methods return true
             System.out.println("You have been successfully logged in!");
             return true;
-        }else{
+        }else{ //else your amount of tries--
             counter--;
             System.out.println("Your login or password is incorrect!");
-            if (counter <= 0)
+            if (counter <= 0) //if you reach the limit then method returns false
                 return false;
             else {
                 System.out.println("You have " + counter +" more tries!");
-                logIn();
+                logIn(); //if you have some tries left then method calls method logIn() again
             }
 
         }
@@ -56,7 +58,7 @@ public class LogInOrCreateUserClass {
             // 3. Execute SQL query
             ResultSet myResults = stmt.executeQuery("select * from users");
 
-            // 4. Process the result set
+            // 4. Check if email and password user entered match to any of registered in database
             while (myResults.next()) {
                 emailDB = (myResults.getString("email"));
                 passwordDB = (myResults.getString("password"));
@@ -74,6 +76,10 @@ public class LogInOrCreateUserClass {
         return false;
     }
 
+    /**
+     * in this class user either log in or register
+     * @return
+     */
     public static boolean welcomeScreen(){
         Scanner input = new Scanner(System.in);
         DatabaseMethodsClass database = new DatabaseMethodsClass();
@@ -82,10 +88,10 @@ public class LogInOrCreateUserClass {
         String yesOrNo = input.nextLine();
 
         if (yesOrNo.equals("y")){
-            if(!logIn())
+            if(!logIn())            //log in
                 return false;
         }else if (yesOrNo.equals("n")){
-            database.addNewUser();
+            database.addNewUser();   //register new user
         }
         return true;
     }
