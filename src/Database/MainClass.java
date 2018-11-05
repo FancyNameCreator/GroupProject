@@ -27,7 +27,7 @@ public class MainClass {
         if (login.welcomeScreen()) { // Here we are checking if method returns true/false
             // If it returns true then user is successfully logged in
             System.out.println("OK mate now you are in da GAME!");
-        }else{
+        } else {
             // else the program shuts down :(
             System.out.println("STH WENT WRONG, SU MATE!");
             System.exit(0);
@@ -36,7 +36,7 @@ public class MainClass {
 
         //as soon user is successfully logged or registered he/she can choose between various options offered by program
         Scanner input = new Scanner(System.in);
-        int myChoice=1;
+        int myChoice = 1;
 
 
         do {
@@ -59,7 +59,7 @@ public class MainClass {
                 case 7: //
                 case 0 : break; //exit program
             }
-        }while(myChoice!=0);
+        } while(myChoice != 0);
         //while (!logOut()){
         // }
     }
