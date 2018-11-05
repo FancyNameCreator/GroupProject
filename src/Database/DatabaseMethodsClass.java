@@ -344,7 +344,7 @@ public class DatabaseMethodsClass {
     }
 
     /**
-     * in this class you can chooose what you want to update
+     * in this class you can choose what you want to update
      */
 
     public static void update(String email){
