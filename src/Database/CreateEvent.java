@@ -191,7 +191,7 @@ public class CreateEvent {
         }
     public static void changing() {
         Scanner input = new Scanner(System.in);
-        System.out.print("Which event would you like to change? Insert event id: ");
+        System.out.print("Which event would you like to change? Insert event id:  ");
         int id = input.nextInt();
         updateEvent(id);
         }
