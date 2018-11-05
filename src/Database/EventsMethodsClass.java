@@ -36,7 +36,7 @@ public class EventsMethodsClass {
                         System.out.println("ADD");
                         break;
                     case 3:
-                        removeEvent();
+                        removeEvent(id);
                         System.out.println("REMOVE");
                         break;
                     case 0:
@@ -54,6 +54,7 @@ public class EventsMethodsClass {
             System.out.println("Choose what do you want to do:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description");
             eventChoice = input.nextInt();
             switch (eventChoice) {
+
                 case 1:
                     changeEventName(id);
                     break;
@@ -108,7 +109,23 @@ public class EventsMethodsClass {
                 e.printStackTrace();
             }
         }
-        public static void removeEvent() {
+        public static void removeEvent(int id) {
+            System.out.println("Enter event id to delete: ");
+            Scanner input = new Scanner(System.in);
+            id = input.nextInt();
+            Connection conn = null;
+            Statement stmt = null;
+            try {
+                conn = DriverManager.getConnection(DB_URL, USER,PASS);
+                stmt = conn.createStatement();
+
+                String sql = "DELETE FROM events WHERE event_id = "+id+" ";
+
+                stmt.executeUpdate(sql);
+                System.out.println("Event deleted");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
         }
 
