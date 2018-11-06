@@ -53,23 +53,26 @@ public class EventsMethodsClass {
         Scanner input = new Scanner(System.in);
             System.out.println("Choose what do you want to do:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description");
             eventChoice = input.nextInt();
-            switch (eventChoice) {
-
-                case 1:
-                    changeEventName(id);
-                    break;
-                case 2:
-                    changeEventDate(id);
-                    break;
-                case 3:
-                    changeEventLocation(id);
-                    break;
-                case 4:
-                    changeEventDescription(id);
-                    break;
-                case 0:
-                    System.out.println("You are about to exit this page");
-                    break;
+            while (eventChoice!=0) {
+                switch (eventChoice) {
+                    case 1:
+                        changeEventName(id);
+                        break;
+                    case 2:
+                        changeEventDate(id);
+                        break;
+                    case 3:
+                        changeEventLocation(id);
+                        break;
+                    case 4:
+                        changeEventDescription(id);
+                        break;
+                    case 0:
+                        System.out.println("You are about to exit this page");
+                        break;
+                    default:
+                        System.out.println("Insert one of displayed numbers");
+                }
             }
         }
         public static void addEvent() {
@@ -78,11 +81,11 @@ public class EventsMethodsClass {
             System.out.print("Add event name: ");
             String eventName = input.nextLine();
             System.out.print("Add the date\n ");
-            System.out.print("Day (insert a number): ");
+            System.out.print("Year (insert two last digits of the year): ");
             String eventDateDay = input.nextLine();
             System.out.print("\nMonth(insert a number): ");
             String eventDateMonth = input.nextLine();
-            System.out.print("\nYear(insert last two digits of year: ");
+            System.out.print("\nDay(insert a number): ");
             String eventDateYear = input.nextLine();
             String eventDate = eventDateDay + "." + eventDateMonth + "." + eventDateYear;
             System.out.print("Add event location: ");
@@ -150,14 +153,14 @@ public class EventsMethodsClass {
 
         }
         public static void changeEventDate(int id) {
-            System.out.println("Enter new event date:\n Day (insert number): ");
+            System.out.println("Enter new event date:\n Year (insert two last digits of the year):  ");
             Scanner input = new Scanner(System.in);
-            int eventDateDay = input.nextInt();
+            int eventDateYear = input.nextInt();
             System.out.println("\n Month(insert number): ");
             int eventDateMonth = input.nextInt();
-            System.out.println("\n Year (insert two last digits of the year): ");
-            int eventDateYear = input.nextInt();
-            String eventDate = eventDateDay + "." + eventDateMonth + "." + eventDateYear;
+            System.out.println("\n Day (insert number): ");
+            int eventDateDay = input.nextInt();
+            String eventDate = eventDateYear + "." + eventDateMonth + "." + eventDateDay;
             Connection conn = null;
             Statement stmt = null;
             try {
@@ -215,21 +218,10 @@ public class EventsMethodsClass {
         Scanner input = new Scanner(System.in);
         System.out.print("Which event would you like to change? Insert event id:  ");
         int id = input.nextInt();
-
         updateEvent(id);
         }
     }
 
-    /*
-    funkcja co chcesz robic z eventami{
-
-    wybierz co chcesz robić - switch
-    1. update sth in events - wywołaj funkcje "updateEvent" (wzór funkcja update z DatabaseMethodsClass)
-    2. add event - wywołaj funkcje "add event" - (wzór funkcja addNewUser)
-    3. remove an event - wywołaj funkcję remove - do napisania
-
-
-     */
 
 
 
