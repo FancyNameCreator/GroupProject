@@ -58,13 +58,14 @@ public class DatabaseMethodsClass {
      * this class adds a new user to the database
      */
 
-    public static void addNewUser() {
+    public static boolean addNewUser() {
 
         Scanner input = new Scanner(System.in);
         String password;
         String passwordConfirmation;
         int minAge = 16;
         int currentAge;
+        int counter=2;
 
         System.out.println("Okey, you are new here! Welcome mate!");
 
@@ -72,18 +73,24 @@ public class DatabaseMethodsClass {
             System.out.println("Start off by entering your age: ");
             currentAge = input.nextInt();
 
-            if (currentAge > minAge) {
+            if (currentAge >= minAge) {
                 System.out.println("Congratz, you're old enough! Let's continue setting up your account");
                 break;
             }
 
             else {
-                System.out.println("Sorry buddy, come back when you turn 16");
+                counter--;
+                System.out.println("You have 1 more try to enter correct date");
+                if (counter<=0) {
+                    System.out.println("Sorry buddy, come back when you turn 16");
+                    return false;
+                }
             }
-        } while (currentAge > minAge);
+        } while (counter>0);
 
+        String firstName = input.nextLine();        //We need to ask Sokol about this white spaces
         System.out.print("Insert your first name: ");
-        String firstName = input.nextLine();
+        firstName = input.nextLine();
         System.out.print("Insert your last name: ");
         String lastName = input.nextLine();
         System.out.print("Insert your email: ");
@@ -128,8 +135,8 @@ public class DatabaseMethodsClass {
             // making String variable with MySQL command
             // inserting previously entered Strings(firstName, lastName, etc..) to corresponding columns in the Database
             String sql = "insert into users "
-                    + "(first_name, last_name, email, password, address, postal_code, city, country)"
-                    + "values ('"+firstName+"','"+lastName+"','"+email+"','"+password+"','"+address+"','"+postalCode+"','"+city+"','"+country+"')";
+                    + "(first_name, last_name, email, password, address, postal_code, city, country, DoB)"
+                    + "values ('"+firstName+"','"+lastName+"','"+email+"','"+password+"','"+address+"','"+postalCode+"','"+city+"','"+country+"','"+currentAge+"')";
 
             // executing MySQL command that value is stored in sql variable
             stmt.executeUpdate(sql);
@@ -139,6 +146,7 @@ public class DatabaseMethodsClass {
         catch (SQLException e) {  // catch exception if occur
             e.printStackTrace();
         }
+        return true;
     }
 
     /**
