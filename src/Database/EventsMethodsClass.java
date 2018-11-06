@@ -24,7 +24,7 @@ public class EventsMethodsClass {
         public static void menuEvents() {
             Scanner input = new Scanner(System.in);
             while (eventChoice != 0) {
-                System.out.println("Choose what you want to do with the event:\n0.Exit\n1.Update existing event\n2.Add new even\n3.Remove event\nINSERT NUMBER>>> ");
+                System.out.println("Choose what you want to do with the event:\n0.Exit\n1.Update existing event\n2.Add new event\n3.Remove event\nINSERT NUMBER>>> ");
                 eventChoice = 1;
                 while (eventChoice!=0) {
                     eventChoice = input.nextInt();
@@ -90,12 +90,12 @@ public class EventsMethodsClass {
             String eventName = input.nextLine();
             System.out.print("Add the date\n ");
             System.out.print("Year (insert two last digits of the year): ");
-            String eventDateDay = input.nextLine();
+            String eventDateYear = input.nextLine();
             System.out.print("\nMonth(insert a number): ");
             String eventDateMonth = input.nextLine();
             System.out.print("\nDay(insert a number): ");
-            String eventDateYear = input.nextLine();
-            String eventDate = eventDateDay + "." + eventDateMonth + "." + eventDateYear;
+            String eventDateDay = input.nextLine();
+            String eventDate = eventDateYear + "." + eventDateMonth + "." + eventDateDay;
             System.out.print("Add event location: ");
             String eventLocation = input.nextLine();
             System.out.print("Add event description: ");
@@ -123,7 +123,6 @@ public class EventsMethodsClass {
                     eventCategoryString = "Hobby event";
                     break;
             }
-            System.out.println(eventCategoryString);
 
 
             Connection conn = null;
