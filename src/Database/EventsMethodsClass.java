@@ -25,25 +25,25 @@ public class EventsMethodsClass {
             Scanner input = new Scanner(System.in);
             while (eventChoice != 0) {
                 System.out.println("Choose what you want to do with the event:\n0.Exit\n1.Update existing event\n2.Add new even\n3.Remove event\nINSERT NUMBER>>> ");
-                eventChoice = input.nextInt();
+                eventChoice = 1;
+                while (eventChoice!=0) {
+                    eventChoice = input.nextInt();
                 switch (eventChoice) {
                     case 1:
-                        System.out.println("UPDATE");
                         changing();
                         break;
                     case 2:
                         addEvent();
-                        System.out.println("ADD");
                         break;
                     case 3:
                         removeEvent(id);
-                        System.out.println("REMOVE");
                         break;
                     case 0:
                         break;
                     default:
                         System.out.println("The inserted option was not recognized. Please choose one of the options above.");
                         break;
+                }
 
                 }
 
@@ -51,27 +51,35 @@ public class EventsMethodsClass {
         }
         public static void updateEvent(int id) {
         Scanner input = new Scanner(System.in);
-            System.out.println("Choose what do you want to do:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description");
-            eventChoice = input.nextInt();
+            System.out.println("Choose what do you want to do:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description\n5. Change event category");
+            eventChoice = 1;
             while (eventChoice!=0) {
+                eventChoice = input.nextInt();
                 switch (eventChoice) {
                     case 1:
                         changeEventName(id);
+                        System.out.println("If you want to change something more insert one of displayed numbers:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description\n5. Change event category");
                         break;
                     case 2:
                         changeEventDate(id);
+                        System.out.println("If you want to change something more insert one of displayed numbers:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description\n5. Change event category");
                         break;
                     case 3:
                         changeEventLocation(id);
+                        System.out.println("If you want to change something more insert one of displayed numbers:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description\n5. Change event category");
                         break;
                     case 4:
                         changeEventDescription(id);
+                        System.out.println("If you want to change something more insert one of displayed numbers:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description\n5. Change event category");
                         break;
+                    case 5:
+                        changeEventCategory(id);
+                        System.out.println("If you want to change something more insert one of displayed numbers:\n0.Exit\n1.Change event name\n2.Change event date\n3.Change event location\n4.Change event description\n5. Change event category");
                     case 0:
                         System.out.println("You are about to exit this page");
                         break;
                     default:
-                        System.out.println("Insert one of displayed numbers");
+                        System.out.println("Number was not recognized. Please, insert one of displayed above numbers.");
                 }
             }
         }
@@ -92,6 +100,23 @@ public class EventsMethodsClass {
             String eventLocation = input.nextLine();
             System.out.print("Add event description: ");
             String eventDescription = input.nextLine();
+            System.out.println("Add event category from the ones stated below:\n1. Food event\n2. Clubbing\n3. Music event\n4. Just meeting\n5. Sport match\n6.Hobby event");
+            int eventCategory = input.nextInt();
+            String eventCategoryString  = "";
+            switch (eventCategory) {
+                case 1:
+                    eventCategoryString = "Food event";
+                case 2:
+                    eventCategoryString = "Clubbing";
+                case 3:
+                    eventCategoryString = "Music event";
+                case 4:
+                    eventCategoryString = "Just meeting";
+                case 5:
+                    eventCategoryString = "Sport match";
+                case 6:
+                    eventCategoryString = "Hobby event";
+            }
 
 
             Connection conn = null;
@@ -101,8 +126,8 @@ public class EventsMethodsClass {
                 stmt = conn.createStatement();
 
                 String sql = "insert into events "
-                        + "(event_name, event_date, event_location, event_description)"
-                        + "values ('"+eventName+"','"+eventDate+"','"+eventLocation+"','"+eventDescription+"')";
+                        + "(event_name, event_date, event_location, event_description, event_category)"
+                        + "values ('"+eventName+"','"+eventDate+"','"+eventLocation+"','"+eventDescription+"','"+eventCategoryString+"')";
 
                 stmt.executeUpdate(sql);
                 System.out.println("Data inserted!");
@@ -219,6 +244,39 @@ public class EventsMethodsClass {
         System.out.print("Which event would you like to change? Insert event id:  ");
         int id = input.nextInt();
         updateEvent(id);
+        }
+        public static void changeEventCategory(int id) {
+            Scanner input = new Scanner(System.in);
+            Connection conn = null;
+            Statement stmt = null;
+            System.out.println("Choose new category for this event:\n1. Food event\n2. Clubbing\n3. Music event\n4. Just meeting\n5. Sport match\n6.Hobby event ");
+            int eventCategory = input.nextInt();
+            String eventCategoryString = "";
+            switch (eventCategory) {
+                case 1:
+                    eventCategoryString = "Food event";
+                case 2:
+                    eventCategoryString = "Clubbing";
+                case 3:
+                    eventCategoryString = "Music event";
+                case 4:
+                    eventCategoryString = "Just meeting";
+                case 5:
+                    eventCategoryString = "Sport match";
+                case 6:
+                    eventCategoryString = "Hobby event";
+            }
+            try {
+                conn = DriverManager.getConnection(DB_URL, USER,PASS);
+                stmt = conn.createStatement();
+
+                String sql = "update events set event_category = '"+eventCategoryString+"' where event_id = "+id+"";
+
+                stmt.executeUpdate(sql);
+                System.out.println("Data inserted!");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
