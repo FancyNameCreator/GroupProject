@@ -80,6 +80,7 @@ public class LogInOrCreateUserClass {
      * in this class user either log in or register
      * @return
      */
+
     public static boolean welcomeScreen(){
         Scanner input = new Scanner(System.in);
         DatabaseMethodsClass database = new DatabaseMethodsClass();

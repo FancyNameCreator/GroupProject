@@ -63,16 +63,30 @@ public class DatabaseMethodsClass {
         Scanner input = new Scanner(System.in);
         String password;
         String passwordConfirmation;
+        int minAge = 16;
+        int currentAge;
 
         System.out.println("Okey, you are new here! Welcome mate!");
-        System.out.print("Insert your first name: ");
 
+        do {
+            System.out.println("Start off by entering your age: ");
+            currentAge = input.nextInt();
+
+            if (currentAge > minAge) {
+                System.out.println("Congratz, you're old enough! Let's continue setting up your account");
+                break;
+            }
+
+            else {
+                System.out.println("Sorry buddy, come back when you turn 16");
+            }
+        } while (currentAge > minAge);
+
+        System.out.print("Insert your first name: ");
         String firstName = input.nextLine();
         System.out.print("Insert your last name: ");
-
         String lastName = input.nextLine();
         System.out.print("Insert your email: ");
-
         String email = input.nextLine();
 
         do {  // this loop checks if password and password confirmation are the same
