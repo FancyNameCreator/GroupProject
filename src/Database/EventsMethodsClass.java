@@ -106,17 +106,24 @@ public class EventsMethodsClass {
             switch (eventCategory) {
                 case 1:
                     eventCategoryString = "Food event";
+                    break;
                 case 2:
                     eventCategoryString = "Clubbing";
+                    break;
                 case 3:
                     eventCategoryString = "Music event";
+                    break;
                 case 4:
                     eventCategoryString = "Just meeting";
+                    break;
                 case 5:
                     eventCategoryString = "Sport match";
+                    break;
                 case 6:
                     eventCategoryString = "Hobby event";
+                    break;
             }
+            System.out.println(eventCategoryString);
 
 
             Connection conn = null;
@@ -255,16 +262,22 @@ public class EventsMethodsClass {
             switch (eventCategory) {
                 case 1:
                     eventCategoryString = "Food event";
+                    break;
                 case 2:
                     eventCategoryString = "Clubbing";
+                    break;
                 case 3:
                     eventCategoryString = "Music event";
+                    break;
                 case 4:
                     eventCategoryString = "Just meeting";
+                    break;
                 case 5:
                     eventCategoryString = "Sport match";
+                    break;
                 case 6:
                     eventCategoryString = "Hobby event";
+                    break;
             }
             try {
                 conn = DriverManager.getConnection(DB_URL, USER,PASS);
