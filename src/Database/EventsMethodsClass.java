@@ -103,6 +103,7 @@ public class EventsMethodsClass {
             System.out.println("Add event category from the ones stated below:\n1. Food event\n2. Clubbing\n3. Music event\n4. Just meeting\n5. Sport match\n6.Hobby event");
             int eventCategory = input.nextInt();
             String eventCategoryString  = "";
+
             switch (eventCategory) {
                 case 1:
                     eventCategoryString = "Food event";

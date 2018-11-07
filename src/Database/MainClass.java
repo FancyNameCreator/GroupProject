@@ -1,6 +1,5 @@
 package Database;
 
-import java.sql.*;
 import java.lang.*;
 import java.util.Scanner;
 
@@ -18,7 +17,6 @@ public class MainClass {
 
         // Here we create objects of other classes so that we can call them from this class
         LogInOrCreateUserClass login = new LogInOrCreateUserClass();
-        DatabaseMethodsClass database = new DatabaseMethodsClass();
         EventsMethodsClass event = new EventsMethodsClass();
         UserMethodsClass user = new UserMethodsClass();
         ChatClass chat = new ChatClass();
@@ -40,23 +38,16 @@ public class MainClass {
 
 
         do {
-            System.out.println("WHAT YOU WANNA DO MAAAAN?\n1. update sth\n0. END PROGRAM");
+            System.out.println("WHAT YOU WANNA DO MAAAAN?\n1. go to user menu\n2. go to events menu\n3. chat with sb\n0. END PROGRAM");
             myChoice = input.nextInt();
 
             switch (myChoice) {
-                case 1: database.testOneToChangeLater(); //update info about the user
+                case 1: user.userMenu(LogInOrCreateUserClass.emailOfUser); //go to the user menu
                     break;
                 case 2: event.menuEvents(); //go to the events menu
                     break;
-                case 3: user.userMenu(); //go to the user menu
+                case 3: chat.chat();//chat with somebody
                     break;
-                case 4: //see my friends
-                    break;
-                case 5: //see my profile
-                    break;
-                case 6: chat.chat();//chat with somebody
-                    break;
-                case 7: //
                 case 0 : break; //exit program
             }
         } while(myChoice != 0);
