@@ -84,7 +84,7 @@ public class DatabaseMethodsClass {
             }
         } while (counter > 0);
 
-        String firstName = input.nextLine();        //We need to ask Sokol about this white spaces
+        String firstName = input.nextLine();        //it consumes the ENTER from method nextInt();
         System.out.print("Insert your first name: ");
         firstName = input.nextLine();
         System.out.print("Insert your last name: ");
