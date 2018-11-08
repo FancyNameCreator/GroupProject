@@ -68,7 +68,7 @@ public class DatabaseMethodsClass {
         System.out.println("Okey, you are new here! Welcome mate!");
 
         do {
-            System.out.println("Start off by entering your age: ");
+            System.out.println("Please enter your age: ");
             currentAge = input.nextInt();
 
             if (currentAge >= minAge) {
