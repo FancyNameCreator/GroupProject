@@ -13,17 +13,18 @@ public class LogInOrCreateUserClass {
     static final String USER = "root";
     static final String PASS = "password";
     static int counter=3;
+    static String emailOfUser;
 
     private static boolean logIn(){
         Scanner input = new Scanner(System.in);
 
         System.out.println("Insert your email: ");
-        String email = input.nextLine();
+        emailOfUser = input.nextLine();
 
         System.out.println("Insert your password: ");
         String password = input.nextLine();
 
-        if(loginAndPasswordChecking(email,password)){
+        if(loginAndPasswordChecking(emailOfUser,password)){
             //if login and password matches then methods return true
             System.out.println("You have been successfully logged in!");
             return true;
@@ -80,6 +81,7 @@ public class LogInOrCreateUserClass {
      * in this class user either log in or register
      * @return
      */
+
     public static boolean welcomeScreen(){
         Scanner input = new Scanner(System.in);
         DatabaseMethodsClass database = new DatabaseMethodsClass();
@@ -91,7 +93,8 @@ public class LogInOrCreateUserClass {
             if(!logIn())            //log in
                 return false;
         }else if (yesOrNo.equals("n")){
-            database.addNewUser();   //register new user
+            if(!database.addNewUser())//register new user
+                return false;
         }
         return true;
     }
