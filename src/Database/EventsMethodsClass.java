@@ -17,7 +17,7 @@ public class EventsMethodsClass {
 
         //  Database credentials
         static final String USER = "root";
-        static final String PASS = "password";
+        static final String PASS = "PasswordOfGroup6P1Project";
 
      static int eventChoice = 1;
      static int id = 0;

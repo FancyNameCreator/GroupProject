@@ -13,7 +13,7 @@ public class FriendsClass {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "password";
+    static final String PASS = "PasswordOfGroup6P1Project";
 
     public static void newUserFriendTable() {
 
