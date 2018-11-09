@@ -38,7 +38,7 @@ public class MainClass {
 
 
         do {
-            System.out.println("WHAT YOU WANNA DO MAAAAN?\n1. go to user menu\n2. go to events menu\n3. chat with sb\n0. END PROGRAM");
+            System.out.println("WHAT YOU WANNA DO MAAAAN?\n1. go to user menu\n2. go to events menu\n3. chat with sb\n0. END PROGRAM\nINSERT>>> ");
             myChoice = input.nextInt();
 
             switch (myChoice) {
