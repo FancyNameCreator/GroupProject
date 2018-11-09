@@ -13,7 +13,7 @@ public class MainClass {
      * This is main method which starts the program
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         // Here we create objects of other classes so that we can call them from this class
         LogInOrCreateUserClass login = new LogInOrCreateUserClass();

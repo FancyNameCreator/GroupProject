@@ -82,7 +82,7 @@ public class LogInOrCreateUserClass {
      * @return
      */
 
-    public static boolean welcomeScreen(){
+    public static boolean welcomeScreen() throws Exception{
         Scanner input = new Scanner(System.in);
         DatabaseMethodsClass database = new DatabaseMethodsClass();
 

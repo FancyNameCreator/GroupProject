@@ -2,7 +2,11 @@ package Database;
 
 import java.sql.*;
 import java.lang.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -52,33 +56,44 @@ public class DatabaseMethodsClass {
         }
     }
 
+
     /**
      * this class adds a new user to the database
      */
 
-    public static boolean addNewUser() {
+    public static boolean addNewUser() throws Exception {
 
         Scanner input = new Scanner(System.in);
         String password;
         String passwordConfirmation;
-        int minAge = 16;
-        int currentAge;
+        String date;
         int counter = 2;
+
+        LocalDate ld = LocalDate.now();
+        ld = ld.minusYears(16).minusDays(1);
+        Date minAge = java.sql.Date.valueOf(ld);
 
         System.out.println("Okey, you are new here! Welcome mate!");
 
         do {
-            System.out.println("Please enter your age: ");
-            currentAge = input.nextInt();
+            System.out.println("Please type in your birthday in the format (dd-MM-yyyy): ");
+            date = input.nextLine();
+            Date inputDate = new SimpleDateFormat("dd-MM-yyyy").parse(date);
+            java.sql.Date sqlDateOfBirth = new java.sql.Date(inputDate.getTime());
 
-            if (currentAge >= minAge) {
-                System.out.println("Congratz, you're old enough! Let's continue setting up your account");
+            if (sqlDateOfBirth.compareTo(minAge) <= 0) {
+                System.out.println("Welcome! Let's continue setting up your account");
+                System.out.println("Type \"cool\" to continue");
                 break;
             } else {
                 counter--;
-                System.out.println("You have 1 more try to enter correct date");
+
+                if (counter == 1) {
+                    System.out.println("Please enter a valid date");
+                }
+
                 if (counter <= 0) {
-                    System.out.println("Sorry buddy, come back when you turn 16");
+                    System.out.println("You need to be 16 to access this site");
                     return false;
                 }
             }
@@ -130,7 +145,7 @@ public class DatabaseMethodsClass {
             // inserting previously entered Strings(firstName, lastName, etc..) to corresponding columns in the Database
             String sql = "insert into users "
                     + "(first_name, last_name, email, password, address, postal_code, city, country, DoB)"
-                    + "values ('" + firstName + "','" + lastName + "','" + email + "','" + password + "','" + address + "','" + postalCode + "','" + city + "','" + country + "','" + currentAge + "')";
+                    + "values ('" + firstName + "','" + lastName + "','" + email + "','" + password + "','" + address + "','" + postalCode + "','" + city + "','" + country + "','" + date + "')";
 
             // executing MySQL command that value is stored in sql variable
             stmt.executeUpdate(sql);
