@@ -11,7 +11,7 @@ public class LogInOrCreateUserClass {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "password";
+    static final String PASS = "PasswordOfGroup6P1Project";
     static int counter=3;
     static String emailOfUser;
 
@@ -82,7 +82,7 @@ public class LogInOrCreateUserClass {
      * @return
      */
 
-    public static boolean welcomeScreen(){
+    public static boolean welcomeScreen() throws Exception{
         Scanner input = new Scanner(System.in);
         DatabaseMethodsClass database = new DatabaseMethodsClass();
 

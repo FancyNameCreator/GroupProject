@@ -13,7 +13,7 @@ public class MainClass {
      * This is main method which starts the program
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         // Here we create objects of other classes so that we can call them from this class
         LogInOrCreateUserClass login = new LogInOrCreateUserClass();
@@ -38,7 +38,7 @@ public class MainClass {
 
 
         do {
-            System.out.println("WHAT YOU WANNA DO MAAAAN?\n1. go to user menu\n2. go to events menu\n3. chat with sb\n0. END PROGRAM");
+            System.out.println("WHAT YOU WANNA DO MAAAAN?\n1. go to user menu\n2. go to events menu\n3. chat with sb\n0. END PROGRAM\nINSERT>>> ");
             myChoice = input.nextInt();
 
             switch (myChoice) {
