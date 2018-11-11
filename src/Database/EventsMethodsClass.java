@@ -108,28 +108,27 @@ public class EventsMethodsClass {
             System.out.print("\nMonth(insert a number): ");
             int eventDateMonth1 = 1;
             int eventDateMonth = 1;
-            while (eventDateMonth1!=0) {
+            while (eventDateMonth1 != 0) {
                 eventDateMonth1 = input.nextInt();
                 if (eventDateMonth1 >= 1 && eventDateMonth1 <= 12) {
                     eventDateMonth = eventDateMonth1;
                     break;
                 } else {
-                    System.out.println("Wrong number of the month. Try again.");
+                    System.out.println("Please enter a valid date.");
                 }
             }
+
             System.out.print("\nDay(insert a number): ");
             int eventDateDay1 = 1;
             int eventDateDay = 1;
-            if (eventDateYear%4==0&&eventDateMonth==2)
-            {
-                while (eventDateDay1!=0) {
+            if (eventDateYear % 4 == 0 && eventDateMonth == 2) {
+                while (eventDateDay1 != 0) {
                     eventDateDay1 = input.nextInt();
                     if (eventDateDay1 >= 1 && eventDateDay1 <= 29) {
                         eventDateDay = eventDateDay1;
                         break;
-                    }
-                    else {
-                        System.out.println("Wrong number of the day. Try again.");
+                    } else {
+                        System.out.println("Please enter a valid date.");
                     }
                 }
             }
@@ -141,7 +140,7 @@ public class EventsMethodsClass {
                             eventDateDay = eventDateDay1;
                             break;
                         } else {
-                            System.out.println("Wrong number of the day. Try again.");
+                            System.out.println("Please enter a valid date.");
                         }
                     }
                 } else if (eventDateMonth == 4 || eventDateMonth == 6 || eventDateMonth == 9 || eventDateMonth == 11) {
@@ -151,7 +150,7 @@ public class EventsMethodsClass {
                             eventDateDay = eventDateDay1;
                             break;
                         } else {
-                            System.out.println("Wrong number of the day. Try again.");
+                            System.out.println("Please enter a valid date.");
                         }
                     }
                 } else if (eventDateMonth == 2) {
@@ -161,7 +160,7 @@ public class EventsMethodsClass {
                             eventDateDay = eventDateDay1;
                             break;
                         } else {
-                            System.out.println("Wrong number of the day. Try again.");
+                            System.out.println("Please enter a valid date.");
                         }
                     }
                 }
@@ -169,7 +168,7 @@ public class EventsMethodsClass {
 
             String eventDate = eventDateYear + "." + eventDateMonth + "." + eventDateDay;
 
-            System.out.println("Add event category from the ones stated below:\n1. Food event\n2. Clubbing\n3. Music event\n4. Just meeting\n5. Sport match\n6.Hobby event");
+            System.out.println("Add event category from the list below:\n1. Food event\n2. Clubbing\n3. Music event\n4. Just meeting\n5. Sport match\n6.Hobby event");
             int eventCategory = 1;
             String eventCategoryString  = "";
             while (eventCategory!=0) {
@@ -194,10 +193,10 @@ public class EventsMethodsClass {
                         eventCategoryString = "Hobby event";
                         break;
                     default:
-                        System.out.println("Category was not recognized. Try again.");
+                        System.out.println("Please enter one of the above stated numbers.");
                         break;
                 }
-                if (eventCategory==1||eventCategory==2||eventCategory==3||eventCategory==4||eventCategory==5||eventCategory==6) {
+                if (eventCategory == 1||eventCategory == 2||eventCategory == 3||eventCategory == 4||eventCategory == 5||eventCategory == 6) {
                     break;
                 }
             }
@@ -223,7 +222,7 @@ public class EventsMethodsClass {
 
             System.out.println("If you want to return to the menu, press 1, otherwise press any other number.");
             int answer = input.nextInt();
-            if (answer==1) {
+            if (answer == 1) {
                 menuEvents();
             }
             else {
@@ -232,7 +231,7 @@ public class EventsMethodsClass {
 
         }
         public static void removeEvent(int id) {
-            System.out.println("Enter event id to delete: ");
+            System.out.println("Enter the id of the event you want to delete: ");
             Scanner input = new Scanner(System.in);
             id = input.nextInt();
             Connection conn = null;
@@ -250,13 +249,11 @@ public class EventsMethodsClass {
             }
             System.out.println("If you want to return to the menu, press 1, otherwise press anything.");
             int answer = input.nextInt();
-            if (answer==1) {
+            if (answer == 1) {
                 menuEvents();
-            }
-            else {
+            } else {
                 System.out.println();
-            };
-
+            }
         }
 
         //changing part
@@ -292,26 +289,24 @@ public class EventsMethodsClass {
                     eventDateMonth = eventDateMonth1;
                     break;
                 } else {
-                    System.out.println("Wrong number of the month. Try again.");
+                    System.out.println("Please enter a valid date.");
                 }
             }
+
             System.out.println("\n Day (insert number): ");
             int eventDateDay1 = 1;
             int eventDateDay = 1;
-            if (eventDateYear%4==0&&eventDateMonth==2)
-            {
-                while (eventDateDay1!=0) {
+            if (eventDateYear % 4 == 0 && eventDateMonth == 2) {
+                while (eventDateDay1 != 0) {
                     eventDateDay1 = input.nextInt();
                     if (eventDateDay1 >= 1 && eventDateDay1 <= 29) {
                         eventDateDay = eventDateDay1;
                         break;
-                    }
-                    else {
-                        System.out.println("Wrong number of the day. Try again.");
+                    } else {
+                        System.out.println("Please enter a valid date.");
                     }
                 }
-            }
-            else {
+            } else {
                 if (eventDateMonth == 1 || eventDateMonth == 3 || eventDateMonth == 5 || eventDateMonth == 7 || eventDateMonth == 8 || eventDateMonth == 10 || eventDateMonth == 12) {
                     while (eventDateDay1 != 0) {
                         eventDateDay1 = input.nextInt();
@@ -319,7 +314,7 @@ public class EventsMethodsClass {
                             eventDateDay = eventDateDay1;
                             break;
                         } else {
-                            System.out.println("Wrong number of the day. Try again.");
+                            System.out.println("Please enter a valid date.");
                         }
                     }
                 } else if (eventDateMonth == 4 || eventDateMonth == 6 || eventDateMonth == 9 || eventDateMonth == 11) {
@@ -329,7 +324,7 @@ public class EventsMethodsClass {
                             eventDateDay = eventDateDay1;
                             break;
                         } else {
-                            System.out.println("Wrong number of the day. Try again.");
+                            System.out.println("Please enter a valid date.");
                         }
                     }
                 } else if (eventDateMonth == 2) {
@@ -339,7 +334,7 @@ public class EventsMethodsClass {
                             eventDateDay = eventDateDay1;
                             break;
                         } else {
-                            System.out.println("Wrong number of the day. Try again.");
+                            System.out.println("Please enter a valid date.");
                         }
                     }
                 }

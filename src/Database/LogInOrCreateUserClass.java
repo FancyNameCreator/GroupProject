@@ -12,7 +12,7 @@ public class LogInOrCreateUserClass {
     //  Database credentials
     static final String USER = "root";
     static final String PASS = "PasswordOfGroup6P1Project";
-    static int counter=3;
+    static int counter = 3;
     static String emailOfUser;
 
     private static boolean logIn(){
@@ -31,15 +31,15 @@ public class LogInOrCreateUserClass {
         }else{ //else your amount of tries--
             counter--;
             System.out.println("Your login or password is incorrect!");
-            if (counter <= 0) //if you reach the limit then method returns false
+            if (counter == 0) //if you reach the limit then method returns false
                 return false;
             else {
                 System.out.println("You have " + counter +" more tries!");
                 logIn(); //if you have some tries left then method calls method logIn() again
             }
 
+            return false;
         }
-        return false;
     }
 
     private static boolean loginAndPasswordChecking (String email, String password){
@@ -89,12 +89,24 @@ public class LogInOrCreateUserClass {
         System.out.println("Are you an registered user? [y/n]");
         String yesOrNo = input.nextLine();
 
-        if (yesOrNo.equals("y")){
-            if(!logIn())            //log in
-                return false;
-        }else if (yesOrNo.equals("n")){
-            if(!database.addNewUser())//register new user
-                return false;
+        while (counter != 0) {
+
+            if (yesOrNo.equals("y")) {
+                if (!logIn())            //log in
+                    return false;
+            } else if (yesOrNo.equals("n")) {
+                if (!database.addNewUser())//register new user
+                    return false;
+            } else {
+                counter--;
+                if (counter == 0) {
+                    return false;
+                } else {
+                    System.out.println("You have " + counter + " more tries!");
+                    System.out.println("You need to insert either y or n. Try again.");
+                    welcomeScreen();
+                }
+            }
         }
         return true;
     }
