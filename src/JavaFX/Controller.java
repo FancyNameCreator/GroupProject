@@ -17,8 +17,6 @@ import java.sql.SQLException;
 
 
 public class Controller {
-    String user="Juli";
-    String pass="1234";
 
     @FXML
     private AnchorPane rootPane;
@@ -36,20 +34,17 @@ public class Controller {
     private TextField password;
 
     public void validate(ActionEvent event) throws SQLException {
-        LogInOrCreateUserClass logInOrCreateUserClass = new LogInOrCreateUserClass();
-        Connection conn = DriverManager.getConnection("jdbc:mysql://35.228.89.148:3306/hangerDatabase", "root","PasswordOfGroup6P1Project");
-        String sql="INSERT INTO USER VALUES('"+username.getText()+"')";
-        Statement statement=conn.createStatement();
-        statement.executeUpdate(sql);
+        LogInOrCreateUserClass login = new LogInOrCreateUserClass();
 
         String name = username.getText();
         String passw = password.getText();
+
         if (name.isEmpty()||passw.isEmpty()){
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("You need to fill in all the fields");
             alert.showAndWait();
-        } else if(name.equals(user) && passw.equals(pass)){
+        } else if(login.loginAndPasswordChecking(name,passw)){
             Alert alert=new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText("Successful login");

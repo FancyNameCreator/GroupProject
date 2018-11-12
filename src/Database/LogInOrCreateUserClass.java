@@ -45,7 +45,7 @@ public class LogInOrCreateUserClass {
         return true;
     }
 
-    private static boolean loginAndPasswordChecking (String email, String password){
+    public static boolean loginAndPasswordChecking (String email, String password){
 
         String emailDB;
         String passwordDB;
@@ -54,7 +54,7 @@ public class LogInOrCreateUserClass {
             // 1. Get a connection to the Database
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(DB_URL, USER,PASS);
-            System.out.println("Connection established \n");
+            //System.out.println("Connection established \n");
 
             // 2. Create a statement
             Statement stmt = conn.createStatement();
