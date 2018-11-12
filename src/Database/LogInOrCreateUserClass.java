@@ -24,22 +24,25 @@ public class LogInOrCreateUserClass {
         System.out.println("Insert your password: ");
         String password = input.nextLine();
 
-        if(loginAndPasswordChecking(emailOfUser,password)){
+        if(loginAndPasswordChecking(emailOfUser,password)) {
             //if login and password matches then methods return true
+            counter = 0;
             System.out.println("You have been successfully logged in!");
             return true;
-        }else{ //else your amount of tries--
+
+        } else { //else your amount of tries--
             counter--;
             System.out.println("Your login or password is incorrect!");
-            if (counter == 0) //if you reach the limit then method returns false
+
+            if (counter <= 1) { //if you reach the limit then method returns false
                 return false;
-            else {
+
+            } else {
                 System.out.println("You have " + counter +" more tries!");
                 logIn(); //if you have some tries left then method calls method logIn() again
             }
-
-            return false;
         }
+        return true;
     }
 
     private static boolean loginAndPasswordChecking (String email, String password){
