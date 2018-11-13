@@ -61,9 +61,10 @@ public class DatabaseMethodsClass {
      * this class adds a new user to the database
      */
 
-    public static boolean addNewUser() throws Exception {
+    public static boolean addNewUser(String firstName, String lastName, String city,String age,String email,String password) throws Exception {
 
         Scanner input = new Scanner(System.in);
+        /*
         String password;
         String passwordConfirmation;
         String date;
@@ -131,9 +132,12 @@ public class DatabaseMethodsClass {
         String city = input.nextLine();
         System.out.print("Insert your country: ");
         String country = input.nextLine();
-
+*/
         Connection conn = null;
         Statement stmt = null;
+        String address = "";
+        String postalCode="";
+        String country="";
 
         try {
             //create connection
@@ -145,7 +149,7 @@ public class DatabaseMethodsClass {
             // inserting previously entered Strings(firstName, lastName, etc..) to corresponding columns in the Database
             String sql = "insert into users "
                     + "(first_name, last_name, email, password, address, postal_code, city, country, DoB)"
-                    + "values ('" + firstName + "','" + lastName + "','" + email + "','" + password + "','" + address + "','" + postalCode + "','" + city + "','" + country + "','" + date + "')";
+                    + "values ('" + firstName + "','" + lastName + "','" + email + "','" + password + "','" + address + "','" + postalCode + "','" + city + "','" + country + "','" + age + "')";
 
             // executing MySQL command that value is stored in sql variable
             stmt.executeUpdate(sql);

@@ -23,13 +23,21 @@ public class Controller {
 
     @FXML
     private void loadSignup(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("signUpPage.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/signUpPage.fxml"));
+        AnchorPane pane = loader.load();
+
+//     AnchorPane pane = FXMLLoader.load(getClass().getResource("/resources/signUpPage.fxml"));
+
+        /*SignUpController signUpController = new SignUpController();
+        signUpController.signIn();*/
         rootPane.getChildren().setAll(pane);
     }
 
     @FXML
     private TextField username;
-
+    @FXML
+    private TextField firstName;
     @FXML
     private TextField password;
 

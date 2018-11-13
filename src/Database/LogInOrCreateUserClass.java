@@ -98,7 +98,7 @@ public class LogInOrCreateUserClass {
                 if (!logIn())            //log in
                     return false;
             } else if (yesOrNo.equals("n")) {
-                if (!database.addNewUser())//register new user
+                if (/*!database.addNewUser()*/true)//register new user
                     return false;
             } else {
                 counter--;
