@@ -10,6 +10,7 @@ import Database.*;
 
 public class SignUpPageController {
 
+
     @FXML
     private TextField firstName;
 
@@ -33,24 +34,20 @@ public class SignUpPageController {
 
     @FXML
     public void sendData(ActionEvent event){
+        Controller access = new Controller();
+
         String firstnameIN = firstName.getText();
         String lastnameIN = lastName.getText();
         String cityIN = cityField.getText();
         String ageIN = ageField.getText();
-        String emailIN = emailField.getText();
-        String passwordIN = password.getText();
+        String email = emailField.getText();
+        access.setEmailIN(email);
+        String passwordEntered = password.getText();
+        access.setPasswordIN(passwordEntered);
 
-            /*Statement statement = connection.createStatement();
-
-            int status = statement.executeUpdate("Insert into users (first_name, last_name, city, age, email, password)" +
-                    "values('" + firstname + "','" + lastname + "','" + city + "','" + age + "','" + email + "','" + password + "')");
-            if (status > 0) {
-                System.out.println("user registered");
-            }
-            */
         DatabaseMethodsClass database = new DatabaseMethodsClass();
         try {
-            database.addNewUser(firstnameIN,lastnameIN,cityIN,ageIN,emailIN,passwordIN);
+            database.addNewUser(firstnameIN,lastnameIN,cityIN,ageIN,email,passwordEntered);
         } catch (Exception e) {
             e.printStackTrace();
         }
