@@ -4,29 +4,42 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import java.sql.*;
-import java.util.Scanner;
 
 public class ProfileController {
 
-    final String DB_URL = "jdbc:mysql://35.228.89.148:3306/hangerDatabase";
 
-    //  Database credentials
-    final String USER = "root";
-    final String PASS = "PasswordOfGroup6P1Project";
+    @FXML
+    private Button firstNameButton;
+    @FXML
+    private Button lastNameButton;
+    @FXML
+    private Button cityButton;
+    @FXML
+    private Button ageButton;
+    @FXML
+    private Button emailButton;
+    @FXML
+    private Button passwordButton;
 
-    @FXML private Button firstNameButton;
-    @FXML private Button lastNameButton;
-    @FXML private Button cityButton;
-    @FXML private Button ageButton;
-    @FXML private Button emailButton;
-    @FXML private Button passwordButton;
+    @FXML
+    private TextField firstNameTextField;
+    @FXML
+    private TextField lastNameTextField;
+    @FXML
+    private TextField cityTextField;
+    @FXML
+    private TextField ageTextField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField passwordTextField;
 
-    @FXML private TextField firstNameTextField;
-    @FXML private TextField lastNameTextField;
-    @FXML private TextField cityTextField;
-    @FXML private TextField ageTextField;
-    @FXML private TextField emailTextField;
-    @FXML private TextField passwordTextField;
+    private boolean firstNameButtonClicked=false;
+    private boolean lastNameButtonClicked=false;
+    private boolean cityButtonClicked=false;
+    private boolean ageButtonClicked=false;
+    private boolean emailButtonClicked=false;
+    private boolean passwordButtonClicked=false;
 
 
     private String firstName;
@@ -66,7 +79,7 @@ public class ProfileController {
         String emailRead = access.getEmailIN();
 
             try {
-
+    /*
                 // 1. Get a connection to the Database
                 Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
                 System.out.println("Connection established \n");
@@ -74,8 +87,8 @@ public class ProfileController {
                 // 2. Create a statement
                 Statement myStatmnt = myConn.createStatement();
 
-                // 3. Execute SQL query
-                ResultSet myResults = myStatmnt.executeQuery("select * from users where email ='" + emailRead + "' ");
+    */            // 3. Execute SQL query
+                ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailRead + "' ");
 
                 // 4. Process the result set
                 while (myResults.next()) {
@@ -91,28 +104,89 @@ public class ProfileController {
             }
     }
 
-    public void updateFirstName(String email) {
-
+    @FXML
+    private void updateFirstName(ActionEvent ae) {
         firstNameTextField.setEditable(true);
+        firstNameButtonClicked = true;
+    }
 
+    @FXML
+    private void updateLastName(ActionEvent ae){
+        lastNameTextField.setEditable(true);
+        lastNameButtonClicked = true;
+    }
 
-        Connection conn = null;
-        Statement stmt = null;
+    @FXML
+    private void updateCity(ActionEvent ae){
+        cityTextField.setEditable(true);
+        cityButtonClicked = true;
+    }
+
+    @FXML
+    private void updateAge(ActionEvent ae){
+        ageTextField.setEditable(true);
+        ageButtonClicked = true;
+    }
+
+    @FXML
+    private void updateEmail(ActionEvent ae){
+        emailTextField.setEditable(true);
+        emailButtonClicked= true;
+    }
+
+    @FXML
+    private void updatePassword(ActionEvent ae){
+        passwordTextField.setEditable(true);
+        passwordButtonClicked = true;
+    }
+
+    @FXML
+    private void submitUpdates(ActionEvent ae){
+        Controller access = new Controller();
+        String emailRead = access.getEmailIN();
+        Main connection = new Main();
+        Controller access1 = new Controller();
+        String sql;
+        unableToWrite();
 
         try {
-            // create connection with DB
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            // create statement in already existing connection
-            stmt = conn.createStatement();
+            if (firstNameButtonClicked && !firstName.equals(firstNameTextField.getText())) {
+                firstName = firstNameTextField.getText();
+                sql = "update users set first_name = '" + firstName + "' where email ='" + emailRead + "'";
+                connection.stmt.executeUpdate(sql);
+            }
 
-            // making String variable "sql" with MySQL command
-            // inserting previously entered String to corresponding column in the Database
-            // we use email as a determinant
-            String sql = "update users set first_name = '" + firstName + "' where email ='" + email + "'";
+            if (lastNameButtonClicked && !lastName.equals(lastNameTextField.getText())){
+                lastName = lastNameTextField.getText();
+                sql = "update users set last_name = '" + lastName + "' where email ='" + emailRead + "'";
+                connection.stmt.executeUpdate(sql);
+            }
 
-            stmt.executeUpdate(sql);
+            if (cityButtonClicked && !city.equals(cityTextField.getText())){
+                city = cityTextField.getText();
+                sql = "update users set city = '" + city + "' where email ='" + emailRead + "'";
+                connection.stmt.executeUpdate(sql);
+            }
 
-        } catch (SQLException e) {
+            if (ageButtonClicked && !age.equals(ageTextField.getText())){
+                age = ageTextField.getText();
+/*dont remember column name*/ sql = "update users set age = '" + lastName + "' where email ='" + emailRead + "'";
+                connection.stmt.executeUpdate(sql);
+            }
+
+            if (emailButtonClicked && !email.equals(emailTextField.getText())){
+                email = emailTextField.getText();
+                access1.setEmailIN(email);
+                sql = "update users set email = '" + email + "' where email ='" + emailRead + "'";
+                connection.stmt.executeUpdate(sql);
+            }
+
+            if (passwordButtonClicked && !password.equals(passwordTextField.getText())){
+                password = passwordTextField.getText();
+                sql = "update users set password = '" + password + "' where email ='" + emailRead + "'";
+                connection.stmt.executeUpdate(sql);
+            }
+        }catch (SQLException e){
             e.printStackTrace();
         }
     }

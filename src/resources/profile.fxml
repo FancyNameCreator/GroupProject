@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -20,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ProfileController">
    <top>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,6 +27,12 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Label>
+                  <Region prefHeight="100.0" prefWidth="105.0" />
+                  <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="150.0" text="Go Back &gt;&gt;&gt;">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </children>
@@ -55,7 +54,7 @@
       </VBox>
    </left>
    <bottom>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="172.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" />
          </children>
@@ -76,9 +75,9 @@
                   </Label>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField prefWidth="500.0" />
+                        <TextField fx:id="firstNameTextField" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Change" />
+                        <Button fx:id="firstNameButton" mnemonicParsing="false" onAction="#updateFirstName" prefHeight="31.0" prefWidth="100.0" text="Change" />
                      </children>
                   </HBox>
                   <Label text="Last Name">
@@ -88,9 +87,9 @@
                   </Label>
                   <HBox layoutX="10.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField prefWidth="500.0" />
+                        <TextField fx:id="lastNameTextField" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button mnemonicParsing="false" prefWidth="100.0" text="Change" />
+                        <Button fx:id="lastNameButton" mnemonicParsing="false" onAction="#updateLastName" prefWidth="100.0" text="Change" />
                      </children>
                   </HBox>
                   <Label text="City">
@@ -100,9 +99,9 @@
                   </Label>
                   <HBox layoutX="10.0" layoutY="466.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField prefWidth="500.0" />
+                        <TextField fx:id="cityTextField" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button mnemonicParsing="false" prefWidth="100.0" text="Change" />
+                        <Button fx:id="cityButton" mnemonicParsing="false" onAction="#updateCity" prefWidth="100.0" text="Change" />
                      </children>
                   </HBox>
                   <Label text="Age">
@@ -112,9 +111,9 @@
                   </Label>
                   <HBox layoutX="10.0" layoutY="466.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField prefWidth="500.0" />
+                        <TextField fx:id="ageTextField" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button mnemonicParsing="false" prefWidth="100.0" text="Change" />
+                        <Button fx:id="ageButton" mnemonicParsing="false" onAction="#updateAge" prefWidth="100.0" text="Change" />
                      </children>
                   </HBox>
                   <Label text="Email">
@@ -124,9 +123,9 @@
                   </Label>
                   <HBox layoutX="10.0" layoutY="430.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField prefWidth="500.0" />
+                        <TextField fx:id="emailTextField" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button mnemonicParsing="false" prefWidth="100.0" text="Change" />
+                        <Button fx:id="emailButton" mnemonicParsing="false" onAction="#updateEmail" prefWidth="100.0" text="Change" />
                      </children>
                   </HBox>
                   <Label text="Password">
@@ -136,9 +135,18 @@
                   </Label>
                   <HBox layoutX="10.0" layoutY="278.0" prefHeight="31.0" prefWidth="571.0">
                      <children>
-                        <TextField prefHeight="55.0" prefWidth="500.0" />
+                        <TextField fx:id="passwordTextField" prefHeight="55.0" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button mnemonicParsing="false" prefWidth="100.0" text="Change" />
+                        <Button fx:id="passwordButton" mnemonicParsing="false" onAction="#updatePassword" prefWidth="100.0" text="Change" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#submitUpdates" prefWidth="650.0" text="Submit Changes ">
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
                   </HBox>
                </children>
