@@ -180,7 +180,7 @@ public class ProfileController{
         }catch (SQLException e){
             e.printStackTrace();
         }
-        startrunning(/*ae*/);
+        startrunning();
     }
 
 //the problem may be because going from border pane to anchor pane again
