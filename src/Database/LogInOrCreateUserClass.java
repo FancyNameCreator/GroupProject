@@ -52,7 +52,7 @@ public class LogInOrCreateUserClass {
         try {
 
             // 1. Get a connection to the Database
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(DB_URL, USER,PASS);
             //System.out.println("Connection established \n");
 

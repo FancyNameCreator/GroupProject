@@ -1,12 +1,16 @@
 package JavaFX;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
 import Database.*;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class SignUpPageController {
 
@@ -32,7 +36,10 @@ public class SignUpPageController {
     private Button sendDataID;
 
     @FXML
-    public void sendData(ActionEvent event){
+    private AnchorPane signupPane;
+
+    @FXML
+    public void sendData(ActionEvent event) throws IOException {
         String firstnameIN = firstName.getText();
         String lastnameIN = lastName.getText();
         String cityIN = cityField.getText();
@@ -56,6 +63,15 @@ public class SignUpPageController {
         }
         /*} catch (){}*/
 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
+        AnchorPane pane = loader.load();
+
+//     AnchorPane pane = FXMLLoader.load(getClass().getResource("/resources/signUpPage.fxml"));
+
+        /*SignUpController signUpController = new SignUpController();
+        signUpController.signIn();*/
+        signupPane.getChildren().setAll(pane);
     }
 
-}
+    }
