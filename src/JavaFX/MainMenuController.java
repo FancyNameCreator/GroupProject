@@ -23,8 +23,8 @@ public class MainMenuController {
     @FXML
     private void goToEvents(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/events.fxml"));
-        AnchorPane pane = loader.load();
+        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+        BorderPane pane = loader.load();
         mainPane.getChildren().setAll(pane);
     }
 

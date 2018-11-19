@@ -1,36 +1,11 @@
 package JavaFX;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
-
-import javax.annotation.Resources;
-import java.net.URL;
 import java.sql.*;
-/*
 
-public abstract class ProfileController implements Initializable {
-
-    @FXML
-    void initialize(URL location, Resources resources) {
-        startrunning();
-    }
-
-*/
 public class ProfileController{
-    @FXML
-    private Button firstNameButton;
-    @FXML
-    private Button lastNameButton;
-    @FXML
-    private Button cityButton;
-    @FXML
-    private Button ageButton;
-    @FXML
-    private Button emailButton;
-    @FXML
-    private Button passwordButton;
 
     @FXML
     private TextField firstNameTextField;
@@ -61,7 +36,12 @@ public class ProfileController{
     private String password;
 
     @FXML
-    private void startrunning(ActionEvent event){
+    private void initialize(){
+        startrunning();
+    }
+
+    @FXML
+    private void startrunning(/*ActionEvent event*/){
         System.out.println("Start profile clicked");
         Main access = new Main();
         getData(access.getEmailIN());
@@ -193,7 +173,9 @@ public class ProfileController{
         }catch (SQLException e){
             e.printStackTrace();
         }
-        startrunning(ae);
+        startrunning(/*ae*/);
     }
+
+    //private void goToMainMenu
 
 }

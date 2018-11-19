@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.EventsController">
+   <top>
+      <VBox prefHeight="123.0" prefWidth="880.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Region prefHeight="100.0" prefWidth="300.0" />
+                  <Label text="Events Menu">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="100.0" prefWidth="301.0" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <right>
+      <VBox prefHeight="448.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Choose which site you wanna see!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="29.0" prefWidth="411.0" />
+            <ChoiceBox fx:id="choicebox" prefWidth="150.0" />
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
