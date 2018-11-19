@@ -5,13 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.sql.*;
 
 public class ProfileController{
     @FXML
-    private AnchorPane mainPane;
+    private BorderPane profilePane;
 
     @FXML
     private TextField firstNameTextField;
@@ -182,14 +183,13 @@ public class ProfileController{
         startrunning(/*ae*/);
     }
 
-   // I CAN'T RESOLVE IT FOR NOW //
-
+//the problem may be because going from border pane to anchor pane again
     @FXML
     private void goToMainMenu(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
         AnchorPane pane = loader.load();
-        mainPane.getChildren().setAll(pane);
+        profilePane.getChildren().setAll(pane);
     }
 
 }

@@ -1,15 +1,20 @@
 package JavaFX;
 
+import Database.*;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
 
-import Database.*;
+import java.io.IOException;
 
 public class SignUpPageController {
 
+    @FXML
+    private AnchorPane signUpPage;
 
     @FXML
     private TextField firstName;
@@ -30,11 +35,7 @@ public class SignUpPageController {
     private PasswordField password;
 
     @FXML
-    private Button sendDataID;
-
-    @FXML
-    public void sendData(ActionEvent event){
-        Controller access = new Controller();
+    public void sendData(ActionEvent event) throws IOException{
         Main accessToMain = new Main();
 
         String firstnameIN = firstName.getText();
@@ -51,8 +52,13 @@ public class SignUpPageController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        /*} catch (){}*/
-
+        loadMainMenu();
+    }
+    private void loadMainMenu() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
+        AnchorPane pane = loader.load();
+        signUpPage.getChildren().setAll(pane);
     }
 
 }

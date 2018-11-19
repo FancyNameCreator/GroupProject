@@ -33,23 +33,9 @@ public class Controller {
     private String emailIN;
     private String passwordIN;
 
-    public String getEmailIN() {
-        return emailIN;
-    }
-
-    public String getPasswordIN() {
-        return passwordIN;
-    }
-
     public void setEmailIN(String emailIN) {
         this.emailIN = emailIN;
     }
-/*
-
-    public void setPasswordIN(String passwordIN) {
-        this.passwordIN = passwordIN;
-    }
-*/
 
     public void validate(ActionEvent event) throws IOException {
         LogInOrCreateUserClass login = new LogInOrCreateUserClass();
