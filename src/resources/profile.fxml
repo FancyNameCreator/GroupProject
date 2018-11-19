@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ProfileController">
    <top>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="257.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -28,7 +28,7 @@
                      </HBox.margin>
                   </Label>
                   <Region prefHeight="100.0" prefWidth="105.0" />
-                  <Button mnemonicParsing="false" onAction="#startrunning" prefHeight="90.0" prefWidth="150.0" text="Load your data">
+                  <Button mnemonicParsing="false" onAction="#goToMainMenu" prefHeight="90.0" prefWidth="150.0" text="Go back &gt;&gt;&gt;">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -61,7 +61,7 @@
       </VBox>
    </bottom>
    <center>
-      <HBox prefHeight="574.0" prefWidth="688.0" spacing="5.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="551.0" prefWidth="688.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="600.0" prefWidth="685.0" spacing="5.0">
                <children>

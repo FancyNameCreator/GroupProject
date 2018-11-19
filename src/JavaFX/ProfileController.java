@@ -1,11 +1,17 @@
 package JavaFX;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 import java.sql.*;
 
 public class ProfileController{
+    @FXML
+    private AnchorPane mainPane;
 
     @FXML
     private TextField firstNameTextField;
@@ -176,6 +182,14 @@ public class ProfileController{
         startrunning(/*ae*/);
     }
 
-    //private void goToMainMenu
+   // I CAN'T RESOLVE IT FOR NOW //
+
+    @FXML
+    private void goToMainMenu(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
+        AnchorPane pane = loader.load();
+        mainPane.getChildren().setAll(pane);
+    }
 
 }
