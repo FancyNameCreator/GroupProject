@@ -35,15 +35,15 @@ public class SignUpPageController {
     @FXML
     public void sendData(ActionEvent event){
         Controller access = new Controller();
+        Main accessToMain = new Main();
 
         String firstnameIN = firstName.getText();
         String lastnameIN = lastName.getText();
         String cityIN = cityField.getText();
         String ageIN = ageField.getText();
         String email = emailField.getText();
-        access.setEmailIN(email);
+        accessToMain.setEmailIN(email);
         String passwordEntered = password.getText();
-        access.setPasswordIN(passwordEntered);
 
         DatabaseMethodsClass database = new DatabaseMethodsClass();
         try {

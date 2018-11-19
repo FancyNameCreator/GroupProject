@@ -15,7 +15,7 @@ public class MainMenuController {
     @FXML
     private void goToProfile(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
+        loader.setLocation(getClass().getResource("/resources/profile.fxml"));
         BorderPane pane = loader.load();
         mainPane.getChildren().setAll(pane);
     }

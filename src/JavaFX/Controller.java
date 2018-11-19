@@ -1,7 +1,6 @@
 package JavaFX;
 
 import Database.LogInOrCreateUserClass;
-import Database.MainClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,16 +44,20 @@ public class Controller {
     public void setEmailIN(String emailIN) {
         this.emailIN = emailIN;
     }
+/*
 
     public void setPasswordIN(String passwordIN) {
         this.passwordIN = passwordIN;
     }
+*/
 
-    public void validate(ActionEvent event) throws SQLException {
+    public void validate(ActionEvent event) throws IOException {
         LogInOrCreateUserClass login = new LogInOrCreateUserClass();
 
         emailIN = username.getText();
         passwordIN = password.getText();
+
+        Main.setEmailIN(emailIN);
 
         if (emailIN.isEmpty()||passwordIN.isEmpty()){
             Alert alert=new Alert(Alert.AlertType.ERROR);
@@ -66,6 +69,11 @@ public class Controller {
             alert.setHeaderText(null);
             alert.setContentText("Successful login");
             alert.showAndWait();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
+            AnchorPane pane = loader.load();
+            rootPane.getChildren().setAll(pane);
         } else {
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);

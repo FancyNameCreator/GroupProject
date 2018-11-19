@@ -18,7 +18,18 @@ public class Main extends Application {
     final static String PASS = "PasswordOfGroup6P1Project";
 
     static Connection conn = null;
-    static Statement stmt = null;
+    public static Statement stmt = null;
+
+    public static String getEmailIN() {
+        return emailIN;
+    }
+
+    public static void setEmailIN(String emailIN) {
+        Main.emailIN = emailIN;
+    }
+
+    private static String emailIN;
+
 
 
     @Override

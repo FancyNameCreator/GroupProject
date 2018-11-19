@@ -1,5 +1,7 @@
 package Database;
 
+import JavaFX.Main;
+
 import java.sql.*;
 import java.lang.*;
 import java.util.Scanner;
@@ -49,18 +51,9 @@ public class LogInOrCreateUserClass {
 
         String emailDB;
         String passwordDB;
+        Main main = new Main();
         try {
-
-            // 1. Get a connection to the Database
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(DB_URL, USER,PASS);
-            //System.out.println("Connection established \n");
-
-            // 2. Create a statement
-            Statement stmt = conn.createStatement();
-
-            // 3. Execute SQL query
-            ResultSet myResults = stmt.executeQuery("select * from users");
+            ResultSet myResults = Main.stmt.executeQuery("select * from users");
 
             // 4. Check if email and password user entered match to any of registered in database
             while (myResults.next()) {

@@ -1,13 +1,24 @@
 package JavaFX;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
+
+import javax.annotation.Resources;
+import java.net.URL;
 import java.sql.*;
+/*
 
-public class ProfileController {
+public abstract class ProfileController implements Initializable {
 
+    @FXML
+    void initialize(URL location, Resources resources) {
+        startrunning();
+    }
 
+*/
+public class ProfileController{
     @FXML
     private Button firstNameButton;
     @FXML
@@ -49,18 +60,22 @@ public class ProfileController {
     private String email;
     private String password;
 
-
-    private void startProfile(ActionEvent ae){
-        unableToWrite();
-        Controller access = new Controller();
+    @FXML
+    private void startrunning(ActionEvent event){
+        System.out.println("Start profile clicked");
+        Main access = new Main();
         getData(access.getEmailIN());
+        printText();
+        unableToWrite();
+    }
+
+    private void printText(){
         firstNameTextField.setText(firstName);
         lastNameTextField.setText(lastName);
         cityTextField.setText(city);
         ageTextField.setText(age);
         emailTextField.setText(email);
         passwordTextField.setText(password);
-
     }
 
     private void unableToWrite(){
@@ -75,29 +90,19 @@ public class ProfileController {
 
 
     private void getData(String emailPassed){
-        Controller access = new Controller();
-        String emailRead = access.getEmailIN();
-
             try {
-    /*
-                // 1. Get a connection to the Database
-                Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
-                System.out.println("Connection established \n");
-
-                // 2. Create a statement
-                Statement myStatmnt = myConn.createStatement();
-
-    */            // 3. Execute SQL query
-                ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailRead + "' ");
+                // 3. Execute SQL query
+                ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailPassed + "' ");
 
                 // 4. Process the result set
                 while (myResults.next()) {
-                    firstName = myResults.getString("first_name");
+                    firstName = (myResults.getString("first_name"));
                     lastName = myResults.getString("last_name");
                     email = myResults.getString("email");
-                    city = myResults.getString("city");
-                    age = myResults.getString("age");
                     password = myResults.getString("password");
+                    city = myResults.getString("city");
+                    age = myResults.getString("DoB");
+
                 }
             } catch (Exception exc) {    //catch the exception if occurs
                 exc.printStackTrace();
@@ -142,10 +147,9 @@ public class ProfileController {
 
     @FXML
     private void submitUpdates(ActionEvent ae){
-        Controller access = new Controller();
-        String emailRead = access.getEmailIN();
         Main connection = new Main();
         Controller access1 = new Controller();
+        String emailRead = connection.getEmailIN();
         String sql;
         unableToWrite();
 
@@ -170,7 +174,7 @@ public class ProfileController {
 
             if (ageButtonClicked && !age.equals(ageTextField.getText())){
                 age = ageTextField.getText();
-/*dont remember column name*/ sql = "update users set age = '" + lastName + "' where email ='" + emailRead + "'";
+/*dont remember column name*/ sql = "update users set DoB = '" + lastName + "' where email ='" + emailRead + "'";
                 connection.stmt.executeUpdate(sql);
             }
 
@@ -189,6 +193,7 @@ public class ProfileController {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        startrunning(ae);
     }
 
 }
