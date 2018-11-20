@@ -15,28 +15,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-class Event{
-    String id;
-    String name;
-    Date date;
-    String location;
-    String description;
-    String category;
-    String participants;
-    String creator;
-
-    public Event(String id, String name,Date date, String location, String description, String category,
-            String participants, String creator){
-        this.id = id;
-        this.name = name;
-        this.date = date;
-        this.location = location;
-        this.description = description;
-        this.category = category;
-        this.participants = participants;
-        this.creator = creator;
-    }
-}
 
 public class MyEventsController {
 
@@ -65,7 +43,7 @@ public class MyEventsController {
                 while (myResults.next()) {
                     String id = myResults.getString("event_id");
                     String name = myResults.getString("event_name");
-                    Date date = myResults.getDate("event_date");
+                    String date = myResults.getString("event_date");
                     String location = myResults.getString("event_location");
                     String description = myResults.getString("event_description");
                     String category = myResults.getString("event_category");
