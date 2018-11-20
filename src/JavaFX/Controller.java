@@ -51,11 +51,6 @@ public class Controller {
             alert.setContentText("You need to fill in all the fields");
             alert.showAndWait();
         } else if(login.loginAndPasswordChecking(emailIN,passwordIN)){
-            Alert alert=new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Successful login");
-            alert.showAndWait();
-
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
             AnchorPane pane = loader.load();

@@ -43,6 +43,14 @@ public class ProfileController{
     private String password;
 
     @FXML
+    private void goToMainMenu(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
+        AnchorPane pane = loader.load();
+        profilePane.getChildren().setAll(pane);
+    }
+
+    @FXML
     private void initialize(){
         startrunning();
     }
@@ -184,12 +192,5 @@ public class ProfileController{
     }
 
 //the problem may be because going from border pane to anchor pane again
-    @FXML
-    private void goToMainMenu(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
-        AnchorPane pane = loader.load();
-        profilePane.getChildren().setAll(pane);
-    }
 
 }

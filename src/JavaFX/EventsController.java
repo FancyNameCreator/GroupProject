@@ -1,10 +1,12 @@
 package JavaFX;
 
 import javafx.collections.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -59,6 +61,14 @@ public class EventsController {
             default:
                 System.out.println("YOU'VE BETTER LEARN HOW TO USE JFX!");
         }
+    }
+
+    @FXML
+    private void goToMainMenu(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
+        AnchorPane pane = loader.load();
+        eventsPane.getChildren().setAll(pane);
     }
 
     private void loadMyEvents() throws IOException {

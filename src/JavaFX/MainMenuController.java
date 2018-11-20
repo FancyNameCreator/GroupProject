@@ -10,10 +10,6 @@ import java.io.IOException;
 
 public class MainMenuController {
 
-    public AnchorPane getMainPane() {
-        return mainPane;
-    }
-
     @FXML
     private AnchorPane mainPane;
 
