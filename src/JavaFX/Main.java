@@ -10,7 +10,6 @@ import java.sql.*;
 
 public class Main extends Application {
 
-    Stage window;
     final static String DB_URL = "jdbc:mysql://35.228.89.148:3306/hangerDatabase";
 
     //  Database credentials
@@ -18,7 +17,18 @@ public class Main extends Application {
     final static String PASS = "PasswordOfGroup6P1Project";
 
     static Connection conn = null;
-    static Statement stmt = null;
+    public static Statement stmt = null;
+
+    public static String getEmailIN() {
+        return emailIN;
+    }
+
+    public static void setEmailIN(String emailIN) {
+        Main.emailIN = emailIN;
+    }
+
+    private static String emailIN;
+
 
 
     @Override
@@ -26,8 +36,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/resources/sample.fxml"));
         primaryStage.setTitle("Hanger");
         primaryStage.setScene(new Scene(root, 900, 600));
-        window = primaryStage;
-        window.show();
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
@@ -54,6 +63,7 @@ public class Main extends Application {
         try{
             stmt.close();
             conn.close();
+            System.out.println("Crap closed");
         }catch(SQLException e){
             e.printStackTrace();
         }

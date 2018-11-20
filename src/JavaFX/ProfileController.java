@@ -1,25 +1,18 @@
 package JavaFX;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+
+import java.io.IOException;
 import java.sql.*;
 
-public class ProfileController {
-
-
+public class ProfileController{
     @FXML
-    private Button firstNameButton;
-    @FXML
-    private Button lastNameButton;
-    @FXML
-    private Button cityButton;
-    @FXML
-    private Button ageButton;
-    @FXML
-    private Button emailButton;
-    @FXML
-    private Button passwordButton;
+    private BorderPane profilePane;
 
     @FXML
     private TextField firstNameTextField;
@@ -49,18 +42,27 @@ public class ProfileController {
     private String email;
     private String password;
 
+    @FXML
+    private void initialize(){
+        startrunning();
+    }
 
-    private void startProfile(ActionEvent ae){
-        unableToWrite();
-        Controller access = new Controller();
+    @FXML
+    private void startrunning(/*ActionEvent event*/){
+        System.out.println("Start profile clicked");
+        Main access = new Main();
         getData(access.getEmailIN());
+        printText();
+        unableToWrite();
+    }
+
+    private void printText(){
         firstNameTextField.setText(firstName);
         lastNameTextField.setText(lastName);
         cityTextField.setText(city);
         ageTextField.setText(age);
         emailTextField.setText(email);
         passwordTextField.setText(password);
-
     }
 
     private void unableToWrite(){
@@ -75,31 +77,23 @@ public class ProfileController {
 
 
     private void getData(String emailPassed){
-        Controller access = new Controller();
-        String emailRead = access.getEmailIN();
+            try {
+                // 3. Execute SQL query
+                ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailPassed + "' ");
 
-        try {
-    /*
-                // 1. Get a connection to the Database
-                Connection myConn = DriverManager.getConnection(DB_URL, USER, PASS);
-                System.out.println("Connection established \n");
-                // 2. Create a statement
-                Statement myStatmnt = myConn.createStatement();
-    */            // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailRead + "' ");
+                // 4. Process the result set
+                while (myResults.next()) {
+                    firstName = (myResults.getString("first_name"));
+                    lastName = myResults.getString("last_name");
+                    email = myResults.getString("email");
+                    password = myResults.getString("password");
+                    city = myResults.getString("city");
+                    age = myResults.getString("DoB");
 
-            // 4. Process the result set
-            while (myResults.next()) {
-                firstName = myResults.getString("first_name");
-                lastName = myResults.getString("last_name");
-                email = myResults.getString("email");
-                city = myResults.getString("city");
-                age = myResults.getString("age");
-                password = myResults.getString("password");
+                }
+            } catch (Exception exc) {    //catch the exception if occurs
+                exc.printStackTrace();
             }
-        } catch (Exception exc) {    //catch the exception if occurs
-            exc.printStackTrace();
-        }
     }
 
     @FXML
@@ -140,10 +134,9 @@ public class ProfileController {
 
     @FXML
     private void submitUpdates(ActionEvent ae){
-        Controller access = new Controller();
-        String emailRead = access.getEmailIN();
         Main connection = new Main();
         Controller access1 = new Controller();
+        String emailRead = connection.getEmailIN();
         String sql;
         unableToWrite();
 
@@ -168,7 +161,7 @@ public class ProfileController {
 
             if (ageButtonClicked && !age.equals(ageTextField.getText())){
                 age = ageTextField.getText();
-                /*dont remember column name*/ sql = "update users set age = '" + lastName + "' where email ='" + emailRead + "'";
+/*dont remember column name*/ sql = "update users set DoB = '" + lastName + "' where email ='" + emailRead + "'";
                 connection.stmt.executeUpdate(sql);
             }
 
@@ -187,6 +180,16 @@ public class ProfileController {
         }catch (SQLException e){
             e.printStackTrace();
         }
+        startrunning();
+    }
+
+//the problem may be because going from border pane to anchor pane again
+    @FXML
+    private void goToMainMenu(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
+        AnchorPane pane = loader.load();
+        profilePane.getChildren().setAll(pane);
     }
 
 }

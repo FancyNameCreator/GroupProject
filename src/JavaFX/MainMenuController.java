@@ -9,13 +9,18 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class MainMenuController {
+
+    public AnchorPane getMainPane() {
+        return mainPane;
+    }
+
     @FXML
     private AnchorPane mainPane;
 
     @FXML
     private void goToProfile(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
+        loader.setLocation(getClass().getResource("/resources/profile.fxml"));
         BorderPane pane = loader.load();
         mainPane.getChildren().setAll(pane);
     }
@@ -23,8 +28,8 @@ public class MainMenuController {
     @FXML
     private void goToEvents(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/events.fxml"));
-        AnchorPane pane = loader.load();
+        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+        BorderPane pane = loader.load();
         mainPane.getChildren().setAll(pane);
     }
 

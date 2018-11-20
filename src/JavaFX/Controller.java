@@ -33,14 +33,6 @@ public class Controller {
     private String emailIN;
     private String passwordIN;
 
-    public String getEmailIN() {
-        return emailIN;
-    }
-
-    public String getPasswordIN() {
-        return passwordIN;
-    }
-
     public void setEmailIN(String emailIN) {
         this.emailIN = emailIN;
     }
@@ -50,6 +42,8 @@ public class Controller {
 
         emailIN = username.getText();
         passwordIN = password.getText();
+
+        Main.setEmailIN(emailIN);
 
         if (emailIN.isEmpty()||passwordIN.isEmpty()){
             Alert alert=new Alert(Alert.AlertType.ERROR);
@@ -66,7 +60,6 @@ public class Controller {
             loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
             AnchorPane pane = loader.load();
             rootPane.getChildren().setAll(pane);
-
         } else {
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -77,4 +70,3 @@ public class Controller {
         }
     }
 }
-
