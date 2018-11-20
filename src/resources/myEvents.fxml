@@ -4,24 +4,34 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="myEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MyEventsController">
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MyEventsController">
    <center>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Attending">
+          <Tab fx:id="tabAttending" text="Attending">
                <content>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                    </content>
+                  <ScrollPane fx:id="scroll" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <TableView fx:id="tableView" prefHeight="519.0" prefWidth="886.0">
+                          <columns>
+                            <TableColumn fx:id="eventNameCol" prefWidth="177.0" text="Event name" />
+                            <TableColumn fx:id="eventDateCol" prefWidth="177.0" text="Event date" />
+                              <TableColumn fx:id="eventLocationCol" prefWidth="177.0" text="Event location" />
+                              <TableColumn fx:id="eventCategoryCol" prefWidth="177.0" text="Event category" />
+                              <TableColumn fx:id="eventCreatorCol" prefWidth="177.0" text="Event creator" />
+                          </columns>
+                        </TableView>
+                     </content>
                   </ScrollPane>
                </content>
           </Tab>
-          <Tab text="Created">
+          <Tab fx:id="tabCreated" text="Created">
                <content>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                     <content>
@@ -34,7 +44,7 @@
       </TabPane>
    </center>
    <top>
-      <Label text="My Events" BorderPane.alignment="CENTER">
+      <Label fx:id="mainLabel" text="My Events" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
