@@ -1,15 +1,20 @@
 package JavaFX;
 
-import javafx.collections.*;
-import javafx.fxml.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.event.ActionEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class MyEventsController {
 
@@ -18,24 +23,22 @@ public class MyEventsController {
     int lastIndex = 0;
 
     @FXML
-    private BorderPane myEventsPane;
-
-
-    @FXML
     private void initialize(){
         loadEventsTable(Main.getEmailIN());
-        System.out.println(table);
-        System.out.println(table.get(0));
+        eventNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        eventDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        eventLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        eventCategoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+        eventCreatorColumn.setCellValueFactory(new PropertyValueFactory<>("creator"));
     }
 
     private void loadEventsTable(String email){
         String idOfEventsIdAttending  = getEventsOfUser();
-        System.out.println(idOfEventsIdAttending);
 
         try {
                 // 3. Execute SQL query
-                //ResultSet myResults = Main.stmt.executeQuery("select * from events where event_id = '"+ idOfEventsIdAttending +"'");
-                ResultSet myResults = Main.stmt.executeQuery("select * from events where event_id in " + idOfEventsIdAttending);
+                ResultSet myResults = Main.stmt.executeQuery("select * from events where event_id in '" + idOfEventsIdAttending + "' ");
+
                 // 4. Process the result set
                 while (myResults.next()) {
                     String id = myResults.getString("event_id");
@@ -56,22 +59,56 @@ public class MyEventsController {
     }
 
     private String getEventsOfUser(){
-        String emailPassed = Main.getEmailIN();
-        System.out.println(emailPassed);
-
+        String str = "";
 
         try {
             // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailPassed + "' ");
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '" + Main.getEmailIN() + "' ");
 
             // 4. Process the result set
-            while (myResults.next()) {
-                emailPassed = myResults.getString("events_attending");
-            }
-            System.out.println(emailPassed);
+            while (myResults.next())
+                str = (myResults.getString("events_attending"));
+
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
-        return emailPassed;
+        return str;
     }
+
+    @FXML
+    private BorderPane root;
+
+    @FXML
+    private TabPane tabPane;
+
+    @FXML
+    private Tab tabAttending;
+
+    @FXML
+    private ScrollPane scroll;
+
+    @FXML
+    private TableView<Event> tableView;
+
+    @FXML
+    private TableColumn<Event, String> eventNameColumn;
+
+    @FXML
+    private TableColumn<Event, LocalDate> eventDateColumn;
+
+    @FXML
+    private TableColumn<Event, String> eventLocationColumn;
+
+    @FXML
+    private TableColumn<Event, String> eventCategoryColumn;
+
+    @FXML
+    private TableColumn<Event, String> eventCreatorColumn;
+
+    @FXML
+    private Tab tabCreated;
+
+    @FXML
+    private Label mainLabel;
+
 }

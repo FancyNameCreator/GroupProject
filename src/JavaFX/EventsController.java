@@ -28,7 +28,7 @@ public class EventsController {
     }
 
     @FXML
-    private void changeLabel() throws IOException{
+    private void changeLabel() throws IOException/*, InterruptedException*/{
 
         switch (choicebox.getValue()) {
 
