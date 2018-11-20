@@ -1,37 +1,15 @@
 package JavaFX;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
+import javafx.collections.*;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
-
-class Event{
-    String id;
-    String name;
-    String date;
-    String location;
-    String description;
-    String category;
-    String participants;
-    String creator;
-
-    public Event(String id, String name, String date, String location, String description, String category,
-            String participants, String creator){
-        this.id = id;
-        this.name = name;
-        this.date = date;
-        this.location = location;
-        this.description = description;
-        this.category = category;
-        this.participants = participants;
-        this.creator = creator;
-    }
-}
 
 public class MyEventsController {
 
@@ -40,17 +18,24 @@ public class MyEventsController {
     int lastIndex = 0;
 
     @FXML
+    private BorderPane myEventsPane;
+
+
+    @FXML
     private void initialize(){
         loadEventsTable(Main.getEmailIN());
+        System.out.println(table);
+        System.out.println(table.get(0));
     }
 
     private void loadEventsTable(String email){
         String idOfEventsIdAttending  = getEventsOfUser();
+        System.out.println(idOfEventsIdAttending);
 
         try {
                 // 3. Execute SQL query
-                ResultSet myResults = Main.stmt.executeQuery("select * from events where id in '" + idOfEventsIdAttending + "' ");
-
+                //ResultSet myResults = Main.stmt.executeQuery("select * from events where event_id = '"+ idOfEventsIdAttending +"'");
+                ResultSet myResults = Main.stmt.executeQuery("select * from events where event_id in " + idOfEventsIdAttending);
                 // 4. Process the result set
                 while (myResults.next()) {
                     String id = myResults.getString("event_id");
@@ -71,19 +56,22 @@ public class MyEventsController {
     }
 
     private String getEventsOfUser(){
-        String str = "";
+        String emailPassed = Main.getEmailIN();
+        System.out.println(emailPassed);
+
 
         try {
             // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '" + Main.getEmailIN() + "' ");
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailPassed + "' ");
 
             // 4. Process the result set
-            while (myResults.next())
-                str = (myResults.getString("events_attending"));
-
+            while (myResults.next()) {
+                emailPassed = myResults.getString("events_attending");
+            }
+            System.out.println(emailPassed);
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
-        return str;
+        return emailPassed;
     }
 }
