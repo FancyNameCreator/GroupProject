@@ -16,6 +16,8 @@ public class MyEventsController {
 
     @FXML
     private void initialize(){
+        textAreaParticipants.setEditable(false);
+        textAreaDescription.setEditable(false);
         loadEventsTableAttending();
         loadEventsTableCreated();
         eventNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -35,6 +37,7 @@ public class MyEventsController {
 
     private void loadEventsTableAttending(){
         String idOfEventsIdAttending  = getEventsOfUserAttending();
+        System.out.println(idOfEventsIdAttending);
 
         try {
             // 3. Execute SQL query
@@ -102,34 +105,34 @@ public class MyEventsController {
     @FXML
     private void showDetails(){
         Event evantSelected = tableView.getSelectionModel().getSelectedItem();
-        System.out.println(evantSelected.getName());
-        System.out.println(evantSelected.getLocation());
+        textAreaDescription.setText(evantSelected.getDescription());
+        textAreaParticipants.setText(evantSelected.getParticipants());
+    }
+
+    @FXML
+    private void showDetailsOfCreated(){
+        Event evantSelected = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
+        textAreaDescription.setText(evantSelected.getDescription());
+        textAreaParticipants.setText(evantSelected.getParticipants());
     }
 
     @FXML private TableView<Event> tableView;
 
     @FXML private TableColumn<Event, String> eventNameColumn;
-
     @FXML private TableColumn<Event, String> eventDateColumn;
-
     @FXML private TableColumn<Event, String> eventLocationColumn;
-
     @FXML private TableColumn<Event, String> eventCategoryColumn;
-
     @FXML private TableColumn<Event, String> eventCreatorColumn;
 
 
     @FXML private TableView<Event> tableViewOfCreatedEvents;
 
     @FXML private TableColumn<Event, String> eventNameColumnCreated;
-
     @FXML private TableColumn<Event, String> eventDateColumnCreated;
-
     @FXML private TableColumn<Event, String> eventLocationColumnCreated;
-
     @FXML private TableColumn<Event, String> eventCategoryColumnCreated;
-
     @FXML private TableColumn<Event, String> eventCreatorColumnCreated;
 
-
+    @FXML private TextArea textAreaDescription;
+    @FXML private TextArea textAreaParticipants;
 }

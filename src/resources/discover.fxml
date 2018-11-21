@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -22,7 +23,7 @@
          <children>
             <Label layoutX="371.0" layoutY="-8.0" text="Choose category of the event:" />
             <ChoiceBox fx:id="choiceBoxDiscover" layoutX="351.0" layoutY="17.0" prefWidth="150.0" />
-            <TableView fx:id="tableViewDiscover" layoutY="62.0" prefHeight="468.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <TableView fx:id="tableViewDiscover" layoutY="62.0" onMouseClicked="#showDetails" prefHeight="331.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
               <columns>
                 <TableColumn fx:id="eventNameColumnDiscover" minWidth="180.0" prefWidth="75.0" text="Event name" />
                 <TableColumn fx:id="eventLocationColumnDiscover" minWidth="180.0" prefWidth="75.0" text="Event location" />
@@ -35,4 +36,13 @@
          </children>
       </AnchorPane>
    </center>
+   <bottom>
+      <AnchorPane prefHeight="120.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="textAreaDescription" layoutX="7.0" layoutY="9.0" prefHeight="137.0" prefWidth="200.0" />
+            <TextArea fx:id="textAreaParticipants" layoutX="233.0" layoutY="16.0" prefHeight="123.0" prefWidth="200.0" />
+            <Button layoutX="621.0" layoutY="62.0" mnemonicParsing="false" text="Attend" />
+         </children>
+      </AnchorPane>
+   </bottom>
 </BorderPane>

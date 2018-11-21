@@ -27,8 +27,13 @@ public class Event{
 
     public String getCreator() { return creator; }
 
+    public String getDescription() { return description; }
 
-    public Event(String name, String date, String location,String description, String category, String participants, String creator){
+    public String getParticipants() { return participants; }
+
+
+
+    public Event(String ID, String name, String date, String location,String description, String category, String participants, String creator){
         this.name = name;
         this.date = date;
         this.location = location;
