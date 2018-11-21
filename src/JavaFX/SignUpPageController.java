@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import javafx.scene.layout.BorderPane;
 
 public class SignUpPageController {
 
@@ -54,6 +55,8 @@ public class SignUpPageController {
         }
         loadMainMenu();
     }
+
+    @FXML
     private void loadMainMenu() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
@@ -61,4 +64,11 @@ public class SignUpPageController {
         signUpPage.getChildren().setAll(pane);
     }
 
+    @FXML
+    private void goToLoginPage() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/sample.fxml"));
+        AnchorPane pane = loader.load();
+        signUpPage.getChildren().setAll(pane);
+    }
 }
