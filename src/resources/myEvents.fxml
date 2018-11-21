@@ -20,11 +20,11 @@
                      <content>
                         <TableView fx:id="tableView" prefHeight="519.0" prefWidth="886.0">
                           <columns>
-                            <TableColumn fx:id="eventNameCol" prefWidth="177.0" text="Event name" />
-                            <TableColumn fx:id="eventDateCol" prefWidth="177.0" text="Event date" />
-                              <TableColumn fx:id="eventLocationCol" prefWidth="177.0" text="Event location" />
-                              <TableColumn fx:id="eventCategoryCol" prefWidth="177.0" text="Event category" />
-                              <TableColumn fx:id="eventCreatorCol" prefWidth="177.0" text="Event creator" />
+                            <TableColumn fx:id="eventNameColumn" prefWidth="177.0" text="Event name" />
+                            <TableColumn fx:id="eventDateColumn" prefWidth="177.0" text="Event date" />
+                              <TableColumn fx:id="eventLocationColumn" prefWidth="177.0" text="Event location" />
+                              <TableColumn fx:id="eventCategoryColumn" prefWidth="177.0" text="Event category" />
+                              <TableColumn fx:id="eventCreatorColumn" prefWidth="177.0" text="Event creator" />
                           </columns>
                         </TableView>
                      </content>
