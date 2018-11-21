@@ -188,7 +188,31 @@ public class ProfileController{
     private void goToMainMenu(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
-        BorderPane pane = (BorderPane) loader.load();
+        BorderPane pane = loader.load();
+        profilePane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void goToEvents(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+        BorderPane pane = loader.load();
+        profilePane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void goToFriends(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/friendsPage.fxml"));
+        loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
+        BorderPane pane = loader.load();
+        profilePane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void goToChat(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
+        BorderPane pane = loader.load();
         profilePane.getChildren().setAll(pane);
     }
 

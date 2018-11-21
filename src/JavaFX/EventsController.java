@@ -67,7 +67,7 @@ public class EventsController {
     private void goToMainMenu(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
-        AnchorPane pane = loader.load();
+        BorderPane pane = loader.load();
         eventsPane.getChildren().setAll(pane);
     }
 
@@ -83,7 +83,7 @@ public class EventsController {
     private void goToFriends(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/friendsPage.fxml"));
         loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
-        AnchorPane pane = loader.load();
+        BorderPane pane = loader.load();
         eventsPane.getChildren().setAll(pane);
     }
 

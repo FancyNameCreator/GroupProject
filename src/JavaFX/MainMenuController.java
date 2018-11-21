@@ -11,7 +11,7 @@ import java.io.IOException;
 public class MainMenuController {
 
     @FXML
-    private AnchorPane mainPane;
+    private BorderPane mainPane;
 
     @FXML
     private void goToProfile(ActionEvent event) throws IOException {
@@ -33,7 +33,7 @@ public class MainMenuController {
     private void goToFriends(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/friendsPage.fxml"));
         loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
-        AnchorPane pane = loader.load();
+        BorderPane pane = loader.load();
         mainPane.getChildren().setAll(pane);
     }
 
@@ -41,7 +41,7 @@ public class MainMenuController {
     private void goToChat(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
-        AnchorPane pane = loader.load();
+        BorderPane pane = loader.load();
         mainPane.getChildren().setAll(pane);
     }
 }

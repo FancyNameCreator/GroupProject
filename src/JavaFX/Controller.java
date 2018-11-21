@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+
 import java.sql.*;
 import java.io.IOException;
 
@@ -53,7 +55,7 @@ public class Controller {
         } else if(login.loginAndPasswordChecking(emailIN,passwordIN)){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
-            AnchorPane pane = loader.load();
+            BorderPane pane = loader.load();
             rootPane.getChildren().setAll(pane);
         } else {
             Alert alert=new Alert(Alert.AlertType.ERROR);
