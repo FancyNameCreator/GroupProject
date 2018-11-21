@@ -6,9 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 
 public class CreateEventController {
 
@@ -20,6 +22,9 @@ public class CreateEventController {
 
     @FXML
     private TextField textFieldDate;
+
+    @FXML
+    private DatePicker datePicker;
 
     @FXML
     private TextField textFieldDescription;
@@ -55,7 +60,7 @@ public class CreateEventController {
     private void getData(){
         nameOfEvent = textFieldName.getText();
         locationOfEvent = textFieldLocation.getText();
-        dateOfEvent = textFieldDate.getText();
+        dateOfEvent = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         descriptionOfEvent = textFieldDescription.getText();
         participantsOfEvent = "";
         creatorOfEvent = Main.getEmailIN();

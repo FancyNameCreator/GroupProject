@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="myEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MyEventsController">
+<BorderPane fx:id="myEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MyEventsController">
     <center>
         <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
             <tabs>
@@ -17,7 +17,7 @@
                     <content>
                         <ScrollPane fx:id="scroll" prefHeight="200.0" prefWidth="200.0">
                             <content>
-                                <TableView fx:id="tableView" prefHeight="519.0" prefWidth="886.0">
+                                <TableView fx:id="tableView" onMouseClicked="#showDetails" prefHeight="519.0" prefWidth="886.0">
                                     <columns>
                                         <TableColumn fx:id="eventNameColumn" prefWidth="177.0" text="Event name" />
                                         <TableColumn fx:id="eventDateColumn" prefWidth="177.0" text="Event date" />

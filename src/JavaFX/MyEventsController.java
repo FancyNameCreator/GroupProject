@@ -99,26 +99,13 @@ public class MyEventsController {
         return str;
     }
 
-    /*@FXML
-    private BorderPane root;
-
     @FXML
-    private TabPane tabPane;
+    private void showDetails(){
+        Event evantSelected = tableView.getSelectionModel().getSelectedItem();
+        System.out.println(evantSelected.getName());
+        System.out.println(evantSelected.getLocation());
+    }
 
-    @FXML
-    private Tab tabAttending;
-
-    @FXML
-    private ScrollPane scroll;
-
-    @FXML
-    private Tab tabCreated;
-
-    @FXML
-    private Label mainLabel;
-
-
-    */
     @FXML private TableView<Event> tableView;
 
     @FXML private TableColumn<Event, String> eventNameColumn;

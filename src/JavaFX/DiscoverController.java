@@ -77,7 +77,7 @@ public class DiscoverController {
     private void loadFoodEvents(){
         try {
                 tableViewDiscover.getItems().clear();
-                //tableViewDiscover.set;
+
                 // 3. Execute SQL query
                 ResultSet myResults = Main.stmt.executeQuery("select * from events where event_category = \"Food event\"");
 
