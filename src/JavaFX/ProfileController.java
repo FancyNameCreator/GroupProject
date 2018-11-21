@@ -188,7 +188,7 @@ public class ProfileController{
     private void goToMainMenu(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
-        AnchorPane pane = (AnchorPane) loader.load();
+        BorderPane pane = (BorderPane) loader.load();
         profilePane.getChildren().setAll(pane);
     }
 

@@ -8,21 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/build/java" />
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/demo/java" />
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/generated/java" />
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/legacy/java" />
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/main/core-api/java" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13" recursive="false" />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="mysql-connector-java-8.0.13" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0" level="project" />
   </component>
 </module>
