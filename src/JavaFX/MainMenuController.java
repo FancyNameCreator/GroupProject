@@ -31,10 +31,9 @@ public class MainMenuController {
 
     @FXML
     private void goToFriends(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/friendsPage.fxml"));
         loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
         AnchorPane pane = loader.load();
-
         mainPane.getChildren().setAll(pane);
     }
 

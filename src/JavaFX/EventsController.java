@@ -71,6 +71,30 @@ public class EventsController {
         eventsPane.getChildren().setAll(pane);
     }
 
+    @FXML
+    private void goToProfile(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/profile.fxml"));
+        BorderPane pane = loader.load();
+        eventsPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void goToFriends(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/friendsPage.fxml"));
+        loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
+        AnchorPane pane = loader.load();
+        eventsPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void goToChat(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
+        BorderPane pane = loader.load();
+        eventsPane.getChildren().setAll(pane);
+    }
+
     private void loadMyEvents() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/myEvents.fxml"));

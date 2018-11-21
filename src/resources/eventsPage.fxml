@@ -25,7 +25,7 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Profile" textAlignment="JUSTIFY">
+                  <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" onAction="#goToProfile" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Profile" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
@@ -36,7 +36,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" onAction="#goToFriends" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Chat" textAlignment="JUSTIFY">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Chat" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>

@@ -44,7 +44,7 @@
                                 <DropShadow />
                             </effect>
                         </Button>
-                        <Button fx:id="EventsPane" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#goToEvents" prefHeight="45.0" prefWidth="150.0" style="-fx-text-fill: #fff; -fx-background-color: #414141; -fx-font-weight: BOLD;" text="Events" textAlignment="JUSTIFY">
+                        <Button fx:id="EventsPane" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="45.0" prefWidth="150.0" style="-fx-text-fill: #fff; -fx-background-color: #414141; -fx-font-weight: BOLD;" text="Events" textAlignment="JUSTIFY">
                             <font>
                                 <Font name="Segoe UI Symbol" size="20.0" />
                             </font>
