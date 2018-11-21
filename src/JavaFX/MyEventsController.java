@@ -6,15 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-
-import java.io.IOException;
-import java.sql.Date;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class MyEventsController {
 
@@ -30,40 +22,38 @@ public class MyEventsController {
         eventLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
         eventCategoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
         eventCreatorColumn.setCellValueFactory(new PropertyValueFactory<>("creator"));
+        tableView.setItems(table);
     }
 
     private void loadEventsTable(String email){
         String idOfEventsIdAttending  = getEventsOfUser();
 
         try {
-                // 3. Execute SQL query
-                ResultSet myResults = Main.stmt.executeQuery("select * from events where event_id in '" + idOfEventsIdAttending + "' ");
+            // 3. Execute SQL query
+            ResultSet myResults = Main.stmt.executeQuery("select * from events where event_id in " + idOfEventsIdAttending);
 
-                // 4. Process the result set
-                while (myResults.next()) {
-                    String id = myResults.getString("event_id");
-                    String name = myResults.getString("event_name");
-                    String date = myResults.getString("event_date");
-                    String location = myResults.getString("event_location");
-                    String description = myResults.getString("event_description");
-                    String category = myResults.getString("event_category");
-                    String participants = myResults.getString("participants");
-                    String creator = myResults.getString("creator");
-                    table.add(lastIndex, new Event(id,name,date,location,description,category,participants,creator));
-                    lastIndex ++;
+            // 4. Process the result set
+            while (myResults.next()) {
+                String name = myResults.getString("event_name");
+                String date = myResults.getString("event_date");
+                String location = myResults.getString("event_location");
+                String category = myResults.getString("event_category");
+                String creator = myResults.getString("creator");
+                table.add(new Event(name,date,location,category,creator));
+                lastIndex ++;
 
-                }
-            } catch (Exception exc) {    //catch the exception if occurs
-                exc.printStackTrace();
             }
+        } catch (Exception exc) {    //catch the exception if occurs
+            exc.printStackTrace();
+        }
     }
 
-    private String getEventsOfUser(){
+    public String getEventsOfUser(){
         String str = "";
 
         try {
             // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '" + Main.getEmailIN() + "' ");
+            ResultSet myResults = Main.stmt.executeQuery("select events_attending from users where email = '" + Main.getEmailIN() + "' ");
 
             // 4. Process the result set
             while (myResults.next())
@@ -94,7 +84,7 @@ public class MyEventsController {
     private TableColumn<Event, String> eventNameColumn;
 
     @FXML
-    private TableColumn<Event, LocalDate> eventDateColumn;
+    private TableColumn<Event, String> eventDateColumn;
 
     @FXML
     private TableColumn<Event, String> eventLocationColumn;
