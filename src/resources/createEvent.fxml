@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.CreateEventController">
    <top>
       <Label text="Create an event" BorderPane.alignment="CENTER">
          <font>
@@ -103,7 +102,7 @@
             </VBox>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="buttonCreate" layoutX="37.0" layoutY="431.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="118.0" style="-fx-background-color: #313131; -fx-text-fill: #fff; -fx-font-weight: BOLD;" text="Create">
+                  <Button fx:id="buttonCreate" layoutX="37.0" layoutY="431.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="68.0" prefWidth="118.0" style="-fx-background-color: #313131; -fx-text-fill: #fff; -fx-font-weight: BOLD;" text="Create">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
