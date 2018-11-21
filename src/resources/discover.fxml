@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane fx:id="borderPaneDiscover" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.DiscoverController">
+<BorderPane fx:id="borderPaneDiscover" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.DiscoverController">
    <top>
       <Label text="Discover events" BorderPane.alignment="CENTER">
          <font>
@@ -32,7 +31,7 @@
                   <TableColumn fx:id="eventCreatorColumnDiscover" minWidth="180.0" prefWidth="75.0" text="Event Creator" />
               </columns>
             </TableView>
-            <Button fx:id="buttonGo" layoutX="522.0" layoutY="17.0" mnemonicParsing="false" text="Go" />
+            <Button fx:id="buttonGo" layoutX="522.0" layoutY="17.0" mnemonicParsing="false" onAction="#showTableDiscover" text="Go" />
          </children>
       </AnchorPane>
    </center>

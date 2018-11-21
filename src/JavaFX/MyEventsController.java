@@ -16,7 +16,8 @@ public class MyEventsController {
 
     @FXML
     private void initialize(){
-        loadEventsTable();
+        loadEventsTableAttending();
+        loadEventsTableCreated();
         eventNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         eventDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         eventLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
@@ -32,8 +33,8 @@ public class MyEventsController {
         tableViewOfCreatedEvents.setItems(tableOfCreated);
     }
 
-    private void loadEventsTable(){
-        String idOfEventsIdAttending  = getEventsOfUser();
+    private void loadEventsTableAttending(){
+        String idOfEventsIdAttending  = getEventsOfUserAttending();
 
         try {
             // 3. Execute SQL query
@@ -49,7 +50,7 @@ public class MyEventsController {
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
                 table.add(new Event(name,date,location,description,category,participants,creator));
-                lastIndex ++;
+                //lastIndex ++;
 
             }
         } catch (Exception exc) {    //catch the exception if occurs
@@ -57,7 +58,31 @@ public class MyEventsController {
         }
     }
 
-    private String getEventsOfUser(){
+    private void loadEventsTableCreated(){
+
+        try {
+            // 3. Execute SQL query
+            ResultSet myResults = Main.stmt.executeQuery("select * from events where creator = '" + Main.getEmailIN() + "'");
+
+            // 4. Process the result set
+            while (myResults.next()) {
+                String name = myResults.getString("event_name");
+                String date = myResults.getString("event_date");
+                String location = myResults.getString("event_location");
+                String description = myResults.getString("event_description");
+                String category = myResults.getString("event_category");
+                String participants = myResults.getString("participants");
+                String creator = myResults.getString("creator");
+                tableOfCreated.add(new Event(name,date,location,description,category,participants,creator));
+                //lastIndex ++;
+
+            }
+        } catch (Exception exc) {    //catch the exception if occurs
+            exc.printStackTrace();
+        }
+    }
+
+    private String getEventsOfUserAttending(){
         String str = "";
 
         try {
