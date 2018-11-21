@@ -11,17 +11,10 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13" />
+          <root url="jar://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/mysql-connector-java-8.0.13.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/build/java" />
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/demo/java" />
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/generated/java" />
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/legacy/java" />
-          <root url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13/src/main/core-api/java" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../../../mysql-connector-java-8.0.13" recursive="false" />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
