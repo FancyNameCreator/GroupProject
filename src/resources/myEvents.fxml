@@ -36,11 +36,11 @@
                      <content>
                         <TableView fx:id="tableViewOfCreatedEvents" prefHeight="518.0" prefWidth="886.0">
                           <columns>
-                            <TableColumn fx:id="eventNameColumnCreated" prefWidth="175.0" text="Event name" />
-                            <TableColumn fx:id="eventLocationColumnCreated" prefWidth="175.0" text="Event location" />
-                              <TableColumn fx:id="eventDateColumnCreated" prefWidth="175.0" text="Event date" />
-                              <TableColumn fx:id="eventCategoryColumnCreated" prefWidth="175.0" text="Event category" />
-                              <TableColumn fx:id="eventCreatorColumnCreated" prefWidth="175.0" text="Event creator" />
+                            <TableColumn fx:id="eventNameColumnCreated" prefWidth="177.0" text="Event name" />
+                            <TableColumn fx:id="eventLocationColumnCreated" prefWidth="177.0" text="Event location" />
+                              <TableColumn fx:id="eventDateColumnCreated" prefWidth="177.0" text="Event date" />
+                              <TableColumn fx:id="eventCategoryColumnCreated" prefWidth="177.0" text="Event category" />
+                              <TableColumn fx:id="eventCreatorColumnCreated" prefWidth="177.0" text="Event creator" />
                           </columns>
                         </TableView>
                      </content>
