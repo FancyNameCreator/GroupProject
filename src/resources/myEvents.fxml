@@ -34,7 +34,7 @@
                     <content>
                         <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
-                        <TableView prefHeight="518.0" prefWidth="886.0">
+                        <TableView fx:id="tableViewOfCreatedEvents" prefHeight="518.0" prefWidth="886.0">
                           <columns>
                             <TableColumn fx:id="eventNameColumnCreated" prefWidth="175.0" text="Event name" />
                             <TableColumn fx:id="eventLocationColumnCreated" prefWidth="175.0" text="Event location" />
