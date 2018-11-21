@@ -1,39 +1,24 @@
 package JavaFX;
 
 public class Event{
-    private final String name;
-    private final String date;
-    private final String location;
-    private final String category;
-    private final String creator;
+    String id;
+    String name;
+    String date;
+    String location;
+    String description;
+    String category;
+    String participants;
+    String creator;
 
-    public String getName() {
-        return name;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getCreator() {
-        return creator;
-    }
-
-
-
-    public Event(String name, String date, String location, String category, String creator){
+    public Event(String id, String name, String date, String location, String description, String category,
+                 String participants, String creator){
+        this.id = id;
         this.name = name;
         this.date = date;
         this.location = location;
+        this.description = description;
         this.category = category;
+        this.participants = participants;
         this.creator = creator;
     }
 }
