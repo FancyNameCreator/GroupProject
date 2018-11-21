@@ -48,7 +48,7 @@ public class ProfileController{
     }
 
     @FXML
-    private void startrunning(/*ActionEvent event*/){
+    private void startrunning(){
         System.out.println("Start profile clicked");
         Main access = new Main();
         getData(access.getEmailIN());
@@ -161,7 +161,7 @@ public class ProfileController{
 
             if (ageButtonClicked && !age.equals(ageTextField.getText())){
                 age = ageTextField.getText();
-/*dont remember column name*/ sql = "update users set DoB = '" + lastName + "' where email ='" + emailRead + "'";
+/*dont remember column name*/ sql = "update users set DoB = '" + age + "' where email ='" + emailRead + "'";
                 connection.stmt.executeUpdate(sql);
             }
 
