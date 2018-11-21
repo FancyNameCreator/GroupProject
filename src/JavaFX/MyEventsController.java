@@ -5,27 +5,34 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 import java.sql.ResultSet;
 
 public class MyEventsController {
 
     private ObservableList<Event> table = FXCollections.observableArrayList();
+    private ObservableList<Event> tableOfCreated = FXCollections.observableArrayList();
 
     int lastIndex = 0;
 
     @FXML
     private void initialize(){
-        loadEventsTable(Main.getEmailIN());
+        loadEventsTable();
         eventNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         eventDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         eventLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
         eventCategoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
         eventCreatorColumn.setCellValueFactory(new PropertyValueFactory<>("creator"));
         tableView.setItems(table);
+
+        eventNameColumnCreated.setCellValueFactory(new PropertyValueFactory<>("name"));
+        eventDateColumnCreated.setCellValueFactory(new PropertyValueFactory<>("date"));
+        eventLocationColumnCreated.setCellValueFactory(new PropertyValueFactory<>("location"));
+        eventCategoryColumnCreated.setCellValueFactory(new PropertyValueFactory<>("category"));
+        eventCreatorColumnCreated.setCellValueFactory(new PropertyValueFactory<>("creator"));
+        tableViewOfCreatedEvents.setItems(tableOfCreated);
     }
 
-    private void loadEventsTable(String email){
+    private void loadEventsTable(){
         String idOfEventsIdAttending  = getEventsOfUser();
 
         try {
@@ -37,9 +44,11 @@ public class MyEventsController {
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
+                String description = myResults.getString("event_description");
                 String category = myResults.getString("event_category");
+                String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                table.add(new Event(name,date,location,category,creator));
+                table.add(new Event(name,date,location,description,category,participants,creator));
                 lastIndex ++;
 
             }
@@ -48,7 +57,7 @@ public class MyEventsController {
         }
     }
 
-    public String getEventsOfUser(){
+    private String getEventsOfUser(){
         String str = "";
 
         try {
@@ -65,7 +74,7 @@ public class MyEventsController {
         return str;
     }
 
-    @FXML
+    /*@FXML
     private BorderPane root;
 
     @FXML
@@ -78,27 +87,37 @@ public class MyEventsController {
     private ScrollPane scroll;
 
     @FXML
-    private TableView<Event> tableView;
-
-    @FXML
-    private TableColumn<Event, String> eventNameColumn;
-
-    @FXML
-    private TableColumn<Event, String> eventDateColumn;
-
-    @FXML
-    private TableColumn<Event, String> eventLocationColumn;
-
-    @FXML
-    private TableColumn<Event, String> eventCategoryColumn;
-
-    @FXML
-    private TableColumn<Event, String> eventCreatorColumn;
-
-    @FXML
     private Tab tabCreated;
 
     @FXML
     private Label mainLabel;
+
+
+    */
+    @FXML private TableView<Event> tableView;
+
+    @FXML private TableColumn<Event, String> eventNameColumn;
+
+    @FXML private TableColumn<Event, String> eventDateColumn;
+
+    @FXML private TableColumn<Event, String> eventLocationColumn;
+
+    @FXML private TableColumn<Event, String> eventCategoryColumn;
+
+    @FXML private TableColumn<Event, String> eventCreatorColumn;
+
+
+    @FXML private TableView<Event> tableViewOfCreatedEvents;
+
+    @FXML private TableColumn<Event, String> eventNameColumnCreated;
+
+    @FXML private TableColumn<Event, String> eventDateColumnCreated;
+
+    @FXML private TableColumn<Event, String> eventLocationColumnCreated;
+
+    @FXML private TableColumn<Event, String> eventCategoryColumnCreated;
+
+    @FXML private TableColumn<Event, String> eventCreatorColumnCreated;
+
 
 }
