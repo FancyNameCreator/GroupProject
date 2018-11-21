@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderPane;
 public class SignUpPageController {
 
     @FXML
-    private AnchorPane signUpPage;
+    private BorderPane signUpPage;
 
     @FXML
     private TextField firstName;
@@ -60,7 +60,7 @@ public class SignUpPageController {
     private void loadMainMenu() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
-        AnchorPane pane = loader.load();
+        BorderPane pane = loader.load();
         signUpPage.getChildren().setAll(pane);
     }
 
@@ -68,7 +68,7 @@ public class SignUpPageController {
     private void goToLoginPage() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/sample.fxml"));
-        AnchorPane pane = loader.load();
+        BorderPane pane = loader.load();
         signUpPage.getChildren().setAll(pane);
     }
 }

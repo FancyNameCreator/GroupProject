@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -49,7 +48,6 @@ public class ProfileController{
 
     @FXML
     private void startrunning(/*ActionEvent event*/){
-        System.out.println("Start profile clicked");
         Main access = new Main();
         getData(access.getEmailIN());
         printText();
