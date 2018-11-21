@@ -6,11 +6,10 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="myEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MyEventsController">
+<BorderPane fx:id="myEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MyEventsController">
     <center>
         <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
             <tabs>
@@ -34,9 +33,17 @@
                 <Tab fx:id="tabCreated" text="Created">
                     <content>
                         <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                            </content>
+                     <content>
+                        <TableView prefHeight="518.0" prefWidth="886.0">
+                          <columns>
+                            <TableColumn fx:id="eventNameColumnCreated" prefWidth="175.0" text="Event name" />
+                            <TableColumn fx:id="eventLocationColumnCreated" prefWidth="175.0" text="Event location" />
+                              <TableColumn fx:id="eventDateColumnCreated" prefWidth="175.0" text="Event date" />
+                              <TableColumn fx:id="eventCategoryColumnCreated" prefWidth="175.0" text="Event category" />
+                              <TableColumn fx:id="eventCreatorColumnCreated" prefWidth="175.0" text="Event creator" />
+                          </columns>
+                        </TableView>
+                     </content>
                         </ScrollPane>
                     </content>
                 </Tab>
