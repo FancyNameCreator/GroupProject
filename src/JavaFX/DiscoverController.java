@@ -1,41 +1,36 @@
 package JavaFX;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
-
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DiscoverController {
+
     private ObservableList<String> usersChoice = FXCollections.observableArrayList(
             "Food event","Clubbing","Music event","Just meeting","Sport match","Hobby event");
+    private ObservableList<Event> tableOfDiscover = FXCollections.observableArrayList();
 
-    @FXML private BorderPane borderPaneDiscover;
+    Event evantSelected;
 
     @FXML private ChoiceBox<String> choiceBoxDiscover;
 
-    private ObservableList<Event> tableOfDiscover = FXCollections.observableArrayList();
+    @FXML private TextArea textAreaDescription;
+    @FXML private TextArea textAreaParticipants;
+
 
     @FXML private TableView<Event> tableViewDiscover;
 
     @FXML private TableColumn<Event, String> eventNameColumnDiscover;
-
     @FXML private TableColumn<Event, String> eventLocationColumnDiscover;
-
     @FXML private TableColumn<Event, String> eventDateColumnDiscover;
-
     @FXML private TableColumn<Event, String> eventCategoryColumnCategory;
-
     @FXML private TableColumn<Event, String> eventCreatorColumnDiscover;
 
-    @FXML
-    private Button buttonGo;
 
     @FXML
     private void initialize() {
@@ -83,6 +78,7 @@ public class DiscoverController {
 
                 // 4. Process the result set
                 while (myResults.next()) {
+                    String ID = myResults.getString("event_id");
                     String name = myResults.getString("event_name");
                     String date = myResults.getString("event_date");
                     String location = myResults.getString("event_location");
@@ -90,7 +86,7 @@ public class DiscoverController {
                     String category = myResults.getString("event_category");
                     String participants = myResults.getString("participants");
                     String creator = myResults.getString("creator");
-                    tableOfDiscover.add(new Event(name,date,location,description,category,participants,creator));
+                    tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
                     }
             } catch (Exception exc) {    //catch the exception if occurs
                 exc.printStackTrace();
@@ -106,6 +102,7 @@ public class DiscoverController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -113,7 +110,7 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
@@ -128,6 +125,7 @@ public class DiscoverController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -135,7 +133,7 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
@@ -150,6 +148,7 @@ public class DiscoverController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -157,7 +156,7 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
@@ -172,6 +171,7 @@ public class DiscoverController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -179,7 +179,7 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
@@ -194,6 +194,7 @@ public class DiscoverController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -201,11 +202,104 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+    }
+
+    @FXML
+    private void showDetails(){
+        evantSelected = tableViewDiscover.getSelectionModel().getSelectedItem();
+        textAreaDescription.setText(evantSelected.getDescription());
+        textAreaParticipants.setText(evantSelected.getParticipants());
+        System.out.println(evantSelected.getID());
+    }
+
+    @FXML
+    private void attendEvent() throws SQLException {
+        // CHECK IF ALREADY ATTENDING!!!
+        // CANT ATTEND EVENTS MADE BY OURSELF
+
+        String eventsCommand = makeEventsCommand();
+        String usersCommand = makeUsersCommand();
+
+        Main.stmt.executeUpdate("update events set participants = '" + eventsCommand + "' where event_id ='" + evantSelected.getID() + "'");
+        Main.stmt.executeUpdate("update users set events_attending = '" + usersCommand + "' where email ='" + Main.getEmailIN() + "'");
+    }
+
+    private String makeEventsCommand(){
+
+        String str=" ";
+        try{
+            ResultSet myResults = Main.stmt.executeQuery("select participants from events where event_id = " + evantSelected.getID());
+
+            while (myResults.next()) {
+                str = myResults.getString("participants");
+            }
+        } catch (Exception exc) {    //catch the exception if occurs
+            exc.printStackTrace();
+        }
+
+        if (str == null)
+            str = "test";
+
+        StringBuilder sb = new StringBuilder(str);
+
+        if ( str.charAt(str.length()-1) == ')') {
+            sb.deleteCharAt(str.length()-1);
+            sb.append("," + getUsersID() + ")");
+        }else{
+            str = "(" + getUsersID() + ")";
+        }
+
+        return str;
+    }
+
+    private String makeUsersCommand(){
+
+        String str= "test";
+        try{
+            ResultSet myResults = Main.stmt.executeQuery("select events_attending from users where email = " + Main.getEmailIN());
+
+            while (myResults.next()) {
+                str = myResults.getString("events_attending");
+            }
+        } catch (Exception exc) {    //catch the exception if occurs
+            exc.printStackTrace();
+        }
+
+        if (str == null)
+            str = "test";
+
+        StringBuilder sb = new StringBuilder(str);
+
+        if (str.charAt(str.length()-1) == ')') {
+            sb.deleteCharAt(str.length());
+            sb.append("," + evantSelected.getID() + ")");
+        }else{
+            str = "(" + evantSelected.getID() + ")";
+        }
+
+        return str;
+    }
+
+    private String getUsersID(){
+        String id = "-1";
+
+        try{
+            ResultSet myResults = Main.stmt.executeQuery("select id from users where email = " + Main.getEmailIN());
+
+        // 4. Process the result set
+        while (myResults.next()) {
+            id = myResults.getString("id");
+        }
+    } catch (Exception exc) {    //catch the exception if occurs
+        exc.printStackTrace();
+    }
+
+        return id;
     }
 
 }

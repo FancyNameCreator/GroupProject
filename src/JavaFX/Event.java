@@ -1,10 +1,6 @@
 package JavaFX;
 
-import javafx.beans.property.SimpleStringProperty;
-
-import java.sql.SQLException;
-
-public class Event {
+public class Event{
     /*
     QUESTIONS TO SOKOL:
     how to handle moving from one type of pane to the other - Ask about returning to main menu from profile
@@ -14,56 +10,36 @@ public class Event {
     ask about the chat
     */
 
+    private final String ID;
+    private final String name;
+    private final String date;
+    private final String location;
+    private final String description;
+    private final String category;
+    private final String participants;
+    private final String creator;
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public String getID() { return ID; }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    public String getName() { return name; }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+    public String getDate() { return date; }
 
-    public void setCreator(String creator) {
-        this.creator = creator;
-    }
+    public String getLocation() { return location; }
 
-    private String name;
-    private String date;
-    private String location;
-    private String description;
-    private String category;
-    private String participants;
-    private String creator;
+    public String getCategory() { return category; }
 
-    public String getName() {
-        return name;
-    }
+    public String getCreator() { return creator; }
 
-    public String getDate() {
-        return date;
-    }
+    public String getDescription() { return description; }
 
-    public String getLocation() {
-        return location;
-    }
+    public String getParticipants() { return participants; }
 
-    public String getCategory() {
-        return category;
-    }
 
-    public String getCreator() {
-        return creator;
-    }
 
-    public Event(String name, String date, String location, String description, String category, String participants, String creator) {
+    public Event(String ID, String name, String date, String location,String description, String category, String participants, String creator){
+        this.ID = ID;
         this.name = name;
         this.date = date;
         this.location = location;
@@ -72,6 +48,4 @@ public class Event {
         this.participants = participants;
         this.creator = creator;
     }
-
-
 }

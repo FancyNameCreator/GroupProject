@@ -21,6 +21,8 @@ public class MyEventsController {
 
     @FXML
     private void initialize(){
+        textAreaParticipants.setEditable(false);
+        textAreaDescription.setEditable(false);
         loadEventsTableAttending();
         loadEventsTableCreated();
         eventNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -88,6 +90,7 @@ public class MyEventsController {
 
     private void loadEventsTableAttending(){
         String idOfEventsIdAttending  = getEventsOfUserAttending();
+        System.out.println(idOfEventsIdAttending);
 
         try {
             // 3. Execute SQL query
@@ -95,6 +98,7 @@ public class MyEventsController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -102,7 +106,7 @@ public class MyEventsController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                table.add(new Event(name,date,location,description,category,participants,creator));
+                table.add(new Event(ID,name,date,location,description,category,participants,creator));
                 //lastIndex ++;
 
             }
@@ -119,6 +123,7 @@ public class MyEventsController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -126,7 +131,7 @@ public class MyEventsController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfCreated.add(new Event(name,date,location,description,category,participants,creator));
+                tableOfCreated.add(new Event(ID,name,date,location,description,category,participants,creator));
                 //lastIndex ++;
 
             }
@@ -155,34 +160,34 @@ public class MyEventsController {
     @FXML
     private void showDetails(){
         Event evantSelected = tableView.getSelectionModel().getSelectedItem();
-        System.out.println(evantSelected.getName());
-        System.out.println(evantSelected.getLocation());
+        textAreaDescription.setText(evantSelected.getDescription());
+        textAreaParticipants.setText(evantSelected.getParticipants());
+    }
+
+    @FXML
+    private void showDetailsOfCreated(){
+        Event evantSelected = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
+        textAreaDescription.setText(evantSelected.getDescription());
+        textAreaParticipants.setText(evantSelected.getParticipants());
     }
 
     @FXML private TableView<Event> tableView;
 
     @FXML private TableColumn<Event, String> eventNameColumn;
-
     @FXML private TableColumn<Event, String> eventDateColumn;
-
     @FXML private TableColumn<Event, String> eventLocationColumn;
-
     @FXML private TableColumn<Event, String> eventCategoryColumn;
-
     @FXML private TableColumn<Event, String> eventCreatorColumn;
 
 
     @FXML private TableView<Event> tableViewOfCreatedEvents;
 
     @FXML private TableColumn<Event, String> eventNameColumnCreated;
-
     @FXML private TableColumn<Event, String> eventDateColumnCreated;
-
     @FXML private TableColumn<Event, String> eventLocationColumnCreated;
-
     @FXML private TableColumn<Event, String> eventCategoryColumnCreated;
-
     @FXML private TableColumn<Event, String> eventCreatorColumnCreated;
 
-
+    @FXML private TextArea textAreaDescription;
+    @FXML private TextArea textAreaParticipants;
 }

@@ -9,15 +9,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.AnchorPane;
-
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
-
 import javafx.scene.layout.BorderPane;
 
 public class SignUpPageController {
@@ -45,17 +39,15 @@ public class SignUpPageController {
 
     @FXML
     public void sendData(ActionEvent event) throws IOException{
-        Main accessToMain = new Main();
 
         String firstnameIN = firstName.getText();
         String lastnameIN = lastName.getText();
         String cityIN = cityField.getText();
         String ageIN = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String email = emailField.getText();
-        accessToMain.setEmailIN(email);
+        Main.setEmailIN(email);
         String passwordEntered = password.getText();
 
-        DatabaseMethodsClass database = new DatabaseMethodsClass();
         try {
             addNewUser(firstnameIN,lastnameIN,cityIN,ageIN,email,passwordEntered);
         } catch (Exception e) {
@@ -80,7 +72,7 @@ public class SignUpPageController {
         signUpPage.getChildren().setAll(pane);
     }
 
-    public static boolean addNewUser(String firstName, String lastName, String city,String age,String email,String password){
+    private static boolean addNewUser(String firstName, String lastName, String city,String age,String email,String password){
        try {
             String sql = "insert into users "
                     + "(first_name, last_name, email, password, city, DoB)"
