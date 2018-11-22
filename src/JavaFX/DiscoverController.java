@@ -230,13 +230,16 @@ public class DiscoverController {
     private void attendEvent() throws SQLException {
         // CHECK IF ALREADY ATTENDING!!!
         // CANT ATTEND EVENTS MADE BY OURSELF
-        legibleToAttend();
 
-        String eventsCommand = makeEventsCommand();
-        String usersCommand = makeUsersCommand();
+        if (legibleToAttend()) {
+            String eventsCommand = makeEventsCommand();
+            String usersCommand = makeUsersCommand();
 
-        Main.stmt.executeUpdate("update events set participants = '" + eventsCommand + "' where event_id ='" + evantSelected.getID() + "'");
-        Main.stmt.executeUpdate("update users set events_attending = '" + usersCommand + "' where email ='" + Main.getEmailIN() + "'");
+            Main.stmt.executeUpdate("update events set participants = '" + eventsCommand + "' where event_id ='" + evantSelected.getID() + "'");
+            Main.stmt.executeUpdate("update users set events_attending = '" + usersCommand + "' where email ='" + Main.getEmailIN() + "'");
+        }else{
+            System.out.println("You cant attend event");
+        }
     }
 
     private String makeEventsCommand() {
@@ -301,9 +304,8 @@ public class DiscoverController {
         String id = "-1";
 
         try {
-            String email = Main.getEmailIN();
 
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '" + email + "'");
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '" + Main.getEmailIN() + "'");
 
             // 4. Process the result set
             while (myResults.next()) {
@@ -318,7 +320,49 @@ public class DiscoverController {
     }
 
     private boolean legibleToAttend(){
-        return false;
+        //pobrać liste uczestnikow i sprawdzic czy mnie tam nie ma
+        //jak nie ma czy jestem creatorem
+        //jak nie jestem to return true;
+        //else fuck you
+
+        String attending="";
+        String checking="";
+
+        if(isTheUserCreator()){
+            return false;
+        }else {
+            try {
+                ResultSet myResults = Main.stmt.executeQuery("select events_attending from users where email = '" + Main.getEmailIN() + "'");
+
+                while (myResults.next()) {
+                    attending = myResults.getString("events_attending");
+                }
+            } catch (Exception exc) {    //catch the exception if occurs
+                exc.printStackTrace();
+            }
+
+            StringBuilder sb = new StringBuilder(checking);
+
+            if (attending.length() != 0) {
+                for (int i = 1; i < attending.length(); i++) {
+                    if (attending.charAt(i) != ',' && attending.charAt(i) != ')') {
+                        sb.append(attending.charAt(i));
+                    } else {
+                        if (evantSelected.getID().equals(sb.toString()))
+                            return false;
+                        sb.deleteCharAt(1);
+                        sb.deleteCharAt(0);
+                    }
+                }
+                return true;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    private boolean isTheUserCreator() {
+        return evantSelected.getCreator().equals(Main.getEmailIN());
     }
 
 }
