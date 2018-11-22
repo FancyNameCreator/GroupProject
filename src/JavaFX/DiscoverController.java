@@ -1,35 +1,44 @@
 package JavaFX;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DiscoverController {
 
     private ObservableList<String> usersChoice = FXCollections.observableArrayList(
-            "Food event","Clubbing","Music event","Just meeting","Sport match","Hobby event");
+            "Food event", "Clubbing", "Music event", "Just meeting", "Sport match", "Hobby event");
     private ObservableList<Event> tableOfDiscover = FXCollections.observableArrayList();
 
     Event evantSelected;
 
-    @FXML private ChoiceBox<String> choiceBoxDiscover;
+    @FXML
+    private ChoiceBox<String> choiceBoxDiscover;
 
-    @FXML private TextArea textAreaDescription;
-    @FXML private TextArea textAreaParticipants;
+    @FXML
+    private TextArea textAreaDescription;
+    @FXML
+    private TextArea textAreaParticipants;
 
 
-    @FXML private TableView<Event> tableViewDiscover;
+    @FXML
+    private TableView<Event> tableViewDiscover;
 
-    @FXML private TableColumn<Event, String> eventNameColumnDiscover;
-    @FXML private TableColumn<Event, String> eventLocationColumnDiscover;
-    @FXML private TableColumn<Event, String> eventDateColumnDiscover;
-    @FXML private TableColumn<Event, String> eventCategoryColumnCategory;
-    @FXML private TableColumn<Event, String> eventCreatorColumnDiscover;
+    @FXML
+    private TableColumn<Event, String> eventNameColumnDiscover;
+    @FXML
+    private TableColumn<Event, String> eventLocationColumnDiscover;
+    @FXML
+    private TableColumn<Event, String> eventDateColumnDiscover;
+    @FXML
+    private TableColumn<Event, String> eventCategoryColumnCategory;
+    @FXML
+    private TableColumn<Event, String> eventCreatorColumnDiscover;
 
 
     @FXML
@@ -44,24 +53,24 @@ public class DiscoverController {
     }
 
     @FXML
-    private void showTableDiscover(){
+    private void showTableDiscover() {
         switch (choiceBoxDiscover.getValue()) {
             case ("Food event"):
                 loadFoodEvents();
                 break;
-            case ("Clubbing") :
+            case ("Clubbing"):
                 loadClubbingEvents();
                 break;
-            case ("Music event") :
+            case ("Music event"):
                 loadMusicEvents();
                 break;
-            case ("Just meeting") :
+            case ("Just meeting"):
                 loadMeetingsEvents();
                 break;
-            case ("Sport match") :
+            case ("Sport match"):
                 loadSportsEvents();
                 break;
-            case ("Hobby event") :
+            case ("Hobby event"):
                 loadHobbyEvents();
                 break;
             default:
@@ -69,32 +78,32 @@ public class DiscoverController {
         }
     }
 
-    private void loadFoodEvents(){
+    private void loadFoodEvents() {
         try {
-                tableViewDiscover.getItems().clear();
+            tableViewDiscover.getItems().clear();
 
-                // 3. Execute SQL query
-                ResultSet myResults = Main.stmt.executeQuery("select * from events where event_category = \"Food event\"");
+            // 3. Execute SQL query
+            ResultSet myResults = Main.stmt.executeQuery("select * from events where event_category = \"Food event\"");
 
-                // 4. Process the result set
-                while (myResults.next()) {
-                    String ID = myResults.getString("event_id");
-                    String name = myResults.getString("event_name");
-                    String date = myResults.getString("event_date");
-                    String location = myResults.getString("event_location");
-                    String description = myResults.getString("event_description");
-                    String category = myResults.getString("event_category");
-                    String participants = myResults.getString("participants");
-                    String creator = myResults.getString("creator");
-                    tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
-                    }
-            } catch (Exception exc) {    //catch the exception if occurs
-                exc.printStackTrace();
+            // 4. Process the result set
+            while (myResults.next()) {
+                String ID = myResults.getString("event_id");
+                String name = myResults.getString("event_name");
+                String date = myResults.getString("event_date");
+                String location = myResults.getString("event_location");
+                String description = myResults.getString("event_description");
+                String category = myResults.getString("event_category");
+                String participants = myResults.getString("participants");
+                String creator = myResults.getString("creator");
+                tableOfDiscover.add(new Event(ID, name, date, location, description, category, participants, creator));
             }
+        } catch (Exception exc) {    //catch the exception if occurs
+            exc.printStackTrace();
+        }
     }
 
 
-    private void loadClubbingEvents(){
+    private void loadClubbingEvents() {
         try {
             tableViewDiscover.getItems().clear();
             // 3. Execute SQL query
@@ -110,14 +119,14 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID, name, date, location, description, category, participants, creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
     }
 
-    private void loadMusicEvents(){
+    private void loadMusicEvents() {
         try {
             tableViewDiscover.getItems().clear();
             // 3. Execute SQL query
@@ -133,14 +142,14 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID, name, date, location, description, category, participants, creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
     }
 
-    private void loadMeetingsEvents(){
+    private void loadMeetingsEvents() {
         try {
             tableViewDiscover.getItems().clear();
             // 3. Execute SQL query
@@ -156,14 +165,14 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID, name, date, location, description, category, participants, creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
     }
 
-    private void loadSportsEvents(){
+    private void loadSportsEvents() {
         try {
             tableViewDiscover.getItems().clear();
             // 3. Execute SQL query
@@ -179,14 +188,14 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID, name, date, location, description, category, participants, creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
     }
 
-    private void loadHobbyEvents(){
+    private void loadHobbyEvents() {
         try {
             tableViewDiscover.getItems().clear();
             // 3. Execute SQL query
@@ -202,7 +211,7 @@ public class DiscoverController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfDiscover.add(new Event(ID,name,date,location,description,category,participants,creator));
+                tableOfDiscover.add(new Event(ID, name, date, location, description, category, participants, creator));
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
@@ -210,7 +219,7 @@ public class DiscoverController {
     }
 
     @FXML
-    private void showDetails(){
+    private void showDetails() {
         evantSelected = tableViewDiscover.getSelectionModel().getSelectedItem();
         textAreaDescription.setText(evantSelected.getDescription());
         textAreaParticipants.setText(evantSelected.getParticipants());
@@ -221,6 +230,7 @@ public class DiscoverController {
     private void attendEvent() throws SQLException {
         // CHECK IF ALREADY ATTENDING!!!
         // CANT ATTEND EVENTS MADE BY OURSELF
+        legibleToAttend();
 
         String eventsCommand = makeEventsCommand();
         String usersCommand = makeUsersCommand();
@@ -229,10 +239,10 @@ public class DiscoverController {
         Main.stmt.executeUpdate("update users set events_attending = '" + usersCommand + "' where email ='" + Main.getEmailIN() + "'");
     }
 
-    private String makeEventsCommand(){
+    private String makeEventsCommand() {
 
-        String str=" ";
-        try{
+        String str = " ";
+        try {
             ResultSet myResults = Main.stmt.executeQuery("select participants from events where event_id = " + evantSelected.getID());
 
             while (myResults.next()) {
@@ -245,23 +255,24 @@ public class DiscoverController {
         if (str == null)
             str = "test";
 
+
         StringBuilder sb = new StringBuilder(str);
 
-        if ( str.charAt(str.length()-1) == ')') {
-            sb.deleteCharAt(str.length()-1);
-            sb.append("," + getUsersID() + ")");
-        }else{
+        if (str.charAt(str.length() - 1) == ')') {
+            sb.deleteCharAt(str.length() - 1);
+            sb.append(",").append(getUsersID()).append(")");
+            return sb.toString();
+        } else {
             str = "(" + getUsersID() + ")";
+            return str;
         }
-
-        return str;
     }
 
-    private String makeUsersCommand(){
+    private String makeUsersCommand() {
 
-        String str= "test";
-        try{
-            ResultSet myResults = Main.stmt.executeQuery("select events_attending from users where email = " + Main.getEmailIN());
+        String str = "test";
+        try {
+            ResultSet myResults = Main.stmt.executeQuery("select events_attending from users where email = '" + Main.getEmailIN() + "'");
 
             while (myResults.next()) {
                 str = myResults.getString("events_attending");
@@ -275,31 +286,39 @@ public class DiscoverController {
 
         StringBuilder sb = new StringBuilder(str);
 
-        if (str.charAt(str.length()-1) == ')') {
-            sb.deleteCharAt(str.length());
-            sb.append("," + evantSelected.getID() + ")");
-        }else{
+        if (str.charAt(str.length() - 1) == ')') {
+            sb.deleteCharAt(str.length()-1);
+            sb.append(",").append(evantSelected.getID()).append(")");
+            return sb.toString();
+        } else {
             str = "(" + evantSelected.getID() + ")";
+            return str;
         }
 
-        return str;
     }
 
-    private String getUsersID(){
+    private String getUsersID() {
         String id = "-1";
 
-        try{
-            ResultSet myResults = Main.stmt.executeQuery("select id from users where email = " + Main.getEmailIN());
+        try {
+            String email = Main.getEmailIN();
 
-        // 4. Process the result set
-        while (myResults.next()) {
-            id = myResults.getString("id");
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '" + email + "'");
+
+            // 4. Process the result set
+            while (myResults.next()) {
+                id = myResults.getString("id");
+            }
+        } catch (Exception exc) {    //catch the exception if occurs
+            exc.printStackTrace();
         }
-    } catch (Exception exc) {    //catch the exception if occurs
-        exc.printStackTrace();
+
+        System.out.println("Users id " + id);
+        return id;
     }
 
-        return id;
+    private boolean legibleToAttend(){
+        return false;
     }
 
 }
