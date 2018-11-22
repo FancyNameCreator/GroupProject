@@ -5,7 +5,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class MyEventsController {
 
@@ -31,6 +36,54 @@ public class MyEventsController {
         eventCategoryColumnCreated.setCellValueFactory(new PropertyValueFactory<>("category"));
         eventCreatorColumnCreated.setCellValueFactory(new PropertyValueFactory<>("creator"));
         tableViewOfCreatedEvents.setItems(tableOfCreated);
+
+        tableViewOfCreatedEvents.setEditable(true);
+        eventNameColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
+        eventDateColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
+        eventLocationColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
+        eventCategoryColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
+    }
+
+    public void changeEventName (TableColumn.CellEditEvent edittedCell) {
+        Main connection = new Main();
+        String emailRead = connection.getEmailIN();
+        Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
+        choosenEvent.setName(edittedCell.getNewValue().toString());
+        try {
+            String sql = "update events set event_name = '"+ edittedCell.getNewValue() +"' where event_id = '" + choosenEvent.getID(); + "'";
+
+            connection.stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void changeEventDate (TableColumn.CellEditEvent edittedCell) {
+        Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
+        choosenEvent.setDate(edittedCell.getNewValue().toString());
+        Main connection = new Main();
+        String emailRead = connection.getEmailIN();
+        try {
+            String sql = "update events set event_date = '"++"' where ";
+
+            connection.stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void changeEventLocation (TableColumn.CellEditEvent edittedCell) {
+        Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
+        choosenEvent.setLocation(edittedCell.getNewValue().toString());
+        Main connection = new Main();
+        String emailRead = connection.getEmailIN();
+        try {
+            String sql = "update events set event_location = '"++"'";
+            connection.stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void changeEventCategory () {
+
     }
 
     private void loadEventsTableAttending(){

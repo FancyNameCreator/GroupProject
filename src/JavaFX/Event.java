@@ -1,6 +1,10 @@
 package JavaFX;
 
-public class Event{
+import javafx.beans.property.SimpleStringProperty;
+
+import java.sql.SQLException;
+
+public class Event {
     /*
     QUESTIONS TO SOKOL:
     how to handle moving from one type of pane to the other - Ask about returning to main menu from profile
@@ -9,26 +13,57 @@ public class Event{
     ask about full screen, how to recenter textfields and all this things
     ask about the chat
     */
-    private final String name;
-    private final String date;
-    private final String location;
-    private final String description;
-    private final String category;
-    private final String participants;
-    private final String creator;
-
-    public String getName() { return name; }
-
-    public String getDate() { return date; }
-
-    public String getLocation() { return location; }
-
-    public String getCategory() { return category; }
-
-    public String getCreator() { return creator; }
 
 
-    public Event(String name, String date, String location,String description, String category, String participants, String creator){
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    private String name;
+    private String date;
+    private String location;
+    private String description;
+    private String category;
+    private String participants;
+    private String creator;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public Event(String name, String date, String location, String description, String category, String participants, String creator) {
         this.name = name;
         this.date = date;
         this.location = location;
@@ -37,4 +72,6 @@ public class Event{
         this.participants = participants;
         this.creator = creator;
     }
+
+
 }
