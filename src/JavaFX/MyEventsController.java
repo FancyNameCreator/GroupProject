@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+
 public class MyEventsController {
 
     private ObservableList<Event> table = FXCollections.observableArrayList();
@@ -43,7 +45,7 @@ public class MyEventsController {
         eventNameColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
         eventDateColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
         eventLocationColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
-        eventCategoryColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
+        //eventCategoryColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     public void changeEventName (TableColumn.CellEditEvent edittedCell) {
@@ -52,7 +54,7 @@ public class MyEventsController {
         Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
         choosenEvent.setName(edittedCell.getNewValue().toString());
         try {
-            String sql = "update events set event_name = '"+ edittedCell.getNewValue() +"' where event_id = '" + choosenEvent.getID(); + "'";
+            String sql = "update events set event_name = '"+ edittedCell.getNewValue() +"' where event_id = '" + choosenEvent.getID() + "'";
 
             connection.stmt.executeUpdate(sql);
         } catch (SQLException e) {
@@ -65,7 +67,7 @@ public class MyEventsController {
         Main connection = new Main();
         String emailRead = connection.getEmailIN();
         try {
-            String sql = "update events set event_date = '"++"' where ";
+            String sql = "update events set event_date = '"+ edittedCell.getNewValue() +"' where event_id = '"+ choosenEvent.getID() + "' ";
 
             connection.stmt.executeUpdate(sql);
         } catch (SQLException e) {
@@ -78,7 +80,7 @@ public class MyEventsController {
         Main connection = new Main();
         String emailRead = connection.getEmailIN();
         try {
-            String sql = "update events set event_location = '"++"'";
+            String sql = "update events set event_location = '"+ edittedCell.getNewValue() +"' where event_id = '"+ choosenEvent.getID() + "'";
             connection.stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();

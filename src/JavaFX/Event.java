@@ -10,14 +10,45 @@ public class Event{
     ask about the chat
     */
 
-    private final String ID;
-    private final String name;
-    private final String date;
-    private final String location;
-    private final String description;
-    private final String category;
-    private final String participants;
-    private final String creator;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setParticipants(String participants) {
+        this.participants = participants;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+    public void setID (String ID) {
+        this.ID = ID;
+    }
+
+    public void setName (String name) {
+        this.name = name;
+    }
+
+    private String ID;
+    private String name;
+    private String date;
+    private String location;
+    private String description;
+    private String category;
+    private String participants;
+    private String creator;
 
 
     public String getID() { return ID; }
@@ -35,7 +66,6 @@ public class Event{
     public String getDescription() { return description; }
 
     public String getParticipants() { return participants; }
-
 
 
     public Event(String ID, String name, String date, String location,String description, String category, String participants, String creator){
