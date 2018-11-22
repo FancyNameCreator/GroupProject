@@ -1,5 +1,7 @@
 package JavaFX;
 
+import java.sql.ResultSet;
+
 public class Event{
 
     /*
@@ -81,5 +83,47 @@ public class Event{
         this.category = category;
         this.participants = participants;
         this.creator = creator;
+    }
+
+    public static String printNiceParticipants(String participants){
+        /*
+        get single id from a list
+        append to string
+        */
+        String checking="";
+        String returning="";
+        String name = "";
+        String lastName = "";
+
+        StringBuilder sb = new StringBuilder(checking);
+        StringBuilder rt = new StringBuilder(returning);
+
+        if (participants.length() != 0) {
+            for (int i = 1; i < participants.length(); i++) {
+                if (participants.charAt(i) != ',' && participants.charAt(i) != ')') {
+                    sb.append(participants.charAt(i));
+                } else {
+                    //load person name and last
+                    //append to string
+                    try {
+                        ResultSet myResults = Main.stmt.executeQuery("select * from users where id = '" + sb.toString() + "'");
+
+                        while (myResults.next()) {
+                            name = myResults.getString("first_name");
+                            lastName = myResults.getString("last_name");
+                        }
+                    } catch (Exception exc) {    //catch the exception if occurs
+                        exc.printStackTrace();
+                    }
+                    rt.append(name).append(" ").append(lastName).append("\n");
+
+                    sb.deleteCharAt(1);
+                    sb.deleteCharAt(0);
+                }
+            }
+        } else {
+            return "No of the users is going to participate :(";
+        }
+        return rt.toString();
     }
 }
