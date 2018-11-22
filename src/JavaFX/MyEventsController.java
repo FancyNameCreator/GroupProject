@@ -45,6 +45,7 @@ public class MyEventsController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -52,7 +53,7 @@ public class MyEventsController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                table.add(new Event(name,date,location,description,category,participants,creator));
+                table.add(new Event(ID,name,date,location,description,category,participants,creator));
                 //lastIndex ++;
 
             }
@@ -69,6 +70,7 @@ public class MyEventsController {
 
             // 4. Process the result set
             while (myResults.next()) {
+                String ID = myResults.getString("event_id");
                 String name = myResults.getString("event_name");
                 String date = myResults.getString("event_date");
                 String location = myResults.getString("event_location");
@@ -76,7 +78,7 @@ public class MyEventsController {
                 String category = myResults.getString("event_category");
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
-                tableOfCreated.add(new Event(name,date,location,description,category,participants,creator));
+                tableOfCreated.add(new Event(ID,name,date,location,description,category,participants,creator));
                 //lastIndex ++;
 
             }

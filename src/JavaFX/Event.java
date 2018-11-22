@@ -9,6 +9,8 @@ public class Event{
     ask about full screen, how to recenter textfields and all this things
     ask about the chat
     */
+
+    private final String ID;
     private final String name;
     private final String date;
     private final String location;
@@ -16,6 +18,9 @@ public class Event{
     private final String category;
     private final String participants;
     private final String creator;
+
+
+    public String getID() { return ID; }
 
     public String getName() { return name; }
 
@@ -34,6 +39,7 @@ public class Event{
 
 
     public Event(String ID, String name, String date, String location,String description, String category, String participants, String creator){
+        this.ID = ID;
         this.name = name;
         this.date = date;
         this.location = location;
