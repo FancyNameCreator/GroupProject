@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
@@ -8,11 +9,13 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="myEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MyEventsController">
+<BorderPane fx:id="myEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MyEventsController">
     <center>
         <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
             <tabs>
@@ -53,13 +56,6 @@
             </tabs>
         </TabPane>
     </center>
-    <top>
-        <Label fx:id="mainLabel" text="My Events" BorderPane.alignment="CENTER">
-            <font>
-                <Font name="System Bold" size="36.0" />
-            </font>
-        </Label>
-    </top>
    <bottom>
       <AnchorPane prefHeight="150.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -76,4 +72,26 @@
          </children>
       </AnchorPane>
    </bottom>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="900.0" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <Label fx:id="mainLabel" alignment="CENTER_RIGHT" text="My Events">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#BackToEvents" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-size: 14; -fx-font-weight: BOLD;" text="Go Back -&gt;">
+               <font>
+                  <Font name="Segoe UI Symbol" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <HBox.margin>
+                  <Insets left="275.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

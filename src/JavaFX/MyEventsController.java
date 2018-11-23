@@ -3,10 +3,13 @@ package JavaFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +23,17 @@ public class MyEventsController {
     private ObservableList<Event> tableOfCreated = FXCollections.observableArrayList();
 
     int lastIndex = 0;
+
+    @FXML
+    private BorderPane myEventsPane;
+
+    @FXML
+    private void BackToEvents() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+        BorderPane pane = loader.load();
+        myEventsPane.getChildren().setAll(pane);
+    }
 
     @FXML
     private void initialize(){
