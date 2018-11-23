@@ -148,8 +148,8 @@ public class DatabaseMethodsClass {
             // making String variable with MySQL command
             // inserting previously entered Strings(firstName, lastName, etc..) to corresponding columns in the Database
             String sql = "insert into users "
-                    + "(first_name, last_name, email, password, address, postal_code, city, country, DoB)"
-                    + "values ('" + firstName + "','" + lastName + "','" + email + "','" + password + "','" + address + "','" + postalCode + "','" + city + "','" + country + "','" + age + "')";
+                    + "(first_name, last_name, email, password, city, DoB)"
+                    + "values ('" + firstName + "','" + lastName + "','" + email + "','" + password + "','" + city + "','" + age + "')";
 
             // executing MySQL command that value is stored in sql variable
             stmt.executeUpdate(sql);

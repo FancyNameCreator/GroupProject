@@ -56,6 +56,7 @@ public class Main extends Application {
 
         }catch (SQLException e){
             e.printStackTrace();
+            System.out.println("YOU STUPIDO !  DO YOU HAVE SQL CONNECTED !?");
         }
     }
 
