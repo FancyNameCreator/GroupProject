@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -57,18 +58,40 @@
         </TabPane>
     </center>
    <bottom>
-      <AnchorPane prefHeight="150.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="161.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="textAreaDescription" prefHeight="200.0" prefWidth="450.0">
+            <TextArea fx:id="textAreaDescription" layoutY="42.0" prefHeight="120.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </TextArea>
-            <TextArea fx:id="textAreaParticipants" layoutX="449.0" prefHeight="200.0" prefWidth="449.0">
+            <TextArea fx:id="textAreaParticipants" layoutX="449.0" layoutY="43.0" prefHeight="120.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </TextArea>
+            <SplitPane dividerPositions="0.5" layoutX="389.0" prefHeight="41.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label layoutX="158.0" layoutY="8.0" text="Description">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="39.0" prefWidth="219.0">
+                     <children>
+                        <Label layoutX="161.0" layoutY="8.0" text="Participants">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
          </children>
       </AnchorPane>
    </bottom>

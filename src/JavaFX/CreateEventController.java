@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -40,6 +37,9 @@ public class CreateEventController {
 
     @FXML
     private BorderPane CreateEventsPane;
+
+    @FXML
+    private Label labelEventCreated;
 
     @FXML
     private void BackToEvents() throws IOException {
@@ -91,6 +91,9 @@ public class CreateEventController {
         }catch(SQLException e){
             e.printStackTrace();
         }
+        labelEventCreated.setVisible(true);
+
+
 
 
     }

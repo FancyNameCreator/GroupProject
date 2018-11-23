@@ -100,7 +100,8 @@ public class MyEventsController {
             e.printStackTrace();
         }
     }
-    public void changeEventCategory () {
+    public void changeEventCategory (TableColumn.CellEditEvent edittedCell) {
+        Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
 
     }
 
@@ -194,6 +195,7 @@ public class MyEventsController {
     @FXML private TableColumn<Event, String> eventLocationColumn;
     @FXML private TableColumn<Event, String> eventCategoryColumn;
     @FXML private TableColumn<Event, String> eventCreatorColumn;
+    @FXML private DatePicker dataPicker;
 
 
     @FXML private TableView<Event> tableViewOfCreatedEvents;
