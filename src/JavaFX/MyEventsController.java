@@ -129,6 +129,7 @@ public class MyEventsController {
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
+            textAreaDescription.setText("Currently you are not attending any event");
         }
     }
 
@@ -154,6 +155,7 @@ public class MyEventsController {
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
+            textAreaDescription.setText("Currently you are not created any event");
         }
     }
 
