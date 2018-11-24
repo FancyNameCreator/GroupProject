@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -107,7 +108,7 @@ public class MyEventsController {
 
     private void loadEventsTableAttending(){
         String idOfEventsIdAttending  = getEventsOfUserAttending();
-        System.out.println(idOfEventsIdAttending);
+        //System.out.println(idOfEventsIdAttending);
 
         try {
             // 3. Execute SQL query
@@ -210,4 +211,7 @@ public class MyEventsController {
 
     @FXML private TextArea textAreaDescription;
     @FXML private TextArea textAreaParticipants;
+
+    @FXML private DatePicker datePicker;
+    @FXML private DateCell dateCell;
 }

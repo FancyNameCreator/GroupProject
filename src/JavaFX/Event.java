@@ -121,7 +121,7 @@ public class Event{
                 }
             }
         } else {
-            return "No of the users is going to participate :(";
+            return "None of the users is going to participate :(";
         }
         return rt.toString();
     }
