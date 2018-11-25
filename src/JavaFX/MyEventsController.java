@@ -64,14 +64,14 @@ public class MyEventsController {
     }
 
     public void changeEventName (TableColumn.CellEditEvent edittedCell) {
-        Main connection = new Main();
-        String emailRead = connection.getEmailIN();
+
+        String emailRead = Main.getEmailIN();
         Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
         choosenEvent.setName(edittedCell.getNewValue().toString());
         try {
             String sql = "update events set event_name = '"+ edittedCell.getNewValue() +"' where event_id = '" + choosenEvent.getID() + "'";
 
-            connection.stmt.executeUpdate(sql);
+            Main.stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -181,14 +181,14 @@ public class MyEventsController {
     private void showDetails(){
         Event evantSelected = tableView.getSelectionModel().getSelectedItem();
         textAreaDescription.setText(evantSelected.getDescription());
-        textAreaParticipants.setText(evantSelected.getParticipants());
+        textAreaParticipants.setText(Event.printNiceParticipants(evantSelected.getParticipants()));        ;
     }
 
     @FXML
     private void showDetailsOfCreated(){
         Event evantSelected = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
         textAreaDescription.setText(evantSelected.getDescription());
-        textAreaParticipants.setText(evantSelected.getParticipants());
+        textAreaParticipants.setText(Event.printNiceParticipants(evantSelected.getParticipants()));        ;
     }
 
     @FXML private TableView<Event> tableView;

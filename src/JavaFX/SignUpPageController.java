@@ -95,7 +95,7 @@ public class SignUpPageController {
             // executing MySQL command that value is stored in sql variable
             Main.stmt.executeUpdate(sql);
 
-           Alert alert=new Alert(Alert.AlertType.ERROR);
+           Alert alert=new Alert(Alert.AlertType.INFORMATION);
            alert.setHeaderText(null);
            alert.setContentText("Data inserted");
            alert.showAndWait();
@@ -110,7 +110,7 @@ public class SignUpPageController {
         LocalDate dateLimit = LocalDate.now();
         dateLimit = dateLimit.minusYears(16);
 
-        if (firstName==null){
+        if (firstName.equals("")){
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("First Name field is empty, enter sth!");
@@ -118,7 +118,7 @@ public class SignUpPageController {
             return false;
         }
 
-        if (lastName==null){
+        if (lastName.equals("")){
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Last Name field is empty, enter sth!");
@@ -126,7 +126,7 @@ public class SignUpPageController {
             return false;
         }
 
-        if (city==null){
+        if (city.equals("")){
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("City field is empty, enter sth!");
@@ -143,7 +143,7 @@ public class SignUpPageController {
             return false;
         }
 
-        if (email==null){
+        if (email.equals("")){
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Email field is empty, enter sth!");
@@ -160,7 +160,7 @@ public class SignUpPageController {
             return false;
         }
 
-        if (password==null){
+        if (password.equals("")){
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Password field is empty, enter sth!");
@@ -170,7 +170,7 @@ public class SignUpPageController {
     return true;
     }
 
-    private boolean emailIsRepeating(String email){
+    public boolean emailIsRepeating(String email){
         try {
             // 3. Execute SQL query
             ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '"+email+"'");

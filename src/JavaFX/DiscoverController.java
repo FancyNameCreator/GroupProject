@@ -236,8 +236,6 @@ public class DiscoverController {
     private void showDetails() {
         evantSelected = tableViewDiscover.getSelectionModel().getSelectedItem();
         textAreaDescription.setText(evantSelected.getDescription());
-        //textAreaParticipants.setText(evantSelected.getParticipants());
-
         textAreaParticipants.setText(Event.printNiceParticipants(evantSelected.getParticipants()));        ;
 
         System.out.println(evantSelected.getID());

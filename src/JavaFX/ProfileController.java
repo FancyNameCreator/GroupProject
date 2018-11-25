@@ -8,6 +8,9 @@ import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class ProfileController{
     @FXML
@@ -20,7 +23,7 @@ public class ProfileController{
     @FXML
     private TextField cityTextField;
     @FXML
-    private TextField ageTextField;
+    private DatePicker datePickerOfDoB;
     @FXML
     private TextField emailTextField;
     @FXML
@@ -37,7 +40,7 @@ public class ProfileController{
     private String firstName;
     private String lastName;
     private String city;
-    private String age;
+    private LocalDate age;
     private String email;
     private String password;
 
@@ -55,19 +58,19 @@ public class ProfileController{
     }
 
     private void printText(){
-        firstNameTextField.setText(firstName);
-        lastNameTextField.setText(lastName);
-        cityTextField.setText(city);
-        ageTextField.setText(age);
-        emailTextField.setText(email);
-        passwordTextField.setText(password);
+        firstNameTextField.setPromptText(firstName);
+        lastNameTextField.setPromptText(lastName);
+        cityTextField.setPromptText(city);
+        datePickerOfDoB.setPromptText(age.toString());
+        emailTextField.setPromptText(email);
+        passwordTextField.setPromptText("(NOT VISIBLE)");
     }
 
     private void unableToWrite(){
         firstNameTextField.setEditable(false);
         lastNameTextField.setEditable(false);
         cityTextField.setEditable(false);
-        ageTextField.setEditable(false);
+        datePickerOfDoB.setEditable(false);
         emailTextField.setEditable(false);
         passwordTextField.setEditable(false);
     }
@@ -86,7 +89,8 @@ public class ProfileController{
                     email = myResults.getString("email");
                     password = myResults.getString("password");
                     city = myResults.getString("city");
-                    age = myResults.getString("DoB");
+                    Date buf = myResults.getDate("DoB");
+                    age = ((java.sql.Date) buf).toLocalDate();
 
                 }
             } catch (Exception exc) {    //catch the exception if occurs
@@ -96,89 +100,139 @@ public class ProfileController{
 
     @FXML
     private void updateFirstName(ActionEvent ae) {
+        firstNameTextField.setText(firstName);
         firstNameTextField.setEditable(true);
         firstNameButtonClicked = true;
     }
 
     @FXML
     private void updateLastName(ActionEvent ae){
+        lastNameTextField.setText(lastName);
         lastNameTextField.setEditable(true);
         lastNameButtonClicked = true;
     }
 
     @FXML
     private void updateCity(ActionEvent ae){
+        lastNameTextField.setText(lastName);
         cityTextField.setEditable(true);
         cityButtonClicked = true;
     }
 
     @FXML
     private void updateAge(ActionEvent ae){
-        ageTextField.setEditable(true);
+        datePickerOfDoB.setEditable(true);
         ageButtonClicked = true;
     }
 
     @FXML
     private void updateEmail(ActionEvent ae){
+        emailTextField.setText(email);
         emailTextField.setEditable(true);
         emailButtonClicked= true;
     }
 
     @FXML
     private void updatePassword(ActionEvent ae){
+        passwordTextField.setText(password);
         passwordTextField.setEditable(true);
         passwordButtonClicked = true;
     }
 
     @FXML
     private void submitUpdates(ActionEvent ae){
-        Main connection = new Main();
         Controller access1 = new Controller();
-        String emailRead = connection.getEmailIN();
+        SignUpPageController check = new SignUpPageController();
+
+
+        LocalDate dateLimit = LocalDate.now();
+        dateLimit = dateLimit.minusYears(16);
+        String emailRead = Main.getEmailIN();
         String sql;
+        boolean checkIfUpdated=false;
+
         unableToWrite();
 
         try {
             if (firstNameButtonClicked && !firstName.equals(firstNameTextField.getText())) {
                 firstName = firstNameTextField.getText();
                 sql = "update users set first_name = '" + firstName + "' where email ='" + emailRead + "'";
-                connection.stmt.executeUpdate(sql);
+                Main.stmt.executeUpdate(sql);
+                checkIfUpdated=true;
             }
 
             if (lastNameButtonClicked && !lastName.equals(lastNameTextField.getText())){
                 lastName = lastNameTextField.getText();
                 sql = "update users set last_name = '" + lastName + "' where email ='" + emailRead + "'";
-                connection.stmt.executeUpdate(sql);
+                Main.stmt.executeUpdate(sql);
+                checkIfUpdated=true;
             }
 
             if (cityButtonClicked && !city.equals(cityTextField.getText())){
                 city = cityTextField.getText();
                 sql = "update users set city = '" + city + "' where email ='" + emailRead + "'";
-                connection.stmt.executeUpdate(sql);
+                Main.stmt.executeUpdate(sql);
+                checkIfUpdated=true;
             }
 
-            if (ageButtonClicked && !age.equals(ageTextField.getText())){
-                age = ageTextField.getText();
-/*dont remember column name*/ sql = "update users set DoB = '" + lastName + "' where email ='" + emailRead + "'";
-                connection.stmt.executeUpdate(sql);
+            if (ageButtonClicked && !age.equals(datePickerOfDoB.getValue())){
+                age = datePickerOfDoB.getValue();
+
+                if (datePickerOfDoB.getValue().isAfter(dateLimit)) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("You must be at least 16 years old!");
+                    alert.showAndWait();
+                }else {
+                    sql = "update users set DoB = '" + datePickerOfDoB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + "' where email ='" + emailRead + "'";
+                    Main.stmt.executeUpdate(sql);
+                    checkIfUpdated = true;
+                }
             }
 
             if (emailButtonClicked && !email.equals(emailTextField.getText())){
-                email = emailTextField.getText();
-                access1.setEmailIN(email);
-                sql = "update users set email = '" + email + "' where email ='" + emailRead + "'";
-                connection.stmt.executeUpdate(sql);
+                if(check.emailIsRepeating(emailTextField.getText())){
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("Email already exists in Database, insert new one");
+                    alert.showAndWait();
+                } else {
+                    email = emailTextField.getText();
+                    access1.setEmailIN(email);
+                    sql = "update users set email = '" + email + "' where email ='" + emailRead + "'";
+                    Main.stmt.executeUpdate(sql);
+                    checkIfUpdated = true;
+                }
             }
 
             if (passwordButtonClicked && !password.equals(passwordTextField.getText())){
                 password = passwordTextField.getText();
                 sql = "update users set password = '" + password + "' where email ='" + emailRead + "'";
-                connection.stmt.executeUpdate(sql);
+                Main.stmt.executeUpdate(sql);
+                checkIfUpdated=true;
             }
+
+
+
         }catch (SQLException e){
             e.printStackTrace();
         }
-        startrunning();
+
+        if (checkIfUpdated){
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Data inserted");
+            alert.showAndWait();
+            startrunning();
+        } else {
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("You haven't updated profile!");
+            alert.showAndWait();
+            startrunning();
+        }
+
+
     }
 
 //the problem may be because going from border pane to anchor pane again

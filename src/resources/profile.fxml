@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -14,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane fx:id="profilePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ProfileController">
+<BorderPane fx:id="profilePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ProfileController">
    <top>
       <VBox prefHeight="46.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -43,7 +43,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#goToFriends" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToFriends" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
@@ -54,7 +54,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#goToEvents" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Events" textAlignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToEvents" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Events" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
@@ -65,7 +65,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#goToChat" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Chat" textAlignment="JUSTIFY">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Chat" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
@@ -167,7 +167,7 @@
                   </Label>
                   <HBox layoutX="10.0" layoutY="466.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="ageTextField" prefHeight="35.0" prefWidth="500.0" />
+                        <DatePicker fx:id="datePickerOfDoB" prefHeight="35.0" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
                         <Button fx:id="ageButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateAge" prefWidth="100.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Change">
                            <font>
