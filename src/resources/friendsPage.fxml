@@ -101,7 +101,7 @@
                         </TableView>
                         <AnchorPane layoutX="658.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button fx:id="buttonAddNewOne" layoutX="57.0" layoutY="221.0" mnemonicParsing="false" onAction="#AddNewOne" prefHeight="42.0" prefWidth="87.0" text="Add new one" />
+                              <Button fx:id="buttonAddNewOne" layoutX="57.0" layoutY="221.0" mnemonicParsing="false" onAction="#addNewOne" prefHeight="42.0" prefWidth="87.0" text="Add new one" />
                            </children>
                         </AnchorPane>
                      </children>
