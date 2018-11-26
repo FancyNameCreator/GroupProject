@@ -111,7 +111,7 @@
                   <DropShadow />
                </effect>
                <HBox.margin>
-                  <Insets left="275.0" />
+                  <Insets left="265.0" right="10.0" />
                </HBox.margin>
             </Button>
          </children>
