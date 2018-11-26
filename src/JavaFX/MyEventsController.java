@@ -198,7 +198,7 @@ public class MyEventsController {
     @FXML private TableColumn<Event, String> eventLocationColumn;
     @FXML private TableColumn<Event, String> eventCategoryColumn;
     @FXML private TableColumn<Event, String> eventCreatorColumn;
-    @FXML private DatePicker dataPicker;
+    @FXML private DatePicker datePicker;
 
 
     @FXML private TableView<Event> tableViewOfCreatedEvents;
@@ -212,6 +212,4 @@ public class MyEventsController {
     @FXML private TextArea textAreaDescription;
     @FXML private TextArea textAreaParticipants;
 
-    @FXML private DatePicker datePicker;
-    @FXML private DateCell dateCell;
 }
