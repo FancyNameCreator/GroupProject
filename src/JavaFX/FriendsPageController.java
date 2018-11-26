@@ -13,7 +13,7 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 import java.sql.ResultSet;
 
-public class FriendsPageController {
+public class FriendsPageController{
 
     private ObservableList<Person> tableOfFriends = FXCollections.observableArrayList();
 
@@ -32,7 +32,7 @@ public class FriendsPageController {
     @FXML
     private TableColumn<Person, String> DOBColumn;
 
-
+    @FXML
     private void initialize(){
         if (/*you have friends*/ doUserHasFriends()){
             /*load table of friends*/
@@ -44,6 +44,7 @@ public class FriendsPageController {
             tableViewList.setItems(tableOfFriends);
         }else{
             /*load sth else*/
+            System.out.println("You are madafaka with no friends");
         }
     }
 
@@ -89,7 +90,7 @@ public class FriendsPageController {
 
         try {
             // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where id in = '"+ friendsString +"'");
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where id in " + friendsString);
 
             // 4. Process the result set
             while (myResults.next()) {
