@@ -5,12 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.BorderPane;
-
+import java.sql.Date;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class ProfileController{
     @FXML
@@ -90,7 +89,7 @@ public class ProfileController{
                     password = myResults.getString("password");
                     city = myResults.getString("city");
                     Date buf = myResults.getDate("DoB");
-                    age = ((java.sql.Date) buf).toLocalDate();
+                    age = buf.toLocalDate();
 
                 }
             } catch (Exception exc) {    //catch the exception if occurs
