@@ -85,9 +85,9 @@
                         <DropShadow />
                      </effect>
                   </HBox>
-                  <AnchorPane prefHeight="99.0" prefWidth="900.0">
+                  <AnchorPane prefHeight="100.0" prefWidth="912.0">
                      <children>
-                        <Label layoutX="365.0" layoutY="32.0" text="Welcome!">
+                        <Label layoutX="371.0" layoutY="16.0" text="Welcome!">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
