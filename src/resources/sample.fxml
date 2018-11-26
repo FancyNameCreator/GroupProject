@@ -9,48 +9,53 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller">
-   <children>
-      <VBox alignment="CENTER" prefHeight="1080.0" prefWidth="1920.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="username" maxWidth="600" prefHeight="50.0" prefWidth="600.0" promptText="Enter E-mail">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </VBox.margin>
-            </TextField>
-            <PasswordField fx:id="password" maxWidth="600" prefHeight="50.0" prefWidth="600.0" promptText="Enter Password">
-               <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </VBox.margin>
-            </PasswordField>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="LoginBTN" mnemonicParsing="false" onAction="#validate" prefHeight="70.0" prefWidth="240.0" style="-fx-background-color: #313131; -fx-font-size: 20; -fx-font-weight: BOLD; -fx-text-fill: #FFF;" text="Login" textAlignment="CENTER">
-                     <font>
-                        <Font name="Segoe UI Symbol" size="20.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </Button>
-                  <Button fx:id="SignupBTN" mnemonicParsing="false" onAction="#loadSignup" prefHeight="70.0" prefWidth="240.0" style="-fx-background-color: #313131; -fx-font-size: 20; -fx-font-weight: BOLD; -fx-text-fill: #FFF;" text="Sign Up" textAlignment="CENTER">
-                     <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Segoe UI Symbol" size="20.0" />
-                     </font>
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                  </Button>
+                  <TextField fx:id="username" maxWidth="600" prefHeight="50.0" prefWidth="600.0" promptText="Enter E-mail">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <PasswordField fx:id="password" maxWidth="600" prefHeight="50.0" prefWidth="600.0" promptText="Enter Password">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </PasswordField>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="LoginBTN" mnemonicParsing="false" onAction="#validate" prefHeight="70.0" prefWidth="240.0" style="-fx-background-color: #313131; -fx-font-size: 20; -fx-font-weight: BOLD; -fx-text-fill: #FFF;" text="Login" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                        <Button fx:id="SignupBTN" mnemonicParsing="false" onAction="#loadSignup" prefHeight="70.0" prefWidth="240.0" style="-fx-background-color: #313131; -fx-font-size: 20; -fx-font-weight: BOLD; -fx-text-fill: #FFF;" text="Sign Up" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Segoe UI Symbol" size="20.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
-   </children>
-</AnchorPane>
+      </AnchorPane>
+   </center>
+</BorderPane>

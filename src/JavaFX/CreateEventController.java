@@ -4,11 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 
@@ -34,6 +34,20 @@ public class CreateEventController {
 
     @FXML
     private Button buttonCreate;
+
+    @FXML
+    private BorderPane CreateEventsPane;
+
+    @FXML
+    private Label labelEventCreated;
+
+    @FXML
+    private void BackToEvents() throws IOException {
+    FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+    BorderPane pane = loader.load();
+        CreateEventsPane.getChildren().setAll(pane);
+}
 
     String nameOfEvent;
     String locationOfEvent;
@@ -77,6 +91,9 @@ public class CreateEventController {
         }catch(SQLException e){
             e.printStackTrace();
         }
+        labelEventCreated.setVisible(true);
+
+
 
 
     }

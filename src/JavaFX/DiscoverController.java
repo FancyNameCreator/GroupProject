@@ -3,13 +3,27 @@ package JavaFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DiscoverController {
+
+    @FXML
+    private BorderPane borderPaneDiscover;
+
+    @FXML
+    private void BackToEvents() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+        BorderPane pane = loader.load();
+        borderPaneDiscover.getChildren().setAll(pane);
+    }
 
     private ObservableList<String> usersChoice = FXCollections.observableArrayList(
             "Food event", "Clubbing", "Music event", "Just meeting", "Sport match", "Hobby event");
@@ -222,8 +236,6 @@ public class DiscoverController {
     private void showDetails() {
         evantSelected = tableViewDiscover.getSelectionModel().getSelectedItem();
         textAreaDescription.setText(evantSelected.getDescription());
-        //textAreaParticipants.setText(evantSelected.getParticipants());
-
         textAreaParticipants.setText(Event.printNiceParticipants(evantSelected.getParticipants()));        ;
 
         System.out.println(evantSelected.getID());

@@ -9,20 +9,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
+import java.awt.event.KeyEvent;
 import java.sql.*;
 import java.io.IOException;
 
 
 public class Controller {
-
     @FXML
-    private AnchorPane rootPane;
+    private BorderPane rootPane;
 
     @FXML
     private void loadSignup(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/signUpPage.fxml"));
-        AnchorPane pane = loader.load();
+        BorderPane pane = loader.load();
         rootPane.getChildren().setAll(pane);
     }
 

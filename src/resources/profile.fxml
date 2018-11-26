@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -20,27 +15,71 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="profilePane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ProfileController">
+<BorderPane fx:id="profilePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ProfileController">
    <top>
-      <VBox prefHeight="257.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="46.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" fillHeight="false">
                <children>
-                  <Label prefHeight="110.0" prefWidth="635.0" text="Profile Menu">
+                  <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToMainMenu" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #FFF; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Main Menu">
                      <font>
-                        <Font name="System Bold" size="36.0" />
+                        <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </HBox.margin>
-                  </Label>
-                  <Region prefHeight="100.0" prefWidth="105.0" />
-                  <Button mnemonicParsing="false" onAction="#goToMainMenu" prefHeight="90.0" prefWidth="150.0" text="Go back &gt;&gt;&gt;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #414141; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Profile" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                     </font>
                      <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </HBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToFriends" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </HBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToEvents" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Events" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </HBox.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Chat" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </HBox.margin>
                   </Button>
                </children>
+               <effect>
+                  <DropShadow />
+               </effect>
             </HBox>
          </children>
       </VBox>
@@ -48,111 +87,145 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="191.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@smile.png" />
                </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
             </ImageView>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
          </children>
       </VBox>
    </left>
-   <bottom>
-      <VBox prefHeight="172.0" prefWidth="900.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-         </children>
-      </VBox>
-   </bottom>
    <center>
-      <HBox prefHeight="551.0" prefWidth="688.0" spacing="5.0" BorderPane.alignment="CENTER">
+      <HBox prefWidth="679.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="600.0" prefWidth="685.0" spacing="5.0">
+            <VBox prefHeight="514.0" prefWidth="659.0" spacing="5.0">
                <children>
                   <Label text="First Name">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="firstNameTextField" prefWidth="500.0" />
+                        <TextField fx:id="firstNameTextField" maxHeight="-Infinity" prefHeight="35.0" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button fx:id="firstNameButton" mnemonicParsing="false" onAction="#updateFirstName" prefHeight="31.0" prefWidth="100.0" text="Change" />
+                        <Button fx:id="firstNameButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateFirstName" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Change">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                      </children>
                   </HBox>
                   <Label text="Last Name">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <HBox layoutX="10.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="lastNameTextField" prefWidth="500.0" />
+                        <TextField fx:id="lastNameTextField" prefHeight="35.0" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button fx:id="lastNameButton" mnemonicParsing="false" onAction="#updateLastName" prefWidth="100.0" text="Change" />
+                        <Button fx:id="lastNameButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateLastName" prefWidth="100.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Change">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                      </children>
                   </HBox>
                   <Label text="City">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <HBox layoutX="10.0" layoutY="466.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="cityTextField" prefWidth="500.0" />
+                        <TextField fx:id="cityTextField" prefHeight="35.0" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button fx:id="cityButton" mnemonicParsing="false" onAction="#updateCity" prefWidth="100.0" text="Change" />
+                        <Button fx:id="cityButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateCity" prefWidth="100.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Change">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                      </children>
                   </HBox>
                   <Label text="Age">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <HBox layoutX="10.0" layoutY="466.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="ageTextField" prefWidth="500.0" />
+                        <DatePicker fx:id="datePickerOfDoB" prefHeight="35.0" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button fx:id="ageButton" mnemonicParsing="false" onAction="#updateAge" prefWidth="100.0" text="Change" />
+                        <Button fx:id="ageButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateAge" prefWidth="100.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Change">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                      </children>
                   </HBox>
                   <Label text="Email">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <HBox layoutX="10.0" layoutY="430.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="emailTextField" prefWidth="500.0" />
+                        <TextField fx:id="emailTextField" prefHeight="35.0" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button fx:id="emailButton" mnemonicParsing="false" onAction="#updateEmail" prefWidth="100.0" text="Change" />
+                        <Button fx:id="emailButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updateEmail" prefWidth="100.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Change">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                      </children>
                   </HBox>
                   <Label text="Password">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
-                  <HBox layoutX="10.0" layoutY="278.0" prefHeight="31.0" prefWidth="571.0">
+                  <HBox layoutX="10.0" layoutY="278.0" prefHeight="100.0" prefWidth="571.0">
                      <children>
-                        <TextField fx:id="passwordTextField" prefHeight="55.0" prefWidth="500.0" />
+                        <TextField fx:id="passwordTextField" prefHeight="35.0" prefWidth="500.0" />
                         <Region prefHeight="31.0" prefWidth="50.0" />
-                        <Button fx:id="passwordButton" mnemonicParsing="false" onAction="#updatePassword" prefWidth="100.0" text="Change" />
+                        <Button fx:id="passwordButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#updatePassword" prefWidth="100.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Change">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" snapToPixel="false">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#submitUpdates" prefWidth="650.0" text="Submit Changes ">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#submitUpdates" prefHeight="91.0" prefWidth="650.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Save Change">
                            <HBox.margin>
                               <Insets bottom="10.0" top="20.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Segoe UI Symbol" size="12.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
                         </Button>
                      </children>
                   </HBox>

@@ -17,7 +17,6 @@ public class Event{
     */
 
     public void setDate(String date) {
-        this.date = date;
     }
 
     public void setLocation(String location) {
@@ -122,7 +121,7 @@ public class Event{
                 }
             }
         } else {
-            return "No of the users is going to participate :(";
+            return "None of the users is going to participate :(";
         }
         return rt.toString();
     }
