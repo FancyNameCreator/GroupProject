@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -82,28 +83,37 @@
                         </HBox>
                   <AnchorPane prefHeight="77.0" prefWidth="900.0">
                      <children>
-                        <Label layoutX="316.0" layoutY="12.0" text="Your friends list">
+                        <Label layoutX="311.0" layoutY="12.0" text="Add new friends">
                            <font>
                               <Font name="System Bold" size="36.0" />
                            </font>
                         </Label>
+                        <Button fx:id="buttonBack" alignment="CENTER_RIGHT" layoutX="771.0" layoutY="22.0" mnemonicParsing="false" onAction="#BackToFriendsList" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-size: 14; -fx-font-weight: BOLD;" text="Go Back -&gt;">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="20.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="487.0" prefWidth="900.0">
+                  <AnchorPane prefHeight="76.0" prefWidth="900.0">
                      <children>
-                        <TableView fx:id="tableviewList" prefHeight="200.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TextField fx:id="textfieldSearch" layoutX="242.0" layoutY="26.0" prefHeight="25.0" prefWidth="347.0" />
+                        <Button fx:id="buttonSearch" layoutX="614.0" layoutY="26.0" mnemonicParsing="false" text="Search" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="410.0" prefWidth="900.0">
+                     <children>
+                        <TableView fx:id="tableviewSearch" layoutX="133.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn fx:id="FirstNameColumn" prefWidth="175.0" text="First name" />
-                            <TableColumn fx:id="LastNameColumn" prefWidth="175.0" text="Last name" />
-                              <TableColumn fx:id="CityColumn" prefWidth="175.0" text="City" />
-                              <TableColumn fx:id="DOBColumn" prefWidth="175.0" text="Date of birth" />
+                            <TableColumn fx:id="firstNameColumn" prefWidth="225.0" text="First name" />
+                            <TableColumn fx:id="lastNameColumn" prefWidth="225.0" text="Last name" />
+                              <TableColumn fx:id="CityColumn" prefWidth="225.0" text="City" />
+                              <TableColumn fx:id="DOBColumn" prefWidth="225.0" text="Date of birth" />
                           </columns>
                         </TableView>
-                        <AnchorPane layoutX="658.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Button fx:id="buttonAddNewOne" layoutX="57.0" layoutY="221.0" mnemonicParsing="false" onAction="#AddNewOne" prefHeight="42.0" prefWidth="87.0" text="Add new one" />
-                           </children>
-                        </AnchorPane>
                      </children>
                   </AnchorPane>
                     </children>
