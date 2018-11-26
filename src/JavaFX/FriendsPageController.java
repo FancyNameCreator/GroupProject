@@ -12,6 +12,22 @@ public class FriendsPageController {
     private BorderPane friendsPane;
 
     @FXML
+    private void AddNewOne (ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/addFriends.fxml"));
+        BorderPane pane = loader.load();
+        friendsPane.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void BackToFriendsList (ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
+        BorderPane pane = loader.load();
+        friendsPane.getChildren().setAll(pane);
+    }
+
+    @FXML
     private void goToProfile(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/profile.fxml"));
