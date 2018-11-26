@@ -91,7 +91,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="487.0" prefWidth="900.0">
                      <children>
-                        <TableView fx:id="tableViewList" prefHeight="200.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tableViewList" onMouseClicked="#showDetailsOfFriend" prefHeight="200.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn fx:id="firstNameColumn" prefWidth="175.0" text="First name" />
                             <TableColumn fx:id="lastNameColumn" prefWidth="175.0" text="Last name" />

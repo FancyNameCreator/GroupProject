@@ -101,9 +101,9 @@ public class MyEventsController {
             e.printStackTrace();
         }
     }
+
     public void changeEventCategory (TableColumn.CellEditEvent edittedCell) {
         Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
-
     }
 
     private void loadEventsTableAttending(){
