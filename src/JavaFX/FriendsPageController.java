@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -144,6 +145,8 @@ public class FriendsPageController{
         stage.setTitle("Detail of your friend");
         stage.setScene(scene);
         stage.show();
+        Image icon = new Image("Hanger Logo Done.png");
+        stage.getIcons().add(icon);
 
     }
 
