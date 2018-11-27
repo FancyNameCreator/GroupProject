@@ -72,6 +72,7 @@ public class FriendAddController {
 
     @FXML
     private void displayResults(){
+        tableViewSearch.getItems().clear();
         String phrase = textfieldSearch.getText();
 
         try {

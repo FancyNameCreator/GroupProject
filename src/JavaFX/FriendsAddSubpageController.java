@@ -92,7 +92,7 @@ public class FriendsAddSubpageController {
         } else {
             String command = "(" + person.getId() + ")";
             try {
-                String sql = "insert into users friends value '" + command + "' where email = '" + Main.getEmailIN() + "'";
+                String sql = "insert into users friends values '" + command + "' where email = '" + Main.getEmailIN() + "'";
 
                 // executing MySQL command that value is stored in sql variable
                 Main.stmt.executeUpdate(sql);

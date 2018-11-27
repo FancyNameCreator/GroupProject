@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="friendsPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.FriendsPageController">
+<BorderPane fx:id="friendsPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.FriendsPageController">
     <center>
         <AnchorPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
             <children>
@@ -108,6 +108,14 @@
                                  <effect>
                                     <DropShadow />
                                  </effect></Button>
+                              <Button fx:id="buttonRefresh" layoutX="46.0" layoutY="177.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #313131;" text="Refresh the table" textFill="WHITE">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children>

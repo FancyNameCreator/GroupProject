@@ -127,4 +127,8 @@ public class FriendRemoveController {
         Stage stage = (Stage) removeButton.getScene().getWindow();
         stage.close();
     }
+
+    private void refreshTable() {
+
+    }
 }

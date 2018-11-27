@@ -117,6 +117,12 @@ public class FriendsPageController{
     }
 
     @FXML
+    private void refresh() {
+        tableViewList.getItems().clear();
+        loadTableOfFriends();
+    }
+
+    @FXML
     private void addNewOne (ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/addFriends.fxml"));
