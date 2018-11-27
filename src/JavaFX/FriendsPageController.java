@@ -22,6 +22,7 @@ public class FriendsPageController{
     private ObservableList<Person> tableOfFriends = FXCollections.observableArrayList();
     public Person personSelected;
 
+
     @FXML
     private BorderPane friendsPane;
 
