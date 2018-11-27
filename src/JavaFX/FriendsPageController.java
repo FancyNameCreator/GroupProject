@@ -5,17 +5,21 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.ResultSet;
 
-public class FriendsPageController {
+public class FriendsPageController{
 
     private ObservableList<Person> tableOfFriends = FXCollections.observableArrayList();
+    public Person personSelected;
 
     @FXML
     private BorderPane friendsPane;
@@ -32,7 +36,7 @@ public class FriendsPageController {
     @FXML
     private TableColumn<Person, String> DOBColumn;
 
-
+    @FXML
     private void initialize(){
         if (/*you have friends*/ doUserHasFriends()){
             /*load table of friends*/
@@ -44,6 +48,7 @@ public class FriendsPageController {
             tableViewList.setItems(tableOfFriends);
         }else{
             /*load sth else*/
+            System.out.println("You are madafaka with no friends");
         }
     }
 
@@ -89,7 +94,7 @@ public class FriendsPageController {
 
         try {
             // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where id in = '"+ friendsString +"'");
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where id in " + friendsString);
 
             // 4. Process the result set
             while (myResults.next()) {
@@ -111,19 +116,35 @@ public class FriendsPageController {
     }
 
     @FXML
-    private void AddNewOne (ActionEvent event) throws IOException {
+    private void addNewOne (ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/addFriends.fxml"));
         BorderPane pane = loader.load();
         friendsPane.getChildren().setAll(pane);
+
     }
 
     @FXML
-    private void BackToFriendsList (ActionEvent event) throws IOException {
+    private void showDetailsOfFriend() throws IOException{
+        Main.chosenOne = tableViewList.getSelectionModel().getSelectedItem();
+
+        /*
+        JUST LOADING A NEW PANE:
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
+        loader.setLocation(getClass().getResource("/resources/friendRemove.fxml"));
         BorderPane pane = loader.load();
         friendsPane.getChildren().setAll(pane);
+        */
+
+        //LOADING ENTIRELY NEW WINDOW:
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/resources/friendRemove.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
+        Stage stage = new Stage();
+        stage.setTitle("Detail of your friend");
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @FXML
