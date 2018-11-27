@@ -61,13 +61,20 @@ public class FriendsAddSubpageController {
                 alert.showAndWait();
             } else {
                 String stringOfIDs = getStringOfFriendsID();
+
+                //here problem occurs
+
                 StringBuilder sb = new StringBuilder(stringOfIDs);
 
-                sb.deleteCharAt(sb.lastIndexOf(stringOfIDs));
+                sb.setLength(sb.length()-1);
+
+
+                String dupa = Main.chosenOne.getId();
+
                 sb.append(",").append(Main.chosenOne.getId()).append(")");
 
                 try {
-                    String sql = "insert into users friends value '" + sb.toString() + "' where email = '" + Main.getEmailIN() + "'";
+                    String sql = "update users set friends = '" + sb.toString() + "' where email = '" + Main.getEmailIN() + "'";
 
                     // executing MySQL command that value is stored in sql variable
                     Main.stmt.executeUpdate(sql);
@@ -152,11 +159,13 @@ public class FriendsAddSubpageController {
         if (friends == null)
             return false;
 
+        String dupa = person.getId();
+
         for (int i = 1; i < friends.length(); i++) {
             if (friends.charAt(i) != ',' && friends.charAt(i) != ')') {
                 sb.append(friends.charAt(i));
             } else {
-                if (Main.chosenOne.getId().equals(sb.toString()))
+                if (sb.toString().equals(Main.chosenOne.getId()))
                     return true;
                 sb.deleteCharAt(1);
                 sb.deleteCharAt(0);
