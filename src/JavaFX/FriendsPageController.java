@@ -22,6 +22,7 @@ public class FriendsPageController{
     private ObservableList<Person> tableOfFriends = FXCollections.observableArrayList();
     public Person personSelected;
 
+
     @FXML
     private BorderPane friendsPane;
 
@@ -114,6 +115,12 @@ public class FriendsPageController{
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+    }
+
+    @FXML
+    private void refresh() {
+        tableViewList.getItems().clear();
+        loadTableOfFriends();
     }
 
     @FXML
