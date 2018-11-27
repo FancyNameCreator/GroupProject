@@ -156,6 +156,13 @@ public class ProfileController{
             if (firstNameButtonClicked && !firstName.equals(firstNameTextField.getText())) {
                 firstName = firstNameTextField.getText();
                 sql = "update users set first_name = '" + firstName + "' where email ='" + emailRead + "'";
+                if(firstName.equals("")){
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("First Name field is empty, enter sth!");
+                    alert.showAndWait();
+                    return;
+                }
                 Main.stmt.executeUpdate(sql);
                 checkIfUpdated=true;
             }
@@ -163,6 +170,13 @@ public class ProfileController{
             if (lastNameButtonClicked && !lastName.equals(lastNameTextField.getText())){
                 lastName = lastNameTextField.getText();
                 sql = "update users set last_name = '" + lastName + "' where email ='" + emailRead + "'";
+                if(lastName.equals("")){
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("First Name field is empty, enter sth!");
+                    alert.showAndWait();
+                    return;
+                }
                 Main.stmt.executeUpdate(sql);
                 checkIfUpdated=true;
             }
@@ -170,6 +184,13 @@ public class ProfileController{
             if (cityButtonClicked && !city.equals(cityTextField.getText())){
                 city = cityTextField.getText();
                 sql = "update users set city = '" + city + "' where email ='" + emailRead + "'";
+                if(city.equals("")){
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("First Name field is empty, enter sth!");
+                    alert.showAndWait();
+                    return;
+                }
                 Main.stmt.executeUpdate(sql);
                 checkIfUpdated=true;
             }
@@ -199,6 +220,13 @@ public class ProfileController{
                     email = emailTextField.getText();
                     access1.setEmailIN(email);
                     sql = "update users set email = '" + email + "' where email ='" + emailRead + "'";
+                    if(email.equals("")){
+                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                        alert.setHeaderText(null);
+                        alert.setContentText("First Name field is empty, enter sth!");
+                        alert.showAndWait();
+                        return;
+                    }
                     Main.stmt.executeUpdate(sql);
                     checkIfUpdated = true;
                 }
@@ -207,6 +235,13 @@ public class ProfileController{
             if (passwordButtonClicked && !password.equals(passwordTextField.getText())){
                 password = passwordTextField.getText();
                 sql = "update users set password = '" + password + "' where email ='" + emailRead + "'";
+                if(password.equals("")){
+                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("First Name field is empty, enter sth!");
+                    alert.showAndWait();
+                    return;
+                }
                 Main.stmt.executeUpdate(sql);
                 checkIfUpdated=true;
             }

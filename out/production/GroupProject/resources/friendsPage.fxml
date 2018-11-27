@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="friendsPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.FriendsPageController">
+<BorderPane fx:id="friendsPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.FriendsPageController">
     <center>
         <AnchorPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
             <children>
@@ -101,7 +101,13 @@
                         </TableView>
                         <AnchorPane layoutX="658.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Button fx:id="buttonAddNewOne" layoutX="57.0" layoutY="221.0" mnemonicParsing="false" onAction="#addNewOne" prefHeight="42.0" prefWidth="87.0" text="Add new one" />
+                              <Button fx:id="buttonAddNewOne" layoutX="57.0" layoutY="221.0" mnemonicParsing="false" onAction="#addNewOne" prefHeight="45.0" prefWidth="100.0" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-weight: BOLD; -fx-font-size: 13;" text="Add new one">
+                                 <font>
+                                    <Font name="Segoe UI Symbol" size="12.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect></Button>
                            </children>
                         </AnchorPane>
                      </children>
