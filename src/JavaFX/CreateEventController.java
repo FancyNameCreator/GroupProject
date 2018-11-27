@@ -93,8 +93,5 @@ public class CreateEventController {
         }
         labelEventCreated.setVisible(true);
 
-
-
-
     }
 }
