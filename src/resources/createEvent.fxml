@@ -81,6 +81,9 @@
                      <children>
                         <TextField fx:id="textFieldName" layoutY="28.0" prefHeight="25.0" prefWidth="484.0" promptText="Enter name" />
                      </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="543.0">
                      <children>
@@ -129,7 +132,7 @@
                         <Font name="System Bold" size="36.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="315.0" right="218.0" />
+                        <Insets left="315.0" right="208.0" />
                      </HBox.margin>
                   </Label>
                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#BackToEvents" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-size: 14; -fx-font-weight: BOLD;" text="Go Back -&gt;">

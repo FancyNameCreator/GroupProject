@@ -68,7 +68,7 @@
                         <Font name="System Bold" size="36.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="315.0" right="210.0" />
+                        <Insets left="315.0" right="200.0" />
                      </HBox.margin>
                   </Label>
                   <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#BackToEvents" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-size: 14; -fx-font-weight: BOLD;" text="Go Back -&gt;">
