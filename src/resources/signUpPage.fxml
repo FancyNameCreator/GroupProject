@@ -23,7 +23,7 @@
                           <Font name="Arial Black" size="15.0" />
                        </font>
                     </TextField>
-                    <TextField fx:id="firstName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="600.0" promptText="Enter First Name">
+                    <TextField fx:id="firstName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#actOnEnter" prefHeight="30.0" prefWidth="600.0" promptText="Enter First Name">
                        <VBox.margin>
                           <Insets bottom="20.0" left="20.0" right="20.0" />
                        </VBox.margin></TextField>
@@ -32,7 +32,7 @@
                              <Font name="Arial Black" size="15.0" />
                          </font>
                      </TextField>
-                    <TextField fx:id="lastName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="600.0" promptText="Enter Last Name">
+                    <TextField fx:id="lastName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#actOnEnter" prefHeight="30.0" prefWidth="600.0" promptText="Enter Last Name">
                        <VBox.margin>
                           <Insets bottom="20.0" left="20.0" right="20.0" />
                        </VBox.margin></TextField>
@@ -41,7 +41,7 @@
                              <Font name="Arial Black" size="15.0" />
                          </font>
                      </TextField>
-                    <TextField fx:id="cityField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="600.0" promptText="Enter City">
+                    <TextField fx:id="cityField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#actOnEnter" prefHeight="30.0" prefWidth="600.0" promptText="Enter City">
                        <VBox.margin>
                           <Insets bottom="20.0" left="20.0" right="20.0" />
                        </VBox.margin></TextField>
@@ -60,7 +60,7 @@
                              <Font name="Arial Black" size="15.0" />
                          </font>
                      </TextField>
-                    <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="600.0" promptText="Enter E-Mail">
+                    <TextField fx:id="emailField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#actOnEnter" prefHeight="30.0" prefWidth="600.0" promptText="Enter E-Mail">
                        <VBox.margin>
                           <Insets bottom="20.0" left="20.0" right="20.0" />
                        </VBox.margin></TextField>
@@ -69,7 +69,7 @@
                              <Font name="Arial Black" size="15.0" />
                          </font>
                      </TextField>
-                     <PasswordField fx:id="password" maxWidth="600" prefHeight="30.0" prefWidth="600.0" promptText="Enter Password">
+                     <PasswordField fx:id="password" maxWidth="600" onKeyPressed="#actOnEnter" prefHeight="30.0" prefWidth="600.0" promptText="Enter Password">
                          <VBox.margin>
                              <Insets bottom="20.0" left="20.0" right="20.0" />
                          </VBox.margin>

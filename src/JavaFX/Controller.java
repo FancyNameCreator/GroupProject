@@ -6,11 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-
-import java.awt.event.KeyEvent;
-import java.sql.*;
 import java.io.IOException;
 
 
@@ -39,7 +37,7 @@ public class Controller {
         this.emailIN = emailIN;
     }
 
-    public void validate(ActionEvent event) throws IOException {
+    public void validate() throws IOException {
         LogInOrCreateUserClass login = new LogInOrCreateUserClass();
 
         emailIN = username.getText();
@@ -66,6 +64,15 @@ public class Controller {
             password.setText("");
         }
     }
-}
 
-// Just adding a comment to be able to push to git, accidentally just clicked commit xd
+    @FXML
+    private void actOnEnter(KeyEvent event){
+        if(event.getCode() == KeyCode.ENTER){
+            try {
+                validate();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+}

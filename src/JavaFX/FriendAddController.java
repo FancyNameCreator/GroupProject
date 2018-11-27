@@ -11,6 +11,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -95,6 +97,12 @@ public class FriendAddController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+    }
+
+    @FXML
+    private void actOnEnter(KeyEvent event){
+        if(event.getCode() == KeyCode.ENTER)
+                displayResults();
     }
 
 }

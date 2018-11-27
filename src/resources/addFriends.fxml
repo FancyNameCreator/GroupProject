@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="friendsPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.FriendAddController">
+<BorderPane fx:id="friendsPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.FriendAddController">
     <center>
         <AnchorPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
             <children>
@@ -36,7 +36,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="76.0" prefWidth="900.0">
                      <children>
-                        <TextField fx:id="textfieldSearch" layoutX="242.0" layoutY="26.0" prefHeight="25.0" prefWidth="347.0" promptText="Enter phrase to search for..." />
+                        <TextField fx:id="textfieldSearch" layoutX="242.0" layoutY="26.0" onKeyPressed="#actOnEnter" prefHeight="25.0" prefWidth="347.0" promptText="Enter phrase to search for..." />
                         <Button fx:id="buttonSearch" layoutX="614.0" layoutY="26.0" mnemonicParsing="false" onAction="#displayResults" text="Search" />
                      </children>
                   </AnchorPane>

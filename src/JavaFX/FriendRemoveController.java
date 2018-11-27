@@ -40,9 +40,20 @@ public class FriendRemoveController {
     @FXML
     private void initialize(){
         firstNameTextField.setEditable(false);
+        firstNameTextField.setMouseTransparent(true);
+        firstNameTextField.setFocusTraversable(false);
+
         lastNameTextField.setEditable(false);
+        lastNameTextField.setMouseTransparent(true);
+        lastNameTextField.setFocusTraversable(false);
+
         cityTextField.setEditable(false);
+        cityTextField.setMouseTransparent(true);
+        cityTextField.setFocusTraversable(false);
+
         DoFTextField.setEditable(false);
+        DoFTextField.setMouseTransparent(true);
+        DoFTextField.setFocusTraversable(false);
 
         firstNameTextField.setText(person.getFirstName());
         lastNameTextField.setText(person.getLastName());

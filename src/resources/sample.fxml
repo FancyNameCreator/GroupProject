@@ -24,12 +24,12 @@
                         <Image url="@Hanger Logo DONE.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="username" maxWidth="600" prefHeight="50.0" prefWidth="600.0" promptText="Enter E-mail">
+                  <TextField fx:id="username" maxWidth="600" onKeyPressed="#actOnEnter" prefHeight="50.0" prefWidth="600.0" promptText="Enter E-mail">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <PasswordField fx:id="password" maxWidth="600" prefHeight="50.0" prefWidth="600.0" promptText="Enter Password">
+                  <PasswordField fx:id="password" maxWidth="600" onKeyPressed="#actOnEnter" prefHeight="50.0" prefWidth="600.0" promptText="Enter Password">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>

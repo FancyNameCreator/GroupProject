@@ -9,6 +9,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -41,7 +43,7 @@ public class SignUpPageController {
     private PasswordField password;
 
     @FXML
-    public void sendData(ActionEvent event) throws IOException{
+    public void sendData() throws IOException{
 
         String firstnameIN = firstName.getText();
         String lastnameIN = lastName.getText();
@@ -186,6 +188,17 @@ public class SignUpPageController {
             exc.printStackTrace();
         }
     return false;
+    }
+
+    @FXML
+    private void actOnEnter(KeyEvent event){
+        if(event.getCode() == KeyCode.ENTER){
+            try {
+                sendData();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 
 }
