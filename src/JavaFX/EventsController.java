@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class EventsController {
-    private ObservableList<String> usersChoice = FXCollections.observableArrayList("My events(attended/to attend and created)", "Discover(search by category and attend)", "Events my friend created", "Create event");
+    private ObservableList<String> usersChoice = FXCollections.observableArrayList("My events(attended/to attend and created)", "Discover(search by category and attend)", "Create event");
 
     @FXML
     private BorderPane eventsPane;
@@ -44,11 +44,6 @@ public class EventsController {
                 choicebox.setDisable(true);
                 //TimeUnit.SECONDS.sleep(1);
                 loadDiscover();
-                break;
-            case ("Events my friends are going/created"):
-                labelOfUserChoice.setText("You have chosen: " + choicebox.getValue());
-                //TimeUnit.SECONDS.sleep(1);
-                loadFriendsEvents();
                 break;
             case ("Create event"):
                 labelOfUserChoice.setText("You have chosen: " + choicebox.getValue());
@@ -102,13 +97,6 @@ public class EventsController {
     private void loadDiscover() throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/discover.fxml"));
-        BorderPane pane = loader.load();
-        eventsPane.getChildren().setAll(pane);
-    }
-
-    private void loadFriendsEvents() throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/friendsEvents.fxml"));
         BorderPane pane = loader.load();
         eventsPane.getChildren().setAll(pane);
     }
