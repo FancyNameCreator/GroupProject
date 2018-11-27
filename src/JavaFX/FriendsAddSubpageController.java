@@ -2,8 +2,10 @@ package JavaFX;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.sql.*;
 
@@ -16,6 +18,9 @@ public class FriendsAddSubpageController {
 
     @FXML
     private BorderPane profilePane;
+
+    @FXML
+    private Button addFriendButton;
 
     @FXML
     private TextField firstNameTextField;
@@ -62,14 +67,10 @@ public class FriendsAddSubpageController {
             } else {
                 String stringOfIDs = getStringOfFriendsID();
 
-                //here problem occurs
 
                 StringBuilder sb = new StringBuilder(stringOfIDs);
 
                 sb.setLength(sb.length()-1);
-
-
-                String dupa = Main.chosenOne.getId();
 
                 sb.append(",").append(Main.chosenOne.getId()).append(")");
 
@@ -105,6 +106,10 @@ public class FriendsAddSubpageController {
                 e.printStackTrace();
             }
         }
+        //CLOSE WINDOW
+        Stage stage = (Stage) addFriendButton.getScene().getWindow();
+        stage.close();
+
     }
 
     private boolean userHasFriends() {
@@ -158,8 +163,6 @@ public class FriendsAddSubpageController {
 
         if (friends == null)
             return false;
-
-        String dupa = person.getId();
 
         for (int i = 1; i < friends.length(); i++) {
             if (friends.charAt(i) != ',' && friends.charAt(i) != ')') {

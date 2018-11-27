@@ -82,7 +82,7 @@
                   <HBox alignment="CENTER" snapToPixel="false" />
                   <AnchorPane prefHeight="118.0" prefWidth="659.0">
                      <children>
-                        <Button layoutX="455.0" layoutY="29.0" mnemonicParsing="false" onAction="#removeFriend" prefHeight="51.0" prefWidth="171.0" text="Remove from my friends list" />
+                        <Button fx:id="removeButton" layoutX="455.0" layoutY="29.0" mnemonicParsing="false" onAction="#removeFriend" prefHeight="51.0" prefWidth="171.0" text="Remove from my friends list" />
                      </children>
                   </AnchorPane>
                </children>

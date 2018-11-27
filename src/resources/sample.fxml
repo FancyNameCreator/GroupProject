@@ -21,7 +21,7 @@
                <children>
                   <ImageView fitHeight="242.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Hanger%20Logo%20DONE.png" />
+                        <Image url="@Hanger Logo DONE.png" />
                      </image>
                   </ImageView>
                   <TextField fx:id="username" maxWidth="600" prefHeight="50.0" prefWidth="600.0" promptText="Enter E-mail">

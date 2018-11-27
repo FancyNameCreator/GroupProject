@@ -148,6 +148,14 @@ public class FriendsPageController{
         Image icon = new Image("Hanger Logo Done.png");
         stage.getIcons().add(icon);
 
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
+            BorderPane pane = loader.load();
+            friendsPane.getChildren().setAll(pane);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
