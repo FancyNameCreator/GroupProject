@@ -967,7 +967,7 @@ public class MainMenuController {
 
 
     @FXML
-    private void goToProfile(ActionEvent event) throws IOException {
+    private void goToProfile(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/profile.fxml"));
         BorderPane pane = loader.load();
