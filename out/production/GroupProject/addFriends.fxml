@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="friendsPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.FriendAddController">
+<BorderPane fx:id="friendsPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.FriendAddController">
     <center>
         <AnchorPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
             <children>
@@ -24,7 +24,7 @@
                               <Font name="System Bold" size="36.0" />
                            </font>
                         </Label>
-                        <Button fx:id="buttonBack" alignment="CENTER_RIGHT" layoutX="771.0" layoutY="22.0" mnemonicParsing="false" onAction="#BackToFriendsList" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-size: 14; -fx-font-weight: BOLD;" text="Go Back -&gt;">
+                        <Button fx:id="buttonBack" alignment="CENTER_RIGHT" layoutX="803.0" layoutY="22.0" mnemonicParsing="false" onAction="#BackToFriendsList" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-size: 14; -fx-font-weight: BOLD;" text="Go Back -&gt;">
                            <font>
                               <Font name="Segoe UI Symbol" size="20.0" />
                            </font>

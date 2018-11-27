@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="profilePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ProfileController">
+<BorderPane fx:id="profilePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.ProfileController">
    <top>
       <VBox prefHeight="46.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -214,9 +214,9 @@
                            </effect></Button>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" snapToPixel="false">
+                  <HBox alignment="CENTER_LEFT" snapToPixel="false">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#submitUpdates" prefHeight="91.0" prefWidth="650.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Save Change">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#submitUpdates" prefHeight="22.0" prefWidth="650.0" style="-fx-background-color: #313131; -fx-font-weight: BOLD; -fx-text-fill: #FFF; -fx-font-size: 13;" text="Save Change">
                            <HBox.margin>
                               <Insets bottom="10.0" top="20.0" />
                            </HBox.margin>
