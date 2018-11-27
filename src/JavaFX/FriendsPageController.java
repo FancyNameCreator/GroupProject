@@ -152,7 +152,7 @@ public class FriendsPageController{
         stage.setTitle("Detail of your friend");
         stage.setScene(scene);
         stage.show();
-        Image icon = new Image("Hanger Logo Done.png");
+        Image icon = new Image("/resources/Hanger Logo Done.png");
         stage.getIcons().add(icon);
 
         try {

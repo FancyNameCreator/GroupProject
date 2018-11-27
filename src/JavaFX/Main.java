@@ -11,31 +11,36 @@ import java.sql.*;
 
 public class Main extends Application {
 
-    final static String DB_URL = "jdbc:mysql://35.228.89.148:3306/hangerDatabase";
+    //  Database credentials:
+    private final static String DB_URL = "jdbc:mysql://35.228.89.148:3306/hangerDatabase";
+    private final static String USER = "root";
+    private final static String PASS = "PasswordOfGroup6P1Project";
 
-    //  Database credentials
-    final static String USER = "root";
-    final static String PASS = "PasswordOfGroup6P1Project";
-
-    static Connection conn = null;
+    //  Database 'variables':
+    private static Connection conn = null;
     public static Statement stmt = null;
 
-    public static String getEmailIN() {
+    //  Variables that need to be active during lifetime of application
+    //  WHY... ?
+    //  Because all variables that are not in this class are getting deleted as soon as execution of class they are in ends, for example while loading new window
+    private static String emailIN;      //enables program to recognise current user
+    static Person chosenOne;            //enables program to 'transport' info of chosen person to another class (scene/window)
+
+    // enables various methods to recognise current user
+    static String getEmailIN() {
         return emailIN;
     }
 
-    public static void setEmailIN(String emailIN) {
+    //  sets email of current user
+    static void setEmailIN(String emailIN) {
         Main.emailIN = emailIN;
     }
 
-    private static String emailIN;
-
-    static Person chosenOne;
-
+    //  sets icon, primary stage, path to fxml file, stage title, resolution
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Image icon = new Image("Hanger Logo Done.png");
+        Image icon = new Image("/resources/Hanger Logo Done.png");
         primaryStage.getIcons().add(icon);
         Parent root = FXMLLoader.load(getClass().getResource("/resources/sample.fxml"));
         primaryStage.setTitle("Hanger");
@@ -43,19 +48,21 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    //  main method of application, by which is lunched
     public static void main(String[] args) {
-        createConnection();
-        launch(args);
-        closeCrap();
+        createConnection();     //  connect to DB
+        launch(args);           //  start application
+        closeCrap();            //  disconnect from DB
     }
 
+    //  creates a connection with the database, using previously implemented variables
     private static void createConnection(){
         try{
-
+            //  create connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connection established \n");
 
-            // 2. Create a statement
+            //  create a statement
             stmt = conn.createStatement();
 
         }catch (SQLException e){
@@ -64,6 +71,7 @@ public class Main extends Application {
         }
     }
 
+    //  closes both statement and connection with the database, after program ends running
     private static void closeCrap(){
         try{
             stmt.close();

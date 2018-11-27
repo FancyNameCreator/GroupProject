@@ -60,14 +60,13 @@ public class MyEventsController {
         eventNameColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
         eventDateColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
         eventLocationColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
-        //eventCategoryColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
     }
 
     public void changeEventName (TableColumn.CellEditEvent edittedCell) {
 
-        String emailRead = Main.getEmailIN();
         Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
         choosenEvent.setName(edittedCell.getNewValue().toString());
+
         try {
             String sql = "update events set event_name = '"+ edittedCell.getNewValue() +"' where event_id = '" + choosenEvent.getID() + "'";
 
@@ -79,12 +78,11 @@ public class MyEventsController {
     public void changeEventDate (TableColumn.CellEditEvent edittedCell) {
         Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
         choosenEvent.setDate(edittedCell.getNewValue().toString());
-        Main connection = new Main();
-        String emailRead = connection.getEmailIN();
+
         try {
             String sql = "update events set event_date = '"+ edittedCell.getNewValue() +"' where event_id = '"+ choosenEvent.getID() + "' ";
 
-            connection.stmt.executeUpdate(sql);
+            Main.stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -92,11 +90,10 @@ public class MyEventsController {
     public void changeEventLocation (TableColumn.CellEditEvent edittedCell) {
         Event choosenEvent = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
         choosenEvent.setLocation(edittedCell.getNewValue().toString());
-        Main connection = new Main();
-        String emailRead = connection.getEmailIN();
+
         try {
             String sql = "update events set event_location = '"+ edittedCell.getNewValue() +"' where event_id = '"+ choosenEvent.getID() + "'";
-            connection.stmt.executeUpdate(sql);
+            Main.stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
