@@ -218,7 +218,6 @@ public class ProfileController{
                     alert.showAndWait();
                 } else {
                     email = emailTextField.getText();
-                    access1.setEmailIN(email);
                     sql = "update users set email = '" + email + "' where email ='" + emailRead + "'";
                     if(email.equals("")){
                         Alert alert=new Alert(Alert.AlertType.ERROR);
