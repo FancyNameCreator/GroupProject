@@ -276,10 +276,15 @@ public class DiscoverController {
 
         StringBuilder sb = new StringBuilder(str);
 
-        if (str.charAt(str.length() - 1) == ')') {
-            sb.deleteCharAt(str.length() - 1);
-            sb.append(",").append(getUsersID()).append(")");
-            return sb.toString();
+        if (str.length() != 0) {
+            if (str.charAt(str.length() - 1) == ')') {
+                sb.deleteCharAt(str.length() - 1);
+                sb.append(",").append(getUsersID()).append(")");
+                return sb.toString();
+            } else {
+                str = "(" + getUsersID() + ")";
+                return str;
+            }
         } else {
             str = "(" + getUsersID() + ")";
             return str;
@@ -358,7 +363,10 @@ public class DiscoverController {
 
             StringBuilder sb = new StringBuilder(checking);
 
-            if (attending.length() != 0) {
+            if (attending == null/* && attending.length() == 1*/)
+                return true;
+
+            if (attending.length() != 1) {
                 for (int i = 1; i < attending.length(); i++) {
                     if (attending.charAt(i) != ',' && attending.charAt(i) != ')') {
                         sb.append(attending.charAt(i));

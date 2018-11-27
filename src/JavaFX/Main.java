@@ -29,7 +29,7 @@ public class Main extends Application {
 
     private static String emailIN;
 
-
+    static Person chosenOne;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
