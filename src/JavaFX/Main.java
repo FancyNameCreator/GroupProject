@@ -1,3 +1,10 @@
+/*-----------------------------------------------------------------------------------------------------
+ * CODE OF 'HANGER' SOCIAL MEDIA APPLICATION MADE BY:
+ * IT, Communication and New Media Group 6,
+ * as a part of Semester 1 Project
+ * -----------------------------------------------------------------------------------------------------
+ */
+
 package JavaFX;
 
 import javafx.application.Application;
@@ -8,7 +15,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.sql.*;
 
-
+/**
+ * This is class in which main method is included - it starts execution of program
+ */
 public class Main extends Application {
 
     //  Database credentials:
