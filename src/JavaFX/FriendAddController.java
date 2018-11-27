@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -65,6 +66,8 @@ public class FriendAddController {
         stage.setTitle("Detail of person you may add");
         stage.setScene(scene);
         stage.show();
+        Image icon = new Image("Hanger Logo Done.png");
+        stage.getIcons().add(icon);
     }
 
     @FXML
