@@ -50,8 +50,7 @@ public class ProfileController{
 
     @FXML
     private void startrunning(/*ActionEvent event*/){
-        Main access = new Main();
-        getData(access.getEmailIN());
+        getData(Main.getEmailIN());
         printText();
         unableToWrite();
     }
@@ -140,7 +139,6 @@ public class ProfileController{
 
     @FXML
     private void submitUpdates(ActionEvent ae){
-        Controller access1 = new Controller();
         SignUpPageController check = new SignUpPageController();
 
 
@@ -227,6 +225,7 @@ public class ProfileController{
                         return;
                     }
                     Main.stmt.executeUpdate(sql);
+                    Main.setEmailIN(email);
                     checkIfUpdated = true;
                 }
             }
