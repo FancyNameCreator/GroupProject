@@ -252,8 +252,16 @@ public class DiscoverController {
 
             Main.stmt.executeUpdate("update events set participants = '" + eventsCommand + "' where event_id ='" + evantSelected.getID() + "'");
             Main.stmt.executeUpdate("update users set events_attending = '" + usersCommand + "' where email ='" + Main.getEmailIN() + "'");
+
+            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Event added to attended!");
+            alert.showAndWait();
         }else{
-            System.out.println("You cant attend event");
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("You CAN'T attend this event");
+            alert.showAndWait();
         }
     }
 
@@ -270,8 +278,8 @@ public class DiscoverController {
             exc.printStackTrace();
         }
 
-        if (str == null)
-            str = "test";
+        if (str == null || str.equals(""))
+            return ("(" + getUsersID() + ")");
 
 
         StringBuilder sb = new StringBuilder(str);
@@ -304,15 +312,20 @@ public class DiscoverController {
             exc.printStackTrace();
         }
 
-        if (str == null)
-            str = "test";
 
-        StringBuilder sb = new StringBuilder(str);
+        if (str == null || str.equals(""))
+            return ("(" + evantSelected.getID() + ")");
 
-        if (str.charAt(str.length() - 1) == ')') {
-            sb.deleteCharAt(str.length()-1);
-            sb.append(",").append(evantSelected.getID()).append(")");
-            return sb.toString();
+        if (str.length() != 0) {
+            if (str.charAt(str.length() - 1) == ')') {
+                StringBuilder sb = new StringBuilder(str);
+                sb.deleteCharAt(str.length() - 1);
+                sb.append(",").append(evantSelected.getID()).append(")");
+                return sb.toString();
+            } else {
+                str = "(" + evantSelected.getID() + ")";
+                return str;
+            }
         } else {
             str = "(" + evantSelected.getID() + ")";
             return str;
@@ -320,7 +333,7 @@ public class DiscoverController {
 
     }
 
-    public String getUsersID() {
+    private String getUsersID() {
         String id = "-1";
 
         try {
@@ -335,15 +348,10 @@ public class DiscoverController {
             exc.printStackTrace();
         }
 
-        System.out.println("Users id " + id);
         return id;
     }
 
     private boolean legibleToAttend(){
-        //pobrać liste uczestnikow i sprawdzic czy mnie tam nie ma
-        //jak nie ma czy jestem creatorem
-        //jak nie jestem to return true;
-        //else fuck you
 
         String attending="";
         String checking="";

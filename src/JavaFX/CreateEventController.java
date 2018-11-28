@@ -21,9 +21,6 @@ public class CreateEventController {
     private TextField textFieldLocation;
 
     @FXML
-    private TextField textFieldDate;
-
-    @FXML
     private DatePicker datePicker;
 
     @FXML
@@ -41,24 +38,29 @@ public class CreateEventController {
     @FXML
     private Label labelEventCreated;
 
-    @FXML
-    private void BackToEvents() throws IOException {
-    FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
-    BorderPane pane = loader.load();
-        CreateEventsPane.getChildren().setAll(pane);
-}
-
-    String nameOfEvent;
-    String locationOfEvent;
-    String dateOfEvent;
-    String descriptionOfEvent;
-    String categoryOfEvent;
-    String participantsOfEvent;
-    String creatorOfEvent = Main.getEmailIN();
+    private String nameOfEvent;
+    private String locationOfEvent;
+    private String dateOfEvent;
+    private String descriptionOfEvent;
+    private String categoryOfEvent;
+    private String participantsOfEvent;
+    private String creatorOfEvent = Main.getEmailIN();
 
     private ObservableList<String> category = FXCollections.observableArrayList(
             "Food event","Clubbing","Music event","Just meeting","Sport match","Hobby event");
+
+
+    @FXML
+    private void backToEvents(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+            BorderPane pane = loader.load();
+            CreateEventsPane.getChildren().setAll(pane);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+}
 
     @FXML
     private void initialize(){
@@ -69,6 +71,8 @@ public class CreateEventController {
     private void createEvent(ActionEvent ae){
         getData();
         sendData();
+        showAlert();
+        backToEvents();
     }
 
     private void getData(){
@@ -92,6 +96,13 @@ public class CreateEventController {
             e.printStackTrace();
         }
         labelEventCreated.setVisible(true);
-
     }
+
+    private void showAlert(){
+        Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("Event created!");
+        alert.showAndWait();
+    }
+
 }

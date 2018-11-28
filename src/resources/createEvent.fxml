@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="CreateEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.CreateEventController">
+<BorderPane fx:id="CreateEventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.CreateEventController">
    <center>
       <HBox prefHeight="466.0" prefWidth="899.0" BorderPane.alignment="CENTER">
          <children>
@@ -135,7 +135,7 @@
                         <Insets left="315.0" right="208.0" />
                      </HBox.margin>
                   </Label>
-                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#BackToEvents" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-size: 14; -fx-font-weight: BOLD;" text="Go Back -&gt;">
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#backToEvents" prefHeight="34.0" prefWidth="87.0" style="-fx-background-color: #313131; -fx-text-fill: #FFF; -fx-font-size: 14; -fx-font-weight: BOLD;" text="Go Back -&gt;">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>

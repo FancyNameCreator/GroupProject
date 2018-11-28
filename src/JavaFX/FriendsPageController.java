@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -49,8 +50,10 @@ public class FriendsPageController{
             DOBColumn.setCellValueFactory(new PropertyValueFactory<>("DoB"));
             tableViewList.setItems(tableOfFriends);
         }else{
-            /*load sth else*/
-            System.out.println("You are madafaka with no friends");
+            Alert alert=new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("You have no friends to show :(");
+            alert.showAndWait();
         }
     }
 
