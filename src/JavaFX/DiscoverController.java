@@ -363,10 +363,10 @@ public class DiscoverController {
 
             StringBuilder sb = new StringBuilder(checking);
 
-            if (attending == null/* && attending.length() == 1*/)
+            if (attending == null || attending.equals(""))
                 return true;
 
-            if (attending.length() != 1) {
+            if (attending.length() != 0) {
                 for (int i = 1; i < attending.length(); i++) {
                     if (attending.charAt(i) != ',' && attending.charAt(i) != ')') {
                         sb.append(attending.charAt(i));
