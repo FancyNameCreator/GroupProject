@@ -23,7 +23,6 @@ public class MyEventsController {
     private ObservableList<Event> table = FXCollections.observableArrayList();
     private ObservableList<Event> tableOfCreated = FXCollections.observableArrayList();
 
-    int lastIndex = 0;
 
     @FXML
     private BorderPane myEventsPane;
@@ -40,21 +39,29 @@ public class MyEventsController {
     private void initialize(){
         textAreaParticipants.setEditable(false);
         textAreaDescription.setEditable(false);
-        loadEventsTableAttending();
-        loadEventsTableCreated();
-        eventNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        eventDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        eventLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
-        eventCategoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
-        eventCreatorColumn.setCellValueFactory(new PropertyValueFactory<>("creator"));
-        tableView.setItems(table);
 
-        eventNameColumnCreated.setCellValueFactory(new PropertyValueFactory<>("name"));
-        eventDateColumnCreated.setCellValueFactory(new PropertyValueFactory<>("date"));
-        eventLocationColumnCreated.setCellValueFactory(new PropertyValueFactory<>("location"));
-        eventCategoryColumnCreated.setCellValueFactory(new PropertyValueFactory<>("category"));
-        eventCreatorColumnCreated.setCellValueFactory(new PropertyValueFactory<>("creator"));
-        tableViewOfCreatedEvents.setItems(tableOfCreated);
+        if (!getEventsOfUserAttending().equals("") || getEventsOfUserAttending().equals(null)) {
+            loadEventsTableAttending();
+            eventNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+            eventDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+            eventLocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+            eventCategoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+            eventCreatorColumn.setCellValueFactory(new PropertyValueFactory<>("creator"));
+            tableView.setItems(table);
+        } else {
+            showAlert("You are not attending any events :(");
+        }
+
+        if (loadEventsTableCreated()) {
+            eventNameColumnCreated.setCellValueFactory(new PropertyValueFactory<>("name"));
+            eventDateColumnCreated.setCellValueFactory(new PropertyValueFactory<>("date"));
+            eventLocationColumnCreated.setCellValueFactory(new PropertyValueFactory<>("location"));
+            eventCategoryColumnCreated.setCellValueFactory(new PropertyValueFactory<>("category"));
+            eventCreatorColumnCreated.setCellValueFactory(new PropertyValueFactory<>("creator"));
+            tableViewOfCreatedEvents.setItems(tableOfCreated);
+        } else {
+            showAlert("You haven't created any events :(");
+        }
 
         tableViewOfCreatedEvents.setEditable(true);
         eventNameColumnCreated.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -122,16 +129,14 @@ public class MyEventsController {
                 String participants = myResults.getString("participants");
                 String creator = myResults.getString("creator");
                 table.add(new Event(ID,name,date,location,description,category,participants,creator));
-                //lastIndex ++;
 
             }
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
-            textAreaDescription.setText("Currently you are not attending any event");
         }
     }
 
-    private void loadEventsTableCreated(){
+    private boolean loadEventsTableCreated(){
 
         try {
             // 3. Execute SQL query
@@ -151,10 +156,17 @@ public class MyEventsController {
                 //lastIndex ++;
 
             }
+
+            if (tableOfCreated==null) {
+                return false;
+            }
+
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
-            textAreaDescription.setText("Currently you are not created any event");
         }
+
+
+        return true;
     }
 
     private String getEventsOfUserAttending(){
@@ -186,6 +198,13 @@ public class MyEventsController {
         Event evantSelected = tableViewOfCreatedEvents.getSelectionModel().getSelectedItem();
         textAreaDescription.setText(evantSelected.getDescription());
         textAreaParticipants.setText(Event.printNiceParticipants(evantSelected.getParticipants()));        ;
+    }
+
+    private void showAlert(String string){
+        Alert alert=new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(string);
+        alert.showAndWait();
     }
 
     @FXML private TableView<Event> tableView;

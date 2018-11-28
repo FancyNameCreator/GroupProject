@@ -17,22 +17,17 @@ public class DiscoverController {
     @FXML
     private BorderPane borderPaneDiscover;
 
-    @FXML
-    private void BackToEvents() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
-        BorderPane pane = loader.load();
-        borderPaneDiscover.getChildren().setAll(pane);
-    }
-
     private ObservableList<String> usersChoice = FXCollections.observableArrayList(
             "Food event", "Clubbing", "Music event", "Just meeting", "Sport match", "Hobby event");
     private ObservableList<Event> tableOfDiscover = FXCollections.observableArrayList();
 
-    Event evantSelected;
+    private Event evantSelected;
 
     @FXML
     private ChoiceBox<String> choiceBoxDiscover;
+
+    @FXML
+    private Button attendButton;
 
     @FXML
     private TextArea textAreaDescription;
@@ -64,6 +59,7 @@ public class DiscoverController {
         eventCategoryColumnCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         eventCreatorColumnDiscover.setCellValueFactory(new PropertyValueFactory<>("creator"));
         tableViewDiscover.setItems(tableOfDiscover);
+        attendButton.setDisable(true);
     }
 
     @FXML
@@ -234,11 +230,10 @@ public class DiscoverController {
 
     @FXML
     private void showDetails() {
+        attendButton.setDisable(false);
         evantSelected = tableViewDiscover.getSelectionModel().getSelectedItem();
         textAreaDescription.setText(evantSelected.getDescription());
         textAreaParticipants.setText(Event.printNiceParticipants(evantSelected.getParticipants()));        ;
-
-        System.out.println(evantSelected.getID());
     }
 
     @FXML
@@ -394,6 +389,14 @@ public class DiscoverController {
 
     private boolean isTheUserCreator() {
         return evantSelected.getCreator().equals(Main.getEmailIN());
+    }
+
+    @FXML
+    private void BackToEvents() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+        BorderPane pane = loader.load();
+        borderPaneDiscover.getChildren().setAll(pane);
     }
 
 }
