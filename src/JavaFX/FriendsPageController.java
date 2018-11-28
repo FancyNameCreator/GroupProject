@@ -21,12 +21,11 @@ import java.sql.ResultSet;
 public class FriendsPageController{
 
     private ObservableList<Person> tableOfFriends = FXCollections.observableArrayList();
-    public Person personSelected;
 
+    public Person personSelected;
 
     @FXML
     private BorderPane friendsPane;
-
 
     @FXML
     private TableView<Person> tableViewList;

@@ -51,8 +51,8 @@ public class ProfileController{
     @FXML
     private void startrunning(/*ActionEvent event*/){
         getData(Main.getEmailIN());
-        printText();
         unableToWrite();
+        printText();
     }
 
     private void printText(){
@@ -66,11 +66,28 @@ public class ProfileController{
 
     private void unableToWrite(){
         firstNameTextField.setEditable(false);
+        firstNameTextField.setMouseTransparent(true);
+        firstNameTextField.setFocusTraversable(false);
+
         lastNameTextField.setEditable(false);
+        lastNameTextField.setMouseTransparent(true);
+        lastNameTextField.setFocusTraversable(false);
+
         cityTextField.setEditable(false);
+        cityTextField.setMouseTransparent(true);
+        cityTextField.setFocusTraversable(false);
+
         datePickerOfDoB.setEditable(false);
+        datePickerOfDoB.setMouseTransparent(true);
+        datePickerOfDoB.setFocusTraversable(false);
+
         emailTextField.setEditable(false);
+        emailTextField.setMouseTransparent(true);
+        emailTextField.setFocusTraversable(false);
+
         passwordTextField.setEditable(false);
+        passwordTextField.setMouseTransparent(true);
+        passwordTextField.setFocusTraversable(false);
     }
 
 
@@ -99,27 +116,39 @@ public class ProfileController{
     @FXML
     private void updateFirstName(ActionEvent ae) {
         firstNameTextField.setText(firstName);
+        firstNameTextField.setMouseTransparent(false);
+        firstNameTextField.setFocusTraversable(true);
         firstNameTextField.setEditable(true);
+
         firstNameButtonClicked = true;
     }
 
     @FXML
     private void updateLastName(ActionEvent ae){
         lastNameTextField.setText(lastName);
+        lastNameTextField.setMouseTransparent(false);
+        lastNameTextField.setFocusTraversable(true);
         lastNameTextField.setEditable(true);
+
         lastNameButtonClicked = true;
     }
 
     @FXML
     private void updateCity(ActionEvent ae){
-        lastNameTextField.setText(lastName);
+        cityTextField.setText(city);
+        cityTextField.setMouseTransparent(false);
+        cityTextField.setFocusTraversable(true);
         cityTextField.setEditable(true);
+
         cityButtonClicked = true;
     }
 
     @FXML
     private void updateAge(ActionEvent ae){
         datePickerOfDoB.setEditable(true);
+        datePickerOfDoB.setMouseTransparent(false);
+        datePickerOfDoB.setFocusTraversable(true);
+
         ageButtonClicked = true;
     }
 
@@ -127,6 +156,9 @@ public class ProfileController{
     private void updateEmail(ActionEvent ae){
         emailTextField.setText(email);
         emailTextField.setEditable(true);
+        emailTextField.setMouseTransparent(false);
+        emailTextField.setFocusTraversable(true);
+
         emailButtonClicked= true;
     }
 
@@ -134,6 +166,9 @@ public class ProfileController{
     private void updatePassword(ActionEvent ae){
         passwordTextField.setText(password);
         passwordTextField.setEditable(true);
+        passwordTextField.setMouseTransparent(false);
+        passwordTextField.setFocusTraversable(true);
+
         passwordButtonClicked = true;
     }
 
@@ -244,8 +279,6 @@ public class ProfileController{
                 checkIfUpdated=true;
             }
 
-
-
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -255,19 +288,31 @@ public class ProfileController{
             alert.setHeaderText(null);
             alert.setContentText("Data inserted");
             alert.showAndWait();
-            startrunning();
+            loadProfile();
         } else {
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("You haven't updated profile!");
             alert.showAndWait();
-            startrunning();
+            loadProfile();
         }
 
 
     }
 
-//the problem may be because going from border pane to anchor pane again
+
+    @FXML
+    private void loadProfile(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/resources/profile.fxml"));
+            BorderPane pane = loader.load();
+            profilePane.getChildren().setAll(pane);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void goToMainMenu(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
