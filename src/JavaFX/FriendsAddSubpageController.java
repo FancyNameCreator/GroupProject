@@ -78,7 +78,6 @@ public class FriendsAddSubpageController {
             } else {
                 String stringOfIDs = getStringOfFriendsID();
 
-
                 StringBuilder sb = new StringBuilder(stringOfIDs);
 
                 sb.setLength(sb.length()-1);
@@ -135,7 +134,7 @@ public class FriendsAddSubpageController {
             exc.printStackTrace();
         }
 
-        if (str == null || str == "")
+        if (str == null || str.equals(""))
             return false;
         else
             return true;

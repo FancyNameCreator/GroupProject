@@ -85,6 +85,8 @@ public class FriendRemoveController {
 
         if (str.length()==4){
             str="";
+            updateDB(str);
+            return;
         } else {
             for (int i = 1; i < str.length(); i++) {
                 if (str.charAt(i) != ',' && str.charAt(i) != ')') {
@@ -139,7 +141,4 @@ public class FriendRemoveController {
         stage.close();
     }
 
-    private void refreshTable() {
-
-    }
 }

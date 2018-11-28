@@ -40,7 +40,7 @@ public class FriendsPageController{
 
     @FXML
     private void initialize(){
-        if (/*you have friends*/ doUserHasFriends()){
+        if (doUserHasFriends()){
             /*load table of friends*/
             loadTableOfFriends();
             firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -56,6 +56,7 @@ public class FriendsPageController{
 
     private boolean doUserHasFriends(){
         String listOfFriends="none";
+
         try {
             // 3. Execute SQL query
             ResultSet myResults = Main.stmt.executeQuery("select friends from users where email = '"+ Main.getEmailIN() +"'");
@@ -68,7 +69,7 @@ public class FriendsPageController{
             exc.printStackTrace();
         }
 
-        if (listOfFriends == null || listOfFriends=="none")
+        if (listOfFriends == null || listOfFriends.equals(""))
             return false;
         else
             return true;
@@ -94,9 +95,10 @@ public class FriendsPageController{
     private void loadTableOfFriends(){
         String friendsString = getStringOfFriends();
 
+
         try {
             // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where id in " + friendsString);
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where id in " + friendsString );
 
             // 4. Process the result set
             while (myResults.next()) {
@@ -109,7 +111,6 @@ public class FriendsPageController{
                 String DoB = myResults.getString("DoB");
                 String eventsAttending = myResults.getString("events_attending");
                 String friends = myResults.getString("friends");
-
                 tableOfFriends.add(new Person(id, firstName, lastName, email, password, city, DoB, eventsAttending, friends));
             }
         } catch (Exception exc) {    //catch the exception if occurs
