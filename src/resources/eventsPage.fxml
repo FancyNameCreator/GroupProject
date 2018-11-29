@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="eventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.EventsController">
+<BorderPane fx:id="eventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.EventsController">
    <top>
       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -28,7 +28,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" onAction="#goToProfile" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Profile" textAlignment="JUSTIFY">
+                  <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToProfile" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Profile" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
@@ -39,7 +39,7 @@
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" onAction="#goToFriends" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToFriends" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                      </font>
@@ -94,7 +94,7 @@
                   <Insets top="20.0" />
                </padding>
             </Label>
-            <ChoiceBox fx:id="choicebox" maxWidth="1.7976931348623157E308" onDragDetected="#changeLabel" prefHeight="30.0" prefWidth="150.0">
+            <ChoiceBox fx:id="choicebox" maxWidth="1.7976931348623157E308" onMousePressed="#changeLabel" prefHeight="30.0" prefWidth="150.0">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin></ChoiceBox>

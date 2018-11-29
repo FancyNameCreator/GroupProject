@@ -1,5 +1,7 @@
 package JavaFX;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +27,8 @@ public class EventsController {
     @FXML
     private void initialize(){
         choicebox.setItems(usersChoice);
+
+        //choicebox.getSelectionModel().selectedItemProperty().addListener(changeListener);
     }
 
     @FXML

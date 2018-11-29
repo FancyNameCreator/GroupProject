@@ -127,25 +127,8 @@ public class FriendsPageController{
     }
 
     @FXML
-    private void addNewOne (ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/addFriends.fxml"));
-        BorderPane pane = loader.load();
-        friendsPane.getChildren().setAll(pane);
-
-    }
-
-    @FXML
     private void showDetailsOfFriend() throws IOException{
         Main.chosenOne = tableViewList.getSelectionModel().getSelectedItem();
-
-        /*
-        JUST LOADING A NEW PANE:
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/friendRemove.fxml"));
-        BorderPane pane = loader.load();
-        friendsPane.getChildren().setAll(pane);
-        */
 
         //LOADING ENTIRELY NEW WINDOW:
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -166,6 +149,20 @@ public class FriendsPageController{
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+
+    /*
+    LOADERS OF NEW WINDOWS/SCENES   -----------------------------------------------------------------------------------
+     */
+
+    @FXML
+    private void addNewOne (ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/addFriends.fxml"));
+        BorderPane pane = loader.load();
+        friendsPane.getChildren().setAll(pane);
+
     }
 
     @FXML
