@@ -129,7 +129,7 @@ public class FriendRemoveController {
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
-            alert.setContentText("Friend removed!");
+            alert.setContentText("Followed person is removed!");
             alert.showAndWait();
 
         } catch (SQLException e) {  // catch exception if occur

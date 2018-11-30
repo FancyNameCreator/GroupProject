@@ -34,6 +34,7 @@ public class Main extends Application {
     //  Because all variables that are not in this class are getting deleted as soon as execution of class they are in ends, for example while loading new window
     private static String emailIN;      //enables program to recognise current user
     static Person chosenOne;            //enables program to 'transport' info of chosen person to another class (scene/window)
+    static Event chosenEvent;           //enables program to 'transport' info of chosen event to another class (scene/window)
 
     // enables various methods to recognise current user
     static String getEmailIN() {

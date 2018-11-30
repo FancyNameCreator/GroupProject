@@ -123,7 +123,15 @@ public class FriendsPageController{
     @FXML
     private void refresh() {
         tableViewList.getItems().clear();
-        loadTableOfFriends();
+        if (doUserHasFriends()) {
+            loadTableOfFriends();
+        }
+        else {
+            Alert alert=new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("You have no friends to show :(");
+            alert.showAndWait();
+        }
     }
 
     @FXML

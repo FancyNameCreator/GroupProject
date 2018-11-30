@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.EventsController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.EventsController">
     <children>
         <VBox alignment="TOP_CENTER">
             <children>
@@ -33,7 +33,7 @@
                                 <DropShadow />
                             </effect>
                         </Button>
-                        <Button fx:id="FriendsPane" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#goToFriends" prefHeight="45.0" prefWidth="150.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD;" text="Friends" textAlignment="JUSTIFY">
+                        <Button fx:id="FriendsPane" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#goToFriends" prefHeight="45.0" prefWidth="150.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD;" text="Followed" textAlignment="JUSTIFY">
                             <font>
                                 <Font name="Segoe UI Symbol" size="20.0" />
                             </font>
