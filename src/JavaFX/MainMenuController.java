@@ -24,11 +24,11 @@ public class MainMenuController {
 
     @FXML
     public void initialize () {
-    chooseYear.setItems(year);
-    chooseMonth.setItems(month);
-    eventName.setCellValueFactory(new PropertyValueFactory<>("name"));
-    eventCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
-    tableView.setItems(events);
+        chooseYear.setItems(year);
+        chooseMonth.setItems(month);
+        eventName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        eventCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        tableView.setItems(events);
 
     }
 
@@ -993,7 +993,7 @@ public class MainMenuController {
     @FXML
     private void goToChat(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
+        loader.setLocation(getClass().getResource("/chatclient/FXMLDocument.fxml"));
         BorderPane pane = loader.load();
         mainPane.getChildren().setAll(pane);
     }

@@ -192,8 +192,9 @@ public class FriendsPageController{
     @FXML
     private void goToChat(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
+        loader.setLocation(getClass().getResource("/chatclient/FXMLDocument.fxml"));
         BorderPane pane = loader.load();
         friendsPane.getChildren().setAll(pane);
     }
+
 }

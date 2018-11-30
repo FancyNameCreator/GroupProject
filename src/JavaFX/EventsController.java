@@ -1,14 +1,11 @@
 package JavaFX;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
@@ -87,7 +84,7 @@ public class EventsController {
     @FXML
     private void goToChat(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
+        loader.setLocation(getClass().getResource("/chatclient/FXMLDocument.fxml"));
         BorderPane pane = loader.load();
         eventsPane.getChildren().setAll(pane);
     }

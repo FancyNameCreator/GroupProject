@@ -94,7 +94,7 @@
                   <Insets top="20.0" />
                </padding>
             </Label>
-            <ChoiceBox fx:id="choicebox" maxWidth="1.7976931348623157E308" onMousePressed="#changeLabel" prefHeight="30.0" prefWidth="150.0">
+            <ChoiceBox fx:id="choicebox" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="150.0">
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin></ChoiceBox>

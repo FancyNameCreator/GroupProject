@@ -93,24 +93,24 @@ public class ProfileController{
 
 
     private void getData(String emailPassed){
-            try {
-                // 3. Execute SQL query
-                ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailPassed + "' ");
+        try {
+            // 3. Execute SQL query
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailPassed + "' ");
 
-                // 4. Process the result set
-                while (myResults.next()) {
-                    firstName = (myResults.getString("first_name"));
-                    lastName = myResults.getString("last_name");
-                    email = myResults.getString("email");
-                    password = myResults.getString("password");
-                    city = myResults.getString("city");
-                    Date buf = myResults.getDate("DoB");
-                    age = buf.toLocalDate();
+            // 4. Process the result set
+            while (myResults.next()) {
+                firstName = (myResults.getString("first_name"));
+                lastName = myResults.getString("last_name");
+                email = myResults.getString("email");
+                password = myResults.getString("password");
+                city = myResults.getString("city");
+                Date buf = myResults.getDate("DoB");
+                age = buf.toLocalDate();
 
-                }
-            } catch (Exception exc) {    //catch the exception if occurs
-                exc.printStackTrace();
             }
+        } catch (Exception exc) {    //catch the exception if occurs
+            exc.printStackTrace();
+        }
     }
 
     @FXML
@@ -340,7 +340,7 @@ public class ProfileController{
     @FXML
     private void goToChat(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/profilePage.fxml"));
+        loader.setLocation(getClass().getResource("/chatclient/FXMLDocument.fxml"));
         BorderPane pane = loader.load();
         profilePane.getChildren().setAll(pane);
     }

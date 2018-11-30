@@ -36,7 +36,7 @@ public class Main extends Application {
     static Person chosenOne;            //enables program to 'transport' info of chosen person to another class (scene/window)
 
     // enables various methods to recognise current user
-    static String getEmailIN() {
+    public static String getEmailIN() {
         return emailIN;
     }
 
@@ -62,6 +62,7 @@ public class Main extends Application {
         createConnection();     //  connect to DB
         launch(args);           //  start application
         closeCrap();            //  disconnect from DB
+        System.exit(0);
     }
 
     //  creates a connection with the database, using previously implemented variables
