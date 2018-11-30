@@ -73,7 +73,7 @@ public class FriendsAddSubpageController {
             if (isAlreadyFriendOfUser()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
-                alert.setContentText("You have this person already in a friends");
+                alert.setContentText("You have this person already in followed people list");
                 alert.showAndWait();
             } else {
                 String stringOfIDs = getStringOfFriendsID();
@@ -109,7 +109,7 @@ public class FriendsAddSubpageController {
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("Friend added");
+                alert.setContentText("Person is added to your followed list");
                 alert.showAndWait();
 
             } catch (SQLException e) {  // catch exception if occur

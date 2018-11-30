@@ -73,6 +73,7 @@ public class Event{
     public String getParticipants() { return participants; }
 
 
+
     public Event(String ID, String name, String date, String location,String description, String category, String participants, String creator){
         this.ID = ID;
         this.name = name;

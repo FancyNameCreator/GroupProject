@@ -72,33 +72,35 @@ public class FriendAddController {
         stage.getIcons().add(icon);
     }
 
-    @FXML
-    private void displayResults(){
-        tableViewSearch.getItems().clear();
-        String phrase = textfieldSearch.getText();
 
-        try {
-            // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where (first_name = '"+phrase+"' || last_name = '"+phrase+"' || city = '"+phrase+"')");
-
-            // 4. Process the result set
-            while (myResults.next()) {
-                String id = myResults.getString("id");
-                String firstName = myResults.getString("first_name");
-                String lastName = myResults.getString("last_name");
-                String email = myResults.getString("email");
-                String password = myResults.getString("password");
-                String city = myResults.getString("city");
-                String DoB = myResults.getString("DoB");
-                String eventsAttending = myResults.getString("events_attending");
-                String friends = myResults.getString("friends");
-
-                tableOfSearched.add(new Person(id, firstName, lastName, email, password, city, DoB, eventsAttending, friends));
-            }
-        } catch (Exception exc) {    //catch the exception if occurs
-            exc.printStackTrace();
-        }
-    }
+//IT'S NOT USED BUT LETS LEAVE IT FOR A WHILE, MAYBE WE WILL USE IT AGAIN SOME DAY
+//    @FXML
+//    private void displayResults(){
+//        tableViewSearch.getItems().clear();
+//        String phrase = textfieldSearch.getText();
+//
+//        try {
+//            // 3. Execute SQL query
+//            ResultSet myResults = Main.stmt.executeQuery("select * from users where (first_name = '"+phrase+"' || last_name = '"+phrase+"' || city = '"+phrase+"')");
+//
+//            // 4. Process the result set
+//            while (myResults.next()) {
+//                String id = myResults.getString("id");
+//                String firstName = myResults.getString("first_name");
+//                String lastName = myResults.getString("last_name");
+//                String email = myResults.getString("email");
+//                String password = myResults.getString("password");
+//                String city = myResults.getString("city");
+//                String DoB = myResults.getString("DoB");
+//                String eventsAttending = myResults.getString("events_attending");
+//                String friends = myResults.getString("friends");
+//
+//                tableOfSearched.add(new Person(id, firstName, lastName, email, password, city, DoB, eventsAttending, friends));
+//            }
+//        } catch (Exception exc) {    //catch the exception if occurs
+//            exc.printStackTrace();
+//        }
+//    }
 /*
 
     @FXML

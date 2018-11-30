@@ -3,12 +3,19 @@ package JavaFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
+import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.text.ParseException;
@@ -109,6 +116,8 @@ public class MainMenuController {
 
         }
 
+
+
     }
     @FXML private void chosenButton1 () throws IOException {
         tableView.getItems().clear();
@@ -134,6 +143,9 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+
+
     }
 
     @FXML private void chosenButton2 () throws IOException {
@@ -914,7 +926,10 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
     }
+
+
 
     @FXML private BorderPane mainPane;
 
@@ -964,7 +979,37 @@ public class MainMenuController {
     @FXML private Button button30;
     @FXML private Button button31;
 
+    @FXML private void showDetailsEvent() throws IOException {
+        Main.chosenEvent = tableView.getSelectionModel().getSelectedItem();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/resources/eventAttend.fxml"));
+        Scene scene = new Scene (fxmlLoader.load(), 900, 600);
+        Stage stage = new Stage();
+        stage.setTitle("Attend an event");
+        stage.setScene(scene);
+        stage.show();
+        Image icon = new Image("/resources/Hanger Logo Done.png");
+        stage.getIcons().add(icon);
 
+        try {
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            fxmlLoader1.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
+            BorderPane pane = fxmlLoader1.load();
+            mainPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+//    @FXML private void changeColor () {
+//        if (events.isEmpty()) {
+//            //
+//        } else {
+//            button1.setStyle("-fx-background-color: red");
+//        }
+//    }
 
     @FXML
     private void goToProfile(ActionEvent actionEvent) throws IOException {
