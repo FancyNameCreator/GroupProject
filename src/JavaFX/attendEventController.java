@@ -7,19 +7,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-/**
- * class responsible for displaying the information about event that user clicked in a calendar
- */
 public class attendEventController {
 
     private Event event = new Event(Main.chosenEvent.getID(), Main.chosenEvent.getName(), Main.chosenEvent.getDate(), Main.chosenEvent.getLocation(), Main.chosenEvent.getDescription(), Main.chosenEvent.getCategory(), Main.chosenEvent.getParticipants(), Main.chosenEvent.getCreator());
 
-    @FXML
-    private void initialize() {
+    @FXML private void initialize() {
         nameField.setMouseTransparent(true);
         nameField.setFocusTraversable(false);
 
@@ -50,29 +46,28 @@ public class attendEventController {
         creatorField.setText(event.getCreator());
     }
 
-    @FXML
-    private void attendEvent() throws SQLException {
-        if (legibleToAttend()) {
-            String eventsCommand = makeEventsCommand();
-            String usersCommand = makeUsersCommand();
+    @FXML private void attendEvent() throws SQLException {
+            if (legibleToAttend()) {
+                String eventsCommand = makeEventsCommand();
+                String usersCommand = makeUsersCommand();
 
-            Main.stmt.executeUpdate("update events set participants = '" + eventsCommand + "' where event_id ='" + event.getID() + "'");
-            Main.stmt.executeUpdate("update users set events_attending = '" + usersCommand + "' where email ='" + Main.getEmailIN() + "'");
+                Main.stmt.executeUpdate("update events set participants = '" + eventsCommand + "' where event_id ='" + event.getID() + "'");
+                Main.stmt.executeUpdate("update users set events_attending = '" + usersCommand + "' where email ='" + Main.getEmailIN() + "'");
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("Event added to attended!");
-            alert.showAndWait();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("You CAN'T attend this event");
-            alert.showAndWait();
-        }
+                Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Event added to attended!");
+                alert.showAndWait();
+            }else{
+                Alert alert=new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("You CAN'T attend this event");
+                alert.showAndWait();
+            }
         Stage stage = (Stage) buttonAttend.getScene().getWindow();
         stage.close();
 
-    }
+        }
 
     private String makeEventsCommand() {
 
@@ -141,7 +136,6 @@ public class attendEventController {
         }
 
     }
-
     private String getUsersID() {
         String id = "-1";
 
@@ -160,14 +154,14 @@ public class attendEventController {
         return id;
     }
 
-    private boolean legibleToAttend() {
+    private boolean legibleToAttend(){
 
-        String attending = "";
-        String checking = "";
+        String attending="";
+        String checking="";
 
-        if (isTheUserCreator()) {
+        if(isTheUserCreator()){
             return false;
-        } else {
+        }else {
             try {
                 ResultSet myResults = Main.stmt.executeQuery("select events_attending from users where email = '" + Main.getEmailIN() + "'");
 
@@ -200,7 +194,6 @@ public class attendEventController {
             }
         }
     }
-
     private boolean isTheUserCreator() {
         return event.getCreator().equals(Main.getEmailIN());
     }

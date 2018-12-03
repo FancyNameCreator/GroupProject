@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.MainMenuController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" layoutX="-5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="912.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox alignment="CENTER" fillHeight="false">
+                     <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #FFF; -fx-background-color: #414141; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Main Menu">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToProfile" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Profile" textAlignment="JUSTIFY">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToFriends" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Followed" textAlignment="JUSTIFY">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToEvents" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Events" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </HBox.margin>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToChat" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Chat" textAlignment="JUSTIFY">
+                           <font>
+                              <Font name="Segoe UI Symbol" size="20.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <HBox.margin>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </HBox>
+                  <AnchorPane prefHeight="100.0" prefWidth="912.0">
+                     <children>
+                        <Label layoutX="371.0" layoutY="16.0" text="Welcome!">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="52.0" prefHeight="88.0" prefWidth="913.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="360.0" layoutY="-30.0" prefHeight="88.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="86.0" prefWidth="455.0">
+                                 <children>
+                                    <ChoiceBox fx:id="chooseYear" accessibleText="year" layoutX="148.0" layoutY="25.0" prefWidth="150.0" AnchorPane.rightAnchor="110.0" />
+                                    <Label layoutX="68.0" layoutY="29.0" text="Choose year to display:" AnchorPane.leftAnchor="30.0" />
+                                    <Button fx:id="buttonYearConfirm" layoutX="366.0" layoutY="25.0" mnemonicParsing="false" onAction="#choiceYear" text="confirm" AnchorPane.rightAnchor="20.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="74.0" prefWidth="420.0">
+                                 <children>
+                                    <ChoiceBox fx:id="chooseMonth" disable="true" layoutX="148.0" layoutY="25.0" prefWidth="150.0" AnchorPane.rightAnchor="110.0" />
+                                    <Label layoutX="55.0" layoutY="29.0" text="Choose month to display:" AnchorPane.leftAnchor="30.0" />
+                                    <Button fx:id="buttonMonthConfirm" disable="true" layoutX="366.0" layoutY="25.0" mnemonicParsing="false" onAction="#choiceMonth" text="confirm" AnchorPane.rightAnchor="20.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="416.0" prefWidth="900.0">
+                     <children>
+                        <HBox layoutX="417.0" prefHeight="393.0" prefWidth="495.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="417.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView fx:id="tableView" onMouseClicked="#showDetailsEvent" prefHeight="393.0" prefWidth="300.0">
+                                <columns>
+                                  <TableColumn fx:id="eventName" prefWidth="150.0" text="Event name" />
+                                  <TableColumn fx:id="eventCategory" prefWidth="150.0" text="Category" />
+                                </columns>
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <AnchorPane layoutY="-1.0" prefHeight="396.0" prefWidth="519.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="393.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <GridPane layoutX="77.0" layoutY="66.0" prefHeight="253.0" prefWidth="365.0" AnchorPane.leftAnchor="77.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button fx:id="button1" disable="true" mnemonicParsing="false" onAction="#chosenButton1" prefHeight="80.0" prefWidth="100.0" text="1" />
+                                    <Button fx:id="button2" disable="true" mnemonicParsing="false" onAction="#chosenButton2" prefHeight="81.0" prefWidth="100.0" text="2" GridPane.columnIndex="1" />
+                                    <Button fx:id="button3" disable="true" mnemonicParsing="false" onAction="#chosenButton3" prefHeight="105.0" prefWidth="100.0" text="3" GridPane.columnIndex="2" />
+                                    <Button fx:id="button4" disable="true" mnemonicParsing="false" onAction="#chosenButton4" prefHeight="111.0" prefWidth="100.0" text="4" GridPane.columnIndex="3" />
+                                    <Button fx:id="button5" disable="true" mnemonicParsing="false" onAction="#chosenButton5" prefHeight="164.0" prefWidth="100.0" text="5" GridPane.columnIndex="4" />
+                                    <Button fx:id="button6" disable="true" mnemonicParsing="false" onAction="#chosenButton6" prefHeight="123.0" prefWidth="100.0" text="6" GridPane.columnIndex="5" />
+                                    <Button fx:id="button7" disable="true" mnemonicParsing="false" onAction="#chosenButton7" prefHeight="105.0" prefWidth="100.0" text="7" GridPane.columnIndex="6" />
+                                    <Button fx:id="button8" disable="true" mnemonicParsing="false" onAction="#chosenButton8" prefHeight="125.0" prefWidth="100.0" text="8" GridPane.rowIndex="1" />
+                                    <Button fx:id="button9" disable="true" mnemonicParsing="false" onAction="#chosenButton9" prefHeight="132.0" prefWidth="100.0" text="9" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="button10" disable="true" mnemonicParsing="false" onAction="#chosenButton10" prefHeight="111.0" prefWidth="100.0" text="10" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Button fx:id="button11" disable="true" mnemonicParsing="false" onAction="#chosenButton11" prefHeight="120.0" prefWidth="100.0" text="11" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Button fx:id="button12" disable="true" mnemonicParsing="false" onAction="#chosenButton12" prefHeight="111.0" prefWidth="100.0" text="12" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                    <Button fx:id="button13" disable="true" mnemonicParsing="false" onAction="#chosenButton13" prefHeight="98.0" prefWidth="100.0" text="13" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                    <Button fx:id="button14" disable="true" mnemonicParsing="false" onAction="#chosenButton14" prefHeight="117.0" prefWidth="100.0" text="14" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                    <Button fx:id="button15" disable="true" mnemonicParsing="false" onAction="#chosenButton15" prefHeight="112.0" prefWidth="100.0" text="15" GridPane.rowIndex="2" />
+                                    <Button fx:id="button16" disable="true" mnemonicParsing="false" onAction="#chosenButton16" prefHeight="106.0" prefWidth="100.0" text="16" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Button fx:id="button17" disable="true" mnemonicParsing="false" onAction="#chosenButton17" prefHeight="114.0" prefWidth="100.0" text="17" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Button fx:id="button18" disable="true" mnemonicParsing="false" onAction="#chosenButton18" prefHeight="91.0" prefWidth="100.0" text="18" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Button fx:id="button19" disable="true" mnemonicParsing="false" onAction="#chosenButton19" prefHeight="91.0" prefWidth="100.0" text="19" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <Button fx:id="button20" disable="true" mnemonicParsing="false" onAction="#chosenButton20" prefHeight="90.0" prefWidth="100.0" text="20" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                    <Button fx:id="button21" disable="true" mnemonicParsing="false" onAction="#chosenButton21" prefHeight="101.0" prefWidth="100.0" text="21" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                                    <Button fx:id="button22" disable="true" mnemonicParsing="false" onAction="#chosenButton22" prefHeight="110.0" prefWidth="100.0" text="22" GridPane.rowIndex="3" />
+                                    <Button fx:id="button23" disable="true" mnemonicParsing="false" onAction="#chosenButton23" prefHeight="99.0" prefWidth="100.0" text="23" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Button fx:id="button24" disable="true" mnemonicParsing="false" onAction="#chosenButton24" prefHeight="121.0" prefWidth="100.0" text="24" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                    <Button fx:id="button25" disable="true" mnemonicParsing="false" onAction="#chosenButton25" prefHeight="93.0" prefWidth="100.0" text="25" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <Button fx:id="button26" disable="true" mnemonicParsing="false" onAction="#chosenButton26" prefHeight="96.0" prefWidth="100.0" text="26" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <Button fx:id="button27" disable="true" mnemonicParsing="false" onAction="#chosenButton27" prefHeight="90.0" prefWidth="100.0" text="27" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                    <Button fx:id="button28" disable="true" mnemonicParsing="false" onAction="#chosenButton28" prefHeight="130.0" prefWidth="100.0" text="28" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                                    <Button fx:id="button29" disable="true" mnemonicParsing="false" onAction="#chosenButton29" prefHeight="142.0" prefWidth="100.0" text="29" GridPane.rowIndex="4" />
+                                    <Button fx:id="button30" disable="true" mnemonicParsing="false" onAction="#chosenButton30" prefHeight="139.0" prefWidth="100.0" text="30" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Button fx:id="button31" disable="true" mnemonicParsing="false" onAction="#chosenButton31" prefHeight="182.0" prefWidth="100.0" text="31" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                              <AnchorPane layoutX="118.0" layoutY="-7.0" prefHeight="89.0" prefWidth="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="156.0" layoutY="18.0" text="My calendar">
+                                       <font>
+                                          <Font name="System Bold" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
