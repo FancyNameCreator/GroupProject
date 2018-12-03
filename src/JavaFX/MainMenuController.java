@@ -29,6 +29,49 @@ public class MainMenuController {
     private ObservableList<String> month = FXCollections.observableArrayList("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
     private ObservableList<Event> events = FXCollections.observableArrayList();
 
+    @FXML private BorderPane mainPane;
+
+    @FXML private ChoiceBox <String> chooseYear;
+    @FXML private ChoiceBox <String> chooseMonth;
+
+    @FXML private TableView<Event> tableView;
+    @FXML private TableColumn<Event, String> eventName;
+    @FXML private TableColumn<Event, String> eventCategory;
+
+    @FXML private Button button1;
+    @FXML private Button button2;
+    @FXML private Button button3;
+    @FXML private Button button4;
+    @FXML private Button button5;
+    @FXML private Button button6;
+    @FXML private Button button7;
+    @FXML private Button button8;
+    @FXML private Button button9;
+    @FXML private Button button10;
+    @FXML private Button button11;
+    @FXML private Button button12;
+    @FXML private Button button13;
+    @FXML private Button button14;
+    @FXML private Button button15;
+    @FXML private Button button16;
+    @FXML private Button button17;
+    @FXML private Button button18;
+    @FXML private Button button19;
+    @FXML private Button button20;
+    @FXML private Button button21;
+    @FXML private Button button22;
+    @FXML private Button button23;
+    @FXML private Button button24;
+    @FXML private Button button25;
+    @FXML private Button button26;
+    @FXML private Button button27;
+    @FXML private Button button28;
+    @FXML private Button button29;
+    @FXML private Button button30;
+    @FXML private Button button31;
+    @FXML private Button buttonYearConfirm;
+    @FXML private Button buttonMonthConfirm;
+
     @FXML
     public void initialize () {
         chooseYear.setItems(year);
@@ -36,14 +79,57 @@ public class MainMenuController {
         eventName.setCellValueFactory(new PropertyValueFactory<>("name"));
         eventCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         tableView.setItems(events);
-
     }
 
+    private void changeColor (Button button) {
+        button.setStyle("-fx-background-color: #ff0000");
+    }
+
+    private void simulateButtonClicked(){
+        chosenButton1();
+        chosenButton2();
+        chosenButton3();
+        chosenButton4();
+        chosenButton5();
+        chosenButton6();
+        chosenButton7();
+        chosenButton8();
+        chosenButton9();
+        chosenButton10();
+        chosenButton11();
+        chosenButton12();
+        chosenButton13();
+        chosenButton14();
+        chosenButton15();
+        chosenButton16();
+        chosenButton17();
+        chosenButton18();
+        chosenButton19();
+        chosenButton20();
+        chosenButton21();
+        chosenButton22();
+        chosenButton23();
+        chosenButton24();
+        chosenButton25();
+        chosenButton26();
+        chosenButton27();
+        chosenButton28();
+        chosenButton29();
+        chosenButton30();
+        chosenButton31();
+    }
+
+
+/*
+-------------------------------------------------------------------------------------------------
+CALENDAR METHODS - methods regarding calendar
+-------------------------------------------------------------------------------------------------
+*/
+
     @FXML
-    public void choiceYear () throws IOException {
+    public void choiceYear() throws IOException {
         chooseMonth.setDisable(false);
         buttonMonthConfirm.setDisable(false);
-
     }
 
     @FXML
@@ -80,6 +166,7 @@ public class MainMenuController {
             button29.setDisable(true);
             button30.setDisable(true);
             button31.setDisable(true);
+
             switch (chooseMonth.getValue()) {
                 case ("02"):
                     button29.setDisable(false);
@@ -113,13 +200,11 @@ public class MainMenuController {
                     button31.setDisable(false);
                     break;
             }
-
         }
-
-
-
+        simulateButtonClicked();
     }
-    @FXML private void chosenButton1 () throws IOException {
+
+    @FXML private void chosenButton1(){
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -144,11 +229,12 @@ public class MainMenuController {
             exc.printStackTrace();
         }
 
-
-
+        if (events.size() != 0){
+            changeColor(button1);
+        }
     }
 
-    @FXML private void chosenButton2 () throws IOException {
+    @FXML private void chosenButton2() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -172,9 +258,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button2);
+        }
     }
 
-    @FXML private void chosenButton3 () throws IOException {
+    @FXML private void chosenButton3() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -198,9 +288,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button3);
+        }
     }
 
-    @FXML private void chosenButton4 () throws IOException {
+    @FXML private void chosenButton4() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -224,9 +318,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button4);
+        }
     }
 
-    @FXML private void chosenButton5 () throws IOException {
+    @FXML private void chosenButton5() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -250,9 +348,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button5);
+        }
     }
 
-    @FXML private void chosenButton6 () throws IOException {
+    @FXML private void chosenButton6() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -276,9 +378,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button6);
+        }
     }
 
-    @FXML private void chosenButton7 () throws IOException {
+    @FXML private void chosenButton7() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -302,9 +408,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button7);
+        }
     }
 
-    @FXML private void chosenButton8 () throws IOException {
+    @FXML private void chosenButton8() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -328,9 +438,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button8);
+        }
     }
 
-    @FXML private void chosenButton9 () throws IOException {
+    @FXML private void chosenButton9() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -354,9 +468,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button9);
+        }
     }
 
-    @FXML private void chosenButton10 () throws IOException {
+    @FXML private void chosenButton10() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -380,9 +498,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button10);
+        }
     }
 
-    @FXML private void chosenButton11 () throws IOException {
+    @FXML private void chosenButton11() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -406,9 +528,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button11);
+        }
     }
 
-    @FXML private void chosenButton12 () throws IOException {
+    @FXML private void chosenButton12() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -432,9 +558,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button12);
+        }
     }
 
-    @FXML private void chosenButton13 () throws IOException {
+    @FXML private void chosenButton13() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -458,9 +588,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button13);
+        }
     }
 
-    @FXML private void chosenButton14 () throws IOException {
+    @FXML private void chosenButton14() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -484,9 +618,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button14);
+        }
     }
 
-    @FXML private void chosenButton15 () throws IOException {
+    @FXML private void chosenButton15() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -510,9 +648,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button15);
+        }
     }
 
-    @FXML private void chosenButton16 () throws IOException {
+    @FXML private void chosenButton16() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -536,9 +678,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button16);
+        }
     }
 
-    @FXML private void chosenButton17 () throws IOException {
+    @FXML private void chosenButton17() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -562,9 +708,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button17);
+        }
     }
 
-    @FXML private void chosenButton18 () throws IOException {
+    @FXML private void chosenButton18() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -588,9 +738,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button18);
+        }
     }
 
-    @FXML private void chosenButton19 () throws IOException {
+    @FXML private void chosenButton19() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -614,9 +768,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button19);
+        }
     }
 
-    @FXML private void chosenButton20 () throws IOException {
+    @FXML private void chosenButton20() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -640,9 +798,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button20);
+        }
     }
 
-    @FXML private void chosenButton21 () throws IOException {
+    @FXML private void chosenButton21() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -666,9 +828,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button21);
+        }
     }
 
-    @FXML private void chosenButton22 () throws IOException {
+    @FXML private void chosenButton22() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -692,9 +858,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button22);
+        }
     }
 
-    @FXML private void chosenButton23 () throws IOException {
+    @FXML private void chosenButton23() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -718,9 +888,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button23);
+        }
     }
 
-    @FXML private void chosenButton24 () throws IOException {
+    @FXML private void chosenButton24() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -744,9 +918,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button24);
+        }
     }
 
-    @FXML private void chosenButton25 () throws IOException {
+    @FXML private void chosenButton25() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -770,9 +948,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button25);
+        }
     }
 
-    @FXML private void chosenButton26 () throws IOException {
+    @FXML private void chosenButton26() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -796,9 +978,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button26);
+        }
     }
 
-    @FXML private void chosenButton27 () throws IOException {
+    @FXML private void chosenButton27() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -822,9 +1008,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button27);
+        }
     }
 
-    @FXML private void chosenButton28 () throws IOException {
+    @FXML private void chosenButton28() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -848,9 +1038,12 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+        if (events.size() != 0){
+            changeColor(button28);
+        }
     }
 
-    @FXML private void chosenButton29 () throws IOException {
+    @FXML private void chosenButton29() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -874,9 +1067,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button29);
+        }
     }
 
-    @FXML private void chosenButton30 () throws IOException {
+    @FXML private void chosenButton30() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -900,9 +1097,13 @@ public class MainMenuController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+
+        if (events.size() != 0){
+            changeColor(button30);
+        }
     }
 
-    @FXML private void chosenButton31 () throws IOException {
+    @FXML private void chosenButton31() {
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
@@ -927,57 +1128,13 @@ public class MainMenuController {
             exc.printStackTrace();
         }
 
+        if (events.size() != 0){
+            changeColor(button31);
+        }
+
     }
 
 
-
-    @FXML private BorderPane mainPane;
-
-    @FXML private ChoiceBox <String> chooseYear;
-
-    @FXML private ChoiceBox <String> chooseMonth;
-
-    @FXML private Button buttonYearConfirm;
-
-    @FXML private Button buttonMonthConfirm;
-
-    @FXML private TableView<Event> tableView;
-
-    @FXML private TableColumn<Event, String> eventName;
-
-    @FXML private TableColumn<Event, String> eventCategory;
-
-    @FXML private Button button1;
-    @FXML private Button button2;
-    @FXML private Button button3;
-    @FXML private Button button4;
-    @FXML private Button button5;
-    @FXML private Button button6;
-    @FXML private Button button7;
-    @FXML private Button button8;
-    @FXML private Button button9;
-    @FXML private Button button10;
-    @FXML private Button button11;
-    @FXML private Button button12;
-    @FXML private Button button13;
-    @FXML private Button button14;
-    @FXML private Button button15;
-    @FXML private Button button16;
-    @FXML private Button button17;
-    @FXML private Button button18;
-    @FXML private Button button19;
-    @FXML private Button button20;
-    @FXML private Button button21;
-    @FXML private Button button22;
-    @FXML private Button button23;
-    @FXML private Button button24;
-    @FXML private Button button25;
-    @FXML private Button button26;
-    @FXML private Button button27;
-    @FXML private Button button28;
-    @FXML private Button button29;
-    @FXML private Button button30;
-    @FXML private Button button31;
 
     @FXML private void showDetailsEvent() throws IOException {
         Main.chosenEvent = tableView.getSelectionModel().getSelectedItem();
@@ -1002,15 +1159,11 @@ public class MainMenuController {
     }
 
 
-
-//    @FXML private void changeColor () {
-//        if (events.isEmpty()) {
-//            //
-//        } else {
-//            button1.setStyle("-fx-background-color: red");
-//        }
-//    }
-
+    /*
+----------------------------------------------------------------------------------
+LOADERS METHODS - methods that load another fxml files
+----------------------------------------------------------------------------------
+ */
     @FXML
     private void goToProfile(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
