@@ -18,6 +18,7 @@ public class EventsController {
     @FXML
     private ChoiceBox <String> choicebox;
 
+
     @FXML
     private Label labelOfUserChoice;
 
