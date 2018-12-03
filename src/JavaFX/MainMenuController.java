@@ -32,10 +32,13 @@ public class MainMenuController {
     @FXML
     public void initialize () {
         chooseYear.setItems(year);
+        chooseYear.getSelectionModel().selectFirst();
         chooseMonth.setItems(month);
+        chooseMonth.getSelectionModel().selectFirst();
         eventName.setCellValueFactory(new PropertyValueFactory<>("name"));
         eventCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         tableView.setItems(events);
+        ;
 
     }
 

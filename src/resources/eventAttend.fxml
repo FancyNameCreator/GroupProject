@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.attendEventController">
+   <center>
+      <HBox prefHeight="328.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="172.0">
+               <children>
+                  <AnchorPane prefHeight="80.0" prefWidth="149.0">
+                     <children>
+                        <Label layoutX="61.0" layoutY="25.0" text="Name:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="67.0" layoutY="25.0" text="Date:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="50.0" layoutY="25.0" text="Location:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="47.0" layoutY="25.0" text="Category:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="100.0" prefWidth="172.0">
+                     <children>
+                        <Label layoutX="37.0" layoutY="25.0" text="Description:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="36.0" layoutY="25.0" text="Participants:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="51.0" layoutY="25.0" text="Creator:">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="600.0" prefWidth="566.0">
+               <children>
+                  <AnchorPane prefHeight="80.0" prefWidth="566.0">
+                     <children>
+                        <TextArea fx:id="nameField" editable="false" layoutX="1.0" layoutY="26.0" prefHeight="40.0" prefWidth="562.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="566.0">
+                     <children>
+                        <TextArea fx:id="dateField" editable="false" layoutX="1.0" layoutY="26.0" prefHeight="40.0" prefWidth="562.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="566.0">
+                     <children>
+                        <TextArea fx:id="locationField" editable="false" layoutX="1.0" layoutY="26.0" prefHeight="40.0" prefWidth="562.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="566.0">
+                     <children>
+                        <TextArea fx:id="categoryField" editable="false" layoutX="1.0" layoutY="28.0" prefHeight="32.0" prefWidth="562.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="100.0" prefWidth="566.0">
+                     <children>
+                        <TextArea fx:id="descriptionField" editable="false" layoutX="1.0" layoutY="22.0" prefHeight="85.0" prefWidth="562.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="566.0">
+                     <children>
+                        <TextArea fx:id="participantsField" editable="false" layoutX="2.0" layoutY="20.0" prefHeight="40.0" prefWidth="562.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="80.0" prefWidth="566.0">
+                     <children>
+                        <TextArea fx:id="creatorField" editable="false" layoutX="2.0" layoutY="20.0" prefHeight="40.0" prefWidth="562.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="buttonAttend" layoutX="38.0" layoutY="529.0" mnemonicParsing="false" onAction="#attendEvent" prefHeight="43.0" prefWidth="107.0" style="-fx-background-color: #313131;" text="Attend" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

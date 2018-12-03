@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="chatPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatclient.FXMLDocumentController">
+    <center>
+        <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <content>
+                <TextArea fx:id="textArea" prefHeight="550.0" prefWidth="880.0" />
+            </content>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <HBox prefWidth="200.0" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <TextField fx:id="comment" onKeyPressed="#actOnEnter" prefHeight="31.0" prefWidth="804.0">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                    </HBox.margin>
+                </TextField>
+                <Button mnemonicParsing="false" onAction="#sendComment" text="Send">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                    </HBox.margin></Button>
+            </children>
+        </HBox>
+    </bottom>
+    <top>
+        <HBox prefHeight="40.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToMainMenu" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #FFF; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Main Menu">
+                    <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                    </HBox.margin>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToProfile" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Profile" textAlignment="JUSTIFY">
+                    <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                    </HBox.margin>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToFriends" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
+                    <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                    </HBox.margin>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToEvents" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Events" textAlignment="CENTER">
+                    <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                    </HBox.margin>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Button>
+                <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #414141; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Chat" textAlignment="JUSTIFY">
+                    <font>
+                        <Font name="Segoe UI Symbol" size="20.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <HBox.margin>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+         <effect>
+            <DropShadow />
+         </effect>
+        </HBox>
+    </top>
+</BorderPane>
