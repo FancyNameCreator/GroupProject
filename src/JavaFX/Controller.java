@@ -1,6 +1,5 @@
 package JavaFX;
 
-import Database.LogInOrCreateUserClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 
 /**
- * Class that controls logging in process (controller of sample.fxml)
+ * Class that controls logging process(controller of sample.fxml)
  */
 public class Controller {
 
@@ -24,7 +23,6 @@ public class Controller {
 
     //  called by clicking log in button, gets info from the users and checks if correct
     public void validate() throws IOException {
-        LogInOrCreateUserClass login = new LogInOrCreateUserClass();
 
         //  get chars inserted in text fields
         String emailIN = username.getText();

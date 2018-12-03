@@ -3,7 +3,6 @@ package JavaFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,16 +12,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
+/**
+ * class is responsible for main menu of an application, includes:
+ * - methods regarding calendar
+ * - methods that load new scenes
+ */
 public class MainMenuController {
 
     private ObservableList<String> year = FXCollections.observableArrayList("2019", "2020", "2021", "2022");
@@ -38,6 +35,7 @@ public class MainMenuController {
     @FXML private TableColumn<Event, String> eventName;
     @FXML private TableColumn<Event, String> eventCategory;
 
+    //  Buttons from button1 to button31 are used to handle calendar
     @FXML private Button button1;
     @FXML private Button button2;
     @FXML private Button button3;
@@ -69,7 +67,6 @@ public class MainMenuController {
     @FXML private Button button29;
     @FXML private Button button30;
     @FXML private Button button31;
-    @FXML private Button buttonYearConfirm;
     @FXML private Button buttonMonthConfirm;
 
     @FXML
@@ -81,59 +78,23 @@ public class MainMenuController {
         tableView.setItems(events);
     }
 
-    private void changeColor (Button button) {
-        button.setStyle("-fx-background-color: #ff0000");
-    }
-
-    private void simulateButtonClicked(){
-        chosenButton1();
-        chosenButton2();
-        chosenButton3();
-        chosenButton4();
-        chosenButton5();
-        chosenButton6();
-        chosenButton7();
-        chosenButton8();
-        chosenButton9();
-        chosenButton10();
-        chosenButton11();
-        chosenButton12();
-        chosenButton13();
-        chosenButton14();
-        chosenButton15();
-        chosenButton16();
-        chosenButton17();
-        chosenButton18();
-        chosenButton19();
-        chosenButton20();
-        chosenButton21();
-        chosenButton22();
-        chosenButton23();
-        chosenButton24();
-        chosenButton25();
-        chosenButton26();
-        chosenButton27();
-        chosenButton28();
-        chosenButton29();
-        chosenButton30();
-        chosenButton31();
-    }
-
-
 /*
 -------------------------------------------------------------------------------------------------
 CALENDAR METHODS - methods regarding calendar
 -------------------------------------------------------------------------------------------------
 */
 
+    //  after executing this method chooseMonth and buttonMonthConfirm become available for the user to click
     @FXML
-    public void choiceYear() throws IOException {
+    public void choiceYear(){
         chooseMonth.setDisable(false);
         buttonMonthConfirm.setDisable(false);
     }
 
+    //  1. determine how many days does the month has and display it
+    //  2. determine whether there are upcoming events in the month and if so mark those days as red
     @FXML
-    public void choiceMonth () throws IOException {
+    public void choiceMonth() {
         button1.setDisable(false);
         button2.setDisable(false);
         button3.setDisable(false);
@@ -204,11 +165,59 @@ CALENDAR METHODS - methods regarding calendar
         simulateButtonClicked();
     }
 
+    //  change color of passed button
+    private void changeColor (Button button) {
+        button.setStyle("-fx-background-color: #ff0000");
+    }
+
+    //  simulates the clicking of a button in order to determine which days(buttons) should be marked red
+    private void simulateButtonClicked(){
+        chosenButton1();
+        chosenButton2();
+        chosenButton3();
+        chosenButton4();
+        chosenButton5();
+        chosenButton6();
+        chosenButton7();
+        chosenButton8();
+        chosenButton9();
+        chosenButton10();
+        chosenButton11();
+        chosenButton12();
+        chosenButton13();
+        chosenButton14();
+        chosenButton15();
+        chosenButton16();
+        chosenButton17();
+        chosenButton18();
+        chosenButton19();
+        chosenButton20();
+        chosenButton21();
+        chosenButton22();
+        chosenButton23();
+        chosenButton24();
+        chosenButton25();
+        chosenButton26();
+        chosenButton27();
+        chosenButton28();
+        chosenButton29();
+        chosenButton30();
+        chosenButton31();
+        tableView.getItems().clear();
+    }
+
+
+
+//--------------------------------------------------------------------------------
+// methods that are loading table of events on the chosen day of a month
+//--------------------------------------------------------------------------------
+
     @FXML private void chosenButton1(){
         tableView.getItems().clear();
         String y = chooseYear.getValue();
         String m = chooseMonth.getValue();
         String fullDate = y + "-" + m + "-01";
+
         try {
             // 3. Execute SQL query
             ResultSet myResults = Main.stmt.executeQuery("select * from events where event_date = '"+fullDate+"' ");
@@ -1131,13 +1140,14 @@ CALENDAR METHODS - methods regarding calendar
         if (events.size() != 0){
             changeColor(button31);
         }
-
     }
 
 
-
+//  this method shows details of the event user chose and displays them in a separate stage
     @FXML private void showDetailsEvent() throws IOException {
+
         Main.chosenEvent = tableView.getSelectionModel().getSelectedItem();
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("/resources/eventAttend.fxml"));
         Scene scene = new Scene (fxmlLoader.load(), 900, 600);
@@ -1165,7 +1175,7 @@ LOADERS METHODS - methods that load another fxml files
 ----------------------------------------------------------------------------------
  */
     @FXML
-    private void goToProfile(ActionEvent actionEvent) throws IOException {
+    private void goToProfile() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/profile.fxml"));
         BorderPane pane = loader.load();
@@ -1173,7 +1183,7 @@ LOADERS METHODS - methods that load another fxml files
     }
 
     @FXML
-    private void goToEvents(ActionEvent event) throws IOException {
+    private void goToEvents() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
         BorderPane pane = loader.load();
@@ -1181,7 +1191,7 @@ LOADERS METHODS - methods that load another fxml files
     }
 
     @FXML
-    private void goToFriends(ActionEvent event) throws IOException {
+    private void goToFriends() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/friendsPage.fxml"));
         loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
         BorderPane pane = loader.load();
@@ -1189,7 +1199,7 @@ LOADERS METHODS - methods that load another fxml files
     }
 
     @FXML
-    private void goToChat(ActionEvent event) throws IOException {
+    private void goToChat() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/chatclient/FXMLDocument.fxml"));
         BorderPane pane = loader.load();

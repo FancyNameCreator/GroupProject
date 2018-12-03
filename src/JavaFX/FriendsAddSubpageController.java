@@ -9,6 +9,9 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 
+/**
+ * class responsible for adding new friend to current user friends
+ */
 public class FriendsAddSubpageController {
 
     private Person person = new Person(Main.chosenOne.getId(), Main.chosenOne.getFirstName(), Main.chosenOne.getLastName(),
@@ -58,6 +61,7 @@ public class FriendsAddSubpageController {
         DOBTextField.setText(person.getDoB());
     }
 
+    //  adds friend to list of friends
     @FXML
     void addFriend() {
         /*
@@ -80,7 +84,7 @@ public class FriendsAddSubpageController {
 
                 StringBuilder sb = new StringBuilder(stringOfIDs);
 
-                sb.setLength(sb.length()-1);
+                sb.setLength(sb.length() - 1);
 
                 sb.append(",").append(Main.chosenOne.getId()).append(")");
 
@@ -122,6 +126,7 @@ public class FriendsAddSubpageController {
 
     }
 
+    //  checks if user already has friends
     private boolean userHasFriends() {
         String str = "";
         try {
@@ -140,6 +145,7 @@ public class FriendsAddSubpageController {
             return true;
     }
 
+    //  gets a string of IDs of a user's friends
     private String getStringOfFriendsID() {
         String str = "";
 
@@ -155,6 +161,7 @@ public class FriendsAddSubpageController {
         return str;
     }
 
+    //  checks if person is already a friend of a current user
     private boolean isAlreadyFriendOfUser() {
         String friends = "";
         String checking = "";

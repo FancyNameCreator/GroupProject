@@ -54,7 +54,13 @@ public class Main extends Application {
         primaryStage.getIcons().add(icon);
         Parent root = FXMLLoader.load(getClass().getResource("/resources/sample.fxml"));
         primaryStage.setTitle("Hanger");
-        primaryStage.setScene(new Scene(root, 900, 600));
+
+        Scene scene = new Scene(root);
+        primaryStage.setResizable(true);
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+
+        //primaryStage.setScene(new Scene(root, 900, 600));
         primaryStage.show();
     }
 

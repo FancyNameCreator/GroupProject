@@ -11,14 +11,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.ResultSet;
 
+/**
+ * class responsible for searching for new friends, controller of addFriend.fxml
+ */
 public class FriendAddController {
     private ObservableList<Person> tableOfSearched = FXCollections.observableArrayList();
 
@@ -39,6 +40,7 @@ public class FriendAddController {
     @FXML
     private TableColumn<Person, String> DOBColumn;
 
+    //  set and initialize all scene items
     @FXML
     private void initialize(){
             firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -48,14 +50,8 @@ public class FriendAddController {
             tableViewSearch.setItems(tableOfSearched);
         }
 
-    @FXML
-    private void BackToFriendsList (ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
-        BorderPane pane = loader.load();
-        friendsPane.getChildren().setAll(pane);
-    }
 
+    //  show details of a person in entirely new stage
     @FXML
     private void showDetailsOfFriend() throws IOException{
         Main.chosenOne = tableViewSearch.getSelectionModel().getSelectedItem();
@@ -110,8 +106,10 @@ public class FriendAddController {
     }
 
 */
+
+    //  display in a table all results that first names, last names or cities matches phrase that was entered
     @FXML
-    private void searchWithHint(KeyEvent keyEvent){
+    private void searchWithHint(){
 
         tableViewSearch.getItems().clear();
         String phraseToSearch = textfieldSearch.getText();
@@ -138,6 +136,14 @@ public class FriendAddController {
         } catch (Exception exc) {    //catch the exception if occurs
             exc.printStackTrace();
         }
+    }
+
+    @FXML
+    private void BackToFriendsList (ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
+        BorderPane pane = loader.load();
+        friendsPane.getChildren().setAll(pane);
     }
 
 }

@@ -1,5 +1,8 @@
 package JavaFX;
 
+/**
+ * representation of a single person in the program
+ */
 public class Person {
     private String id;
     private String firstName;
@@ -11,7 +14,7 @@ public class Person {
     private String eventsAttending;
     private String friends;
 
-    public Person(String id, String firstName, String lastName, String email, String password, String city, String doB, String eventsAttending, String friends) {
+    Person(String id, String firstName, String lastName, String email, String password, String city, String doB, String eventsAttending, String friends) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

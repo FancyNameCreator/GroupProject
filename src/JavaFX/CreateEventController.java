@@ -2,7 +2,6 @@ package JavaFX;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -12,6 +11,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * class is responsible for createEvent.fxml
+ */
 public class CreateEventController {
 
     @FXML
@@ -47,35 +49,25 @@ public class CreateEventController {
     private String creatorOfEvent = Main.getEmailIN();
 
     private ObservableList<String> category = FXCollections.observableArrayList(
-            "Food event","Clubbing","Music event","Just meeting","Sport match","Hobby event");
+            "Food event", "Clubbing", "Music event", "Just meeting", "Sport match", "Hobby event");
 
 
     @FXML
-    private void backToEvents(){
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
-            BorderPane pane = loader.load();
-            CreateEventsPane.getChildren().setAll(pane);
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-}
-
-    @FXML
-    private void initialize(){
+    private void initialize() {
         choiceBoxCreate.setItems(category);
     }
 
+    //  called by clicking create button
     @FXML
-    private void createEvent(ActionEvent ae){
+    private void createEvent() {
         getData();
         sendData();
         showAlert();
         backToEvents();
     }
 
-    private void getData(){
+    //  collects data from all the fields and initializes the variables;
+    private void getData() {
         nameOfEvent = textFieldName.getText();
         locationOfEvent = textFieldLocation.getText();
         dateOfEvent = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -83,26 +75,40 @@ public class CreateEventController {
         participantsOfEvent = "";
         creatorOfEvent = Main.getEmailIN();
         categoryOfEvent = choiceBoxCreate.getValue();
-        }
+    }
 
-    private void sendData(){
-        try{
+    //  sends data into the DB
+    private void sendData() {
+        try {
             String sql = "insert into events "
                     + "(event_name,event_date,event_location,event_description,event_category,participants,creator)"
                     + "values ('" + nameOfEvent + "','" + dateOfEvent + "','" + locationOfEvent + "','" + descriptionOfEvent + "','" + categoryOfEvent + "','" + participantsOfEvent + "', '" + creatorOfEvent + "')";
             // executing MySQL command that value is stored in sql variable
             Main.stmt.executeUpdate(sql);
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         labelEventCreated.setVisible(true);
     }
 
-    private void showAlert(){
-        Alert alert=new Alert(Alert.AlertType.INFORMATION);
+    //  shows alert that event was created
+    private void showAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setContentText("Event created!");
         alert.showAndWait();
     }
 
+    //  LOADER
+    @FXML
+    private void backToEvents() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
+            BorderPane pane = loader.load();
+            CreateEventsPane.getChildren().setAll(pane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

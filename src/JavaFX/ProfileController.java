@@ -3,7 +3,6 @@ package JavaFX;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.event.ActionEvent;
 import javafx.scene.layout.BorderPane;
 import java.sql.Date;
 import java.io.IOException;
@@ -11,7 +10,10 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class ProfileController{
+/**
+ * class that controls profile.fxml, including all method it regarding
+ */
+public class ProfileController {
     @FXML
     private BorderPane profilePane;
 
@@ -28,12 +30,12 @@ public class ProfileController{
     @FXML
     private TextField passwordTextField;
 
-    private boolean firstNameButtonClicked=false;
-    private boolean lastNameButtonClicked=false;
-    private boolean cityButtonClicked=false;
-    private boolean ageButtonClicked=false;
-    private boolean emailButtonClicked=false;
-    private boolean passwordButtonClicked=false;
+    private boolean firstNameButtonClicked = false;
+    private boolean lastNameButtonClicked = false;
+    private boolean cityButtonClicked = false;
+    private boolean ageButtonClicked = false;
+    private boolean emailButtonClicked = false;
+    private boolean passwordButtonClicked = false;
 
 
     private String firstName;
@@ -44,18 +46,19 @@ public class ProfileController{
     private String password;
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         startrunning();
     }
 
     @FXML
-    private void startrunning(/*ActionEvent event*/){
+    private void startrunning() {
         getData(Main.getEmailIN());
         unableToWrite();
         printText();
     }
 
-    private void printText(){
+    //  sets prompt text of a fields according to obtained information about the user
+    private void printText() {
         firstNameTextField.setPromptText(firstName);
         lastNameTextField.setPromptText(lastName);
         cityTextField.setPromptText(city);
@@ -64,7 +67,8 @@ public class ProfileController{
         passwordTextField.setPromptText("(NOT VISIBLE)");
     }
 
-    private void unableToWrite(){
+    //  makes all fields uneditable, 'unclickable' and non-able to highlight
+    private void unableToWrite() {
         firstNameTextField.setEditable(false);
         firstNameTextField.setMouseTransparent(true);
         firstNameTextField.setFocusTraversable(false);
@@ -90,9 +94,8 @@ public class ProfileController{
         passwordTextField.setFocusTraversable(false);
     }
 
-
-
-    private void getData(String emailPassed){
+    //  gets data of a user from the DB
+    private void getData(String emailPassed) {
         try {
             // 3. Execute SQL query
             ResultSet myResults = Main.stmt.executeQuery("select * from users where email ='" + emailPassed + "' ");
@@ -113,8 +116,9 @@ public class ProfileController{
         }
     }
 
+    //  called by clicking change button - makes field of first name fully editable
     @FXML
-    private void updateFirstName(ActionEvent ae) {
+    private void updateFirstName() {
         firstNameTextField.setText(firstName);
         firstNameTextField.setMouseTransparent(false);
         firstNameTextField.setFocusTraversable(true);
@@ -123,8 +127,9 @@ public class ProfileController{
         firstNameButtonClicked = true;
     }
 
+    //  called by clicking change button - makes field of last name fully editable
     @FXML
-    private void updateLastName(ActionEvent ae){
+    private void updateLastName() {
         lastNameTextField.setText(lastName);
         lastNameTextField.setMouseTransparent(false);
         lastNameTextField.setFocusTraversable(true);
@@ -133,8 +138,9 @@ public class ProfileController{
         lastNameButtonClicked = true;
     }
 
+    //  called by clicking change button - makes field of city fully editable
     @FXML
-    private void updateCity(ActionEvent ae){
+    private void updateCity() {
         cityTextField.setText(city);
         cityTextField.setMouseTransparent(false);
         cityTextField.setFocusTraversable(true);
@@ -143,8 +149,9 @@ public class ProfileController{
         cityButtonClicked = true;
     }
 
+    //  called by clicking change button - makes field of age fully editable
     @FXML
-    private void updateAge(ActionEvent ae){
+    private void updateAge() {
         datePickerOfDoB.setEditable(true);
         datePickerOfDoB.setMouseTransparent(false);
         datePickerOfDoB.setFocusTraversable(true);
@@ -152,18 +159,20 @@ public class ProfileController{
         ageButtonClicked = true;
     }
 
+    //  called by clicking change button - makes field of email fully editable
     @FXML
-    private void updateEmail(ActionEvent ae){
+    private void updateEmail() {
         emailTextField.setText(email);
         emailTextField.setEditable(true);
         emailTextField.setMouseTransparent(false);
         emailTextField.setFocusTraversable(true);
 
-        emailButtonClicked= true;
+        emailButtonClicked = true;
     }
 
+    //  called by clicking change button - makes field of password fully editable
     @FXML
-    private void updatePassword(ActionEvent ae){
+    private void updatePassword() {
         passwordTextField.setText(password);
         passwordTextField.setEditable(true);
         passwordTextField.setMouseTransparent(false);
@@ -172,16 +181,16 @@ public class ProfileController{
         passwordButtonClicked = true;
     }
 
+    //  submit changes in updated fields, providing that they exist and are correct
     @FXML
-    private void submitUpdates(ActionEvent ae){
+    private void submitUpdates() {
         SignUpPageController check = new SignUpPageController();
-
 
         LocalDate dateLimit = LocalDate.now();
         dateLimit = dateLimit.minusYears(16);
         String emailRead = Main.getEmailIN();
         String sql;
-        boolean checkIfUpdated=false;
+        boolean checkIfUpdated = false;
 
         unableToWrite();
 
@@ -189,46 +198,46 @@ public class ProfileController{
             if (firstNameButtonClicked && !firstName.equals(firstNameTextField.getText())) {
                 firstName = firstNameTextField.getText();
                 sql = "update users set first_name = '" + firstName + "' where email ='" + emailRead + "'";
-                if(firstName.equals("")){
-                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                if (firstName.equals("")) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
                     alert.setContentText("First Name field is empty, enter sth!");
                     alert.showAndWait();
                     return;
                 }
                 Main.stmt.executeUpdate(sql);
-                checkIfUpdated=true;
+                checkIfUpdated = true;
             }
 
-            if (lastNameButtonClicked && !lastName.equals(lastNameTextField.getText())){
+            if (lastNameButtonClicked && !lastName.equals(lastNameTextField.getText())) {
                 lastName = lastNameTextField.getText();
                 sql = "update users set last_name = '" + lastName + "' where email ='" + emailRead + "'";
-                if(lastName.equals("")){
-                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                if (lastName.equals("")) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
                     alert.setContentText("First Name field is empty, enter sth!");
                     alert.showAndWait();
                     return;
                 }
                 Main.stmt.executeUpdate(sql);
-                checkIfUpdated=true;
+                checkIfUpdated = true;
             }
 
-            if (cityButtonClicked && !city.equals(cityTextField.getText())){
+            if (cityButtonClicked && !city.equals(cityTextField.getText())) {
                 city = cityTextField.getText();
                 sql = "update users set city = '" + city + "' where email ='" + emailRead + "'";
-                if(city.equals("")){
-                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                if (city.equals("")) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
                     alert.setContentText("First Name field is empty, enter sth!");
                     alert.showAndWait();
                     return;
                 }
                 Main.stmt.executeUpdate(sql);
-                checkIfUpdated=true;
+                checkIfUpdated = true;
             }
 
-            if (ageButtonClicked && !age.equals(datePickerOfDoB.getValue())){
+            if (ageButtonClicked && !age.equals(datePickerOfDoB.getValue())) {
                 age = datePickerOfDoB.getValue();
 
                 if (datePickerOfDoB.getValue().isAfter(dateLimit)) {
@@ -236,24 +245,24 @@ public class ProfileController{
                     alert.setHeaderText(null);
                     alert.setContentText("You must be at least 16 years old!");
                     alert.showAndWait();
-                }else {
+                } else {
                     sql = "update users set DoB = '" + datePickerOfDoB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + "' where email ='" + emailRead + "'";
                     Main.stmt.executeUpdate(sql);
                     checkIfUpdated = true;
                 }
             }
 
-            if (emailButtonClicked && !email.equals(emailTextField.getText())){
-                if(check.emailIsRepeating(emailTextField.getText())){
-                    Alert alert=new Alert(Alert.AlertType.ERROR);
+            if (emailButtonClicked && !email.equals(emailTextField.getText())) {
+                if (check.emailIsRepeating(emailTextField.getText())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
                     alert.setContentText("Email already exists in Database, insert new one");
                     alert.showAndWait();
                 } else {
                     email = emailTextField.getText();
                     sql = "update users set email = '" + email + "' where email ='" + emailRead + "'";
-                    if(email.equals("")){
-                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                    if (email.equals("")) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setHeaderText(null);
                         alert.setContentText("First Name field is empty, enter sth!");
                         alert.showAndWait();
@@ -265,32 +274,32 @@ public class ProfileController{
                 }
             }
 
-            if (passwordButtonClicked && !password.equals(passwordTextField.getText())){
+            if (passwordButtonClicked && !password.equals(passwordTextField.getText())) {
                 password = passwordTextField.getText();
                 sql = "update users set password = '" + password + "' where email ='" + emailRead + "'";
-                if(password.equals("")){
-                    Alert alert=new Alert(Alert.AlertType.ERROR);
+                if (password.equals("")) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
                     alert.setContentText("First Name field is empty, enter sth!");
                     alert.showAndWait();
                     return;
                 }
                 Main.stmt.executeUpdate(sql);
-                checkIfUpdated=true;
+                checkIfUpdated = true;
             }
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        if (checkIfUpdated){
-            Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        if (checkIfUpdated) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText("Data inserted");
             alert.showAndWait();
             loadProfile();
         } else {
-            Alert alert=new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("You haven't updated profile!");
             alert.showAndWait();
@@ -300,21 +309,25 @@ public class ProfileController{
 
     }
 
-
+/*
+----------------------------------------------------------------------------------------------
+LOADERS METHODS - methods that loads other scenes
+----------------------------------------------------------------------------------------------
+ */
     @FXML
-    private void loadProfile(){
+    private void loadProfile() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/resources/profile.fxml"));
             BorderPane pane = loader.load();
             profilePane.getChildren().setAll(pane);
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @FXML
-    private void goToMainMenu(ActionEvent actionEvent) throws IOException {
+    private void goToMainMenu() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/mainMenu.fxml"));
         BorderPane pane = loader.load();
@@ -322,7 +335,7 @@ public class ProfileController{
     }
 
     @FXML
-    private void goToEvents(ActionEvent event) throws IOException {
+    private void goToEvents() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/resources/eventsPage.fxml"));
         BorderPane pane = loader.load();
@@ -330,7 +343,7 @@ public class ProfileController{
     }
 
     @FXML
-    private void goToFriends(ActionEvent event) throws IOException {
+    private void goToFriends() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/friendsPage.fxml"));
         loader.setLocation(getClass().getResource("/resources/friendsPage.fxml"));
         BorderPane pane = loader.load();
@@ -338,7 +351,7 @@ public class ProfileController{
     }
 
     @FXML
-    private void goToChat(ActionEvent event) throws IOException {
+    private void goToChat() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/chatclient/FXMLDocument.fxml"));
         BorderPane pane = loader.load();

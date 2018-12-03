@@ -2,20 +2,32 @@ package JavaFX;
 
 import java.sql.ResultSet;
 
-public class Event{
+/**
+ * Representation of a single event in the program
+ */
+public class Event {
 
-    /*
-    QUESTIONS TO SOKOL:
-    DONE - how to handle moving from one type of pane to the other - Ask about returning to main menu from profile
-    DONE - can we have more variables without displaying them in a table?
-    DONE - can we put buttons in table or be able double click on entry to go to more info about event?
-    ask about full screen, how to recenter textfields and all this things - dont bother that much
-    ask about the chat - check the deadlock - dont do GUI for server, only clients
-    ask about photos of the users - we can also have folder in a server on google, it has that option!
-    ^we can also make cache - when you click at the profile, check if it is ia a pc
+    private String ID;
+    private String name;
+    private String date;
+    private String location;
+    private String description;
+    private String category;
+    private String participants;
+    private String creator;
 
-    */
+    public Event(String ID, String name, String date, String location, String description, String category, String participants, String creator) {
+        this.ID = ID;
+        this.name = name;
+        this.date = date;
+        this.location = location;
+        this.description = description;
+        this.category = category;
+        this.participants = participants;
+        this.creator = creator;
+    }
 
+    //  SETTERS
     public void setDate(String date) {
     }
 
@@ -38,60 +50,58 @@ public class Event{
     public void setCreator(String creator) {
         this.creator = creator;
     }
-    public void setID (String ID) {
+
+    public void setID(String ID) {
         this.ID = ID;
     }
 
-    public void setName (String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    private String ID;
-    private String name;
-    private String date;
-    private String location;
-    private String description;
-    private String category;
-    private String participants;
-    private String creator;
 
-
-    public String getID() { return ID; }
-
-    public String getName() { return name; }
-
-    public String getDate() { return date; }
-
-    public String getLocation() { return location; }
-
-    public String getCategory() { return category; }
-
-    public String getCreator() { return creator; }
-
-    public String getDescription() { return description; }
-
-    public String getParticipants() { return participants; }
-
-
-
-    public Event(String ID, String name, String date, String location,String description, String category, String participants, String creator){
-        this.ID = ID;
-        this.name = name;
-        this.date = date;
-        this.location = location;
-        this.description = description;
-        this.category = category;
-        this.participants = participants;
-        this.creator = creator;
+    //  GETTERS
+    public String getID() {
+        return ID;
     }
 
-    public static String printNiceParticipants(String participants){
+    public String getName() {
+        return name;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getParticipants() {
+        return participants;
+    }
+
+
+    //  print first and last names of participants instead of loading only IDs
+    static String printNiceParticipants(String participants) {
         /*
         get single id from a list
         append to string
         */
-        String checking="";
-        String returning="";
+        String checking = "";
+        String returning = "";
         String name = "";
         String lastName = "";
 
