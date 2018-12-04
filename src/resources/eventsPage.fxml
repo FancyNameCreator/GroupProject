@@ -6,12 +6,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="eventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.EventsController">
+<BorderPane fx:id="eventsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" snapToPixel="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.EventsController">
    <top>
       <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -98,10 +100,9 @@
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin></ChoiceBox>
-            <HBox prefHeight="21.0" prefWidth="880.0" />
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="labelOfUserChoice" prefHeight="104.0" prefWidth="647.0" text="Choose one of following options">
+                  <Label fx:id="labelOfUserChoice" prefHeight="104.0" prefWidth="647.0" text="Choose the type of event you'd like to browse from the drop down">
                      <HBox.margin>
                         <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -127,6 +128,14 @@
                   </Button>
                </children>
             </HBox>
+            <ImageView fitHeight="235.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Hanger%20Logo%20DONE.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="300.0" top="35.0" />
+               </VBox.margin>
+            </ImageView>
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
