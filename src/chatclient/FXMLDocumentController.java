@@ -19,7 +19,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController {
     private ChatGateway gateway;
     @FXML
     private TextArea textArea;
@@ -27,14 +27,14 @@ public class FXMLDocumentController implements Initializable {
     public TextField comment;
     @FXML
     private BorderPane chatPane;
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+
+    @FXML
+    public void initialize() {
         gateway = new ChatGateway(textArea);
         gateway.sendHandle(getHandle());
 
         // Start the transcript check thread
-        new Thread(new TranscriptCheck(gateway,textArea)).start();
+        new Thread(new TranscriptCheck(gateway, textArea)).start();
     }
 
     @FXML
@@ -44,12 +44,12 @@ public class FXMLDocumentController implements Initializable {
         comment.setText("");
     }
 
-    static String getHandle(){
+    static String getHandle() {
         String handle = "default";
 
         try {
             // 3. Execute SQL query
-            ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '"+Main.getEmailIN()+"'");
+            ResultSet myResults = Main.stmt.executeQuery("select * from users where email = '" + Main.getEmailIN() + "'");
 
             // 4. Process the result set
             while (myResults.next()) {
@@ -67,8 +67,8 @@ public class FXMLDocumentController implements Initializable {
 
     //  this method allows logging in also by clicking ENTER button
     @FXML
-    private void actOnEnter(KeyEvent event){
-        if(event.getCode() == KeyCode.ENTER){   //  checks whether key code that user clicked is same as this of enter
+    private void actOnEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {   //  checks whether key code that user clicked is same as this of enter
             sendComment();
         }
     }
@@ -105,28 +105,30 @@ public class FXMLDocumentController implements Initializable {
         BorderPane pane = loader.load();
         chatPane.getChildren().setAll(pane);
     }
-
-
-
 }
+
 
 class TranscriptCheck implements Runnable, chat.ChatConstants {
     private ChatGateway gateway; // Gateway to the server
     private TextArea textArea; // Where to display comments
     private int N; // How many comments we have read
-    
-    /** Construct a thread */
-    public TranscriptCheck(ChatGateway gateway,TextArea textArea) {
-      this.gateway = gateway;
-      this.textArea = textArea;
-      this.N = 0;
+
+    /**
+     * Construct a thread
+     */
+    public TranscriptCheck(ChatGateway gateway, TextArea textArea) {
+        this.gateway = gateway;
+        this.textArea = textArea;
+        this.N = 0;
     }
 
-    /** Run a thread */
+    /**
+     * Run a thread
+     */
     public void run() {
-      while(true) {
-          if(gateway.getCommentCount() > N) {
-              String newComment = gateway.getComment(N);
+        while (true) {
+            if (gateway.getCommentCount() > N) {
+                String newComment = gateway.getComment(N);
               /*String checking = "";
               StringBuilder sb = new StringBuilder(checking);
               int i = 0;
@@ -139,15 +141,16 @@ class TranscriptCheck implements Runnable, chat.ChatConstants {
               }
 
               if (sb.toString().equals("To " + FXMLDocumentController.getHandle())) {*/
-                  Platform.runLater(() -> textArea.appendText(newComment + "\n"));
-              //}
+                Platform.runLater(() -> textArea.appendText(newComment + "\n"));
+                //}
 
-              N++;
-          } else {
-              try {
-                  Thread.sleep(250);
-              } catch(InterruptedException ex) {}
-          }
-      }
+                N++;
+            } else {
+                try {
+                    Thread.sleep(250);
+                } catch (InterruptedException ex) {
+                }
+            }
+        }
     }
-  }
+}

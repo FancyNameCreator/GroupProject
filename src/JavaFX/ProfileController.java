@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+
 import java.sql.Date;
 import java.io.IOException;
 import java.sql.*;
@@ -44,6 +45,7 @@ public class ProfileController {
     private LocalDate age;
     private String email;
     private String password;
+    private String bufor;
 
     @FXML
     private void initialize() {
@@ -196,56 +198,79 @@ public class ProfileController {
 
         try {
             if (firstNameButtonClicked && !firstName.equals(firstNameTextField.getText())) {
-                firstName = firstNameTextField.getText();
-                sql = "update users set first_name = '" + firstName + "' where email ='" + emailRead + "'";
-                if (firstName.equals("")) {
+                bufor = firstNameTextField.getText();
+                if (bufor.equals("")) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
-                    alert.setContentText("First Name field is empty, enter sth!");
+                    alert.setContentText("First name field is empty, enter sth!");
                     alert.showAndWait();
+                    /*firstNameTextField.setPromptText("");
+                    updateFirstName();*/
+                    startrunning();
                     return;
                 }
+                /*firstNameTextField.setText("");
+                firstNameTextField.setPromptText(bufor);*/
+                firstName = bufor;
+                sql = "update users set first_name = '" + firstName + "' where email ='" + emailRead + "'";
                 Main.stmt.executeUpdate(sql);
                 checkIfUpdated = true;
             }
 
             if (lastNameButtonClicked && !lastName.equals(lastNameTextField.getText())) {
-                lastName = lastNameTextField.getText();
-                sql = "update users set last_name = '" + lastName + "' where email ='" + emailRead + "'";
-                if (lastName.equals("")) {
+                bufor = lastNameTextField.getText();
+                if (bufor.equals("")) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
-                    alert.setContentText("First Name field is empty, enter sth!");
+                    alert.setContentText("Last name field is empty, enter sth!");
                     alert.showAndWait();
+                    /*lastNameTextField.setPromptText("");
+                    updateLastName();*/
+                    startrunning();
                     return;
                 }
+                /*lastNameTextField.setText("");
+                lastNameTextField.setPromptText(bufor);*/
+                lastName = bufor;
+                sql = "update users set last_name = '" + lastName + "' where email ='" + emailRead + "'";
                 Main.stmt.executeUpdate(sql);
                 checkIfUpdated = true;
             }
 
             if (cityButtonClicked && !city.equals(cityTextField.getText())) {
-                city = cityTextField.getText();
-                sql = "update users set city = '" + city + "' where email ='" + emailRead + "'";
-                if (city.equals("")) {
+                bufor = cityTextField.getText();
+                if (bufor.equals("")) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
-                    alert.setContentText("First Name field is empty, enter sth!");
+                    alert.setContentText("City field is empty, enter sth!");
                     alert.showAndWait();
+                    /*cityTextField.setPromptText("");
+                    updateCity();*/
+                    startrunning();
                     return;
                 }
+                /*cityTextField.setText("");
+                cityTextField.setPromptText(bufor);*/
+                city = bufor;
+                sql = "update users set city = '" + city + "' where email ='" + emailRead + "'";
                 Main.stmt.executeUpdate(sql);
                 checkIfUpdated = true;
             }
 
             if (ageButtonClicked && !age.equals(datePickerOfDoB.getValue())) {
-                age = datePickerOfDoB.getValue();
 
                 if (datePickerOfDoB.getValue().isAfter(dateLimit)) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
                     alert.setContentText("You must be at least 16 years old!");
                     alert.showAndWait();
+                    startrunning();
+                    return;
+                    /*datePickerOfDoB.setPromptText("");
+                    updateAge();*/
                 } else {
+                    /*datePickerOfDoB.setPromptText(datePickerOfDoB.getValue().toString());
+                    age = datePickerOfDoB.getValue();*/
                     sql = "update users set DoB = '" + datePickerOfDoB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + "' where email ='" + emailRead + "'";
                     Main.stmt.executeUpdate(sql);
                     checkIfUpdated = true;
@@ -258,16 +283,26 @@ public class ProfileController {
                     alert.setHeaderText(null);
                     alert.setContentText("Email already exists in Database, insert new one");
                     alert.showAndWait();
+                    /*emailTextField.setPromptText("");
+                    updateEmail();*/
+                    startrunning();
+                    return;
                 } else {
-                    email = emailTextField.getText();
-                    sql = "update users set email = '" + email + "' where email ='" + emailRead + "'";
-                    if (email.equals("")) {
+                    bufor = emailTextField.getText();
+                    if (bufor.equals("")) {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setHeaderText(null);
-                        alert.setContentText("First Name field is empty, enter sth!");
+                        alert.setContentText("Email field is empty, enter sth!");
                         alert.showAndWait();
+                        /*emailTextField.setPromptText("");
+                        updateEmail();*/
+                        startrunning();
                         return;
                     }
+                    /*emailTextField.setText("");
+                    emailTextField.setPromptText(bufor);*/
+                    email = bufor;
+                    sql = "update users set email = '" + email + "' where email ='" + emailRead + "'";
                     Main.stmt.executeUpdate(sql);
                     Main.setEmailIN(email);
                     checkIfUpdated = true;
@@ -275,15 +310,21 @@ public class ProfileController {
             }
 
             if (passwordButtonClicked && !password.equals(passwordTextField.getText())) {
-                password = passwordTextField.getText();
-                sql = "update users set password = '" + password + "' where email ='" + emailRead + "'";
-                if (password.equals("")) {
+                bufor = passwordTextField.getText();
+                if (bufor.equals("")) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(null);
-                    alert.setContentText("First Name field is empty, enter sth!");
+                    alert.setContentText("Password field is empty, enter sth!");
                     alert.showAndWait();
+                    /*passwordTextField.setPromptText("");
+                    updatePassword();*/
+                    startrunning();
                     return;
                 }
+                /*passwordTextField.setText("");
+                passwordTextField.setPromptText(bufor);*/
+                password = bufor;
+                sql = "update users set password = '" + password + "' where email ='" + emailRead + "'";
                 Main.stmt.executeUpdate(sql);
                 checkIfUpdated = true;
             }
@@ -301,7 +342,7 @@ public class ProfileController {
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
-            alert.setContentText("You haven't updated profile!");
+            alert.setContentText("There has been an error updating profile!\nREMARK: change ...");
             alert.showAndWait();
             loadProfile();
         }
@@ -309,11 +350,11 @@ public class ProfileController {
 
     }
 
-/*
-----------------------------------------------------------------------------------------------
-LOADERS METHODS - methods that loads other scenes
-----------------------------------------------------------------------------------------------
- */
+    /*
+    ----------------------------------------------------------------------------------------------
+    LOADERS METHODS - methods that loads other scenes
+    ----------------------------------------------------------------------------------------------
+     */
     @FXML
     private void loadProfile() {
         try {

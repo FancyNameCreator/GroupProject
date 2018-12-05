@@ -47,6 +47,15 @@ public class SignUpPageController {
         String firstnameIN = firstName.getText();
         String lastnameIN = lastName.getText();
         String cityIN = cityField.getText();
+
+        if (datePicker.getValue()==null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("You forgot of filling your Date of BTH!");
+            alert.showAndWait();
+            return;
+        }
+
         String ageIN = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         LocalDate age = datePicker.getValue();
         String email = emailField.getText();
@@ -63,10 +72,11 @@ public class SignUpPageController {
             }
             loadMainMenu();
         } else {
-            FXMLLoader loader = new FXMLLoader();
+            /*FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/resources/signUpPage.fxml"));
             BorderPane pane = loader.load();
-            signUpPage.getChildren().setAll(pane);
+            signUpPage.getChildren().setAll(pane);*/
+
         }
     }
 

@@ -61,7 +61,7 @@
                         <DropShadow />
                     </effect>
                 </Button>
-                <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToFriends" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Friends" textAlignment="JUSTIFY">
+                <Button alignment="CENTER" contentDisplay="CENTER" minHeight="40.0" minWidth="100.0" mnemonicParsing="false" onAction="#goToFriends" prefHeight="40.0" prefWidth="180.0" style="-fx-text-fill: #fff; -fx-background-color: #313131; -fx-font-weight: BOLD; -fx-font-size: 20;" text="Followers" textAlignment="JUSTIFY">
                     <font>
                         <Font name="Segoe UI Symbol" size="20.0" />
                     </font>

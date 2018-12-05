@@ -47,6 +47,7 @@ public class FriendAddController {
             lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
             cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
             DOBColumn.setCellValueFactory(new PropertyValueFactory<>("DoB"));
+            loadAllUsers();
             tableViewSearch.setItems(tableOfSearched);
         }
 
@@ -106,6 +107,34 @@ public class FriendAddController {
     }
 
 */
+
+    private void loadAllUsers(){
+
+        tableViewSearch.getItems().clear();
+
+        try {
+            // 3. Execute SQL query
+            String query = "select * from users";
+            ResultSet myResults = Main.stmt.executeQuery(query);
+
+            // 4. Process the result set
+            while (myResults.next()) {
+                String id = myResults.getString("id");
+                String firstName = myResults.getString("first_name");
+                String lastName = myResults.getString("last_name");
+                String email = myResults.getString("email");
+                String password = myResults.getString("password");
+                String city = myResults.getString("city");
+                String DoB = myResults.getString("DoB");
+                String eventsAttending = myResults.getString("events_attending");
+                String friends = myResults.getString("friends");
+
+                tableOfSearched.add(new Person(id, firstName, lastName, email, password, city, DoB, eventsAttending, friends));
+            }
+        } catch (Exception exc) {    //catch the exception if occurs
+            exc.printStackTrace();
+        }
+    }
 
     //  display in a table all results that first names, last names or cities matches phrase that was entered
     @FXML

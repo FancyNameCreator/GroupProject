@@ -60,22 +60,98 @@ public class CreateEventController {
     //  called by clicking create button
     @FXML
     private void createEvent() {
-        getData();
-        sendData();
-        showAlert();
-        backToEvents();
+        if(!getData()) {
+            nameOfEvent = "";
+            locationOfEvent = "";
+            dateOfEvent = "";
+            descriptionOfEvent = "";
+            categoryOfEvent = "";
+            return;
+        }
+
+        if (checking()) {
+            sendData();
+            showAlert();
+            backToEvents();
+        }
     }
 
     //  collects data from all the fields and initializes the variables;
-    private void getData() {
+    private boolean getData() {
         nameOfEvent = textFieldName.getText();
         locationOfEvent = textFieldLocation.getText();
+
+        if (datePicker.getValue()==null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("You forgot of filling your event date!");
+            alert.showAndWait();
+            return false;
+        }
+
         dateOfEvent = datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         descriptionOfEvent = textFieldDescription.getText();
         participantsOfEvent = "";
         creatorOfEvent = Main.getEmailIN();
+
+        if (choiceBoxCreate.getValue()==null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("You forgot of filling your event category!");
+            alert.showAndWait();
+            return false;
+        }
+
         categoryOfEvent = choiceBoxCreate.getValue();
+
+        return true;
     }
+
+    private boolean checking(/*String nameOfEvent, String locationOfEvent, String dateOfEvent, String description, String categoryOfEvent*/) {
+
+        if (nameOfEvent.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Name of an event field is empty, enter sth!");
+            alert.showAndWait();
+            return false;
+        }
+
+        if (locationOfEvent.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Location of an event field is empty, enter sth!");
+            alert.showAndWait();
+            return false;
+        }
+
+        if (dateOfEvent.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Date of an event field is empty, enter sth!");
+            alert.showAndWait();
+            return false;
+        }
+
+        if (descriptionOfEvent.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Description field is empty, enter sth!");
+            alert.showAndWait();
+            return false;
+        }
+
+        if (categoryOfEvent.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Category field is empty, enter sth!");
+            alert.showAndWait();
+            return false;
+        }
+
+        return true;
+    }
+
 
     //  sends data into the DB
     private void sendData() {

@@ -2,7 +2,6 @@ package JavaFX;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -76,6 +75,9 @@ public class MainMenuController {
         eventName.setCellValueFactory(new PropertyValueFactory<>("name"));
         eventCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         tableView.setItems(events);
+        chooseMonth.getSelectionModel().selectFirst();
+        chooseYear.getSelectionModel().selectFirst();
+        setAllButtonsWhite();
     }
 
 /*
@@ -95,6 +97,7 @@ CALENDAR METHODS - methods regarding calendar
     //  2. determine whether there are upcoming events in the month and if so mark those days as red
     @FXML
     public void choiceMonth() {
+        setAllButtonsWhite();
         button1.setDisable(false);
         button2.setDisable(false);
         button3.setDisable(false);
@@ -165,9 +168,49 @@ CALENDAR METHODS - methods regarding calendar
         simulateButtonClicked();
     }
 
-    //  change color of passed button
-    private void changeColor (Button button) {
+    //  change color of passed button to red
+    private void changeColorRed(Button button) {
         button.setStyle("-fx-background-color: #ff0000");
+    }
+
+    //  change color of passed button to white
+    private void changeColorWhite(Button button) {
+        button.setBackground(null);
+        button.setStyle("-fx-border-color: black");
+    }
+
+    private void setAllButtonsWhite(){
+        changeColorWhite(button1);
+        changeColorWhite(button2);
+        changeColorWhite(button3);
+        changeColorWhite(button4);
+        changeColorWhite(button5);
+        changeColorWhite(button6);
+        changeColorWhite(button7);
+        changeColorWhite(button8);
+        changeColorWhite(button9);
+        changeColorWhite(button10);
+        changeColorWhite(button11);
+        changeColorWhite(button12);
+        changeColorWhite(button13);
+        changeColorWhite(button14);
+        changeColorWhite(button15);
+        changeColorWhite(button16);
+        changeColorWhite(button17);
+        changeColorWhite(button18);
+        changeColorWhite(button19);
+        changeColorWhite(button20);
+        changeColorWhite(button21);
+        changeColorWhite(button22);
+        changeColorWhite(button23);
+        changeColorWhite(button24);
+        changeColorWhite(button25);
+        changeColorWhite(button26);
+        changeColorWhite(button27);
+        changeColorWhite(button28);
+        changeColorWhite(button29);
+        changeColorWhite(button30);
+        changeColorWhite(button31);
     }
 
     //  simulates the clicking of a button in order to determine which days(buttons) should be marked red
@@ -239,7 +282,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button1);
+            changeColorRed(button1);
         }
     }
 
@@ -269,7 +312,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button2);
+            changeColorRed(button2);
         }
     }
 
@@ -299,7 +342,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button3);
+            changeColorRed(button3);
         }
     }
 
@@ -329,7 +372,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button4);
+            changeColorRed(button4);
         }
     }
 
@@ -359,7 +402,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button5);
+            changeColorRed(button5);
         }
     }
 
@@ -389,7 +432,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button6);
+            changeColorRed(button6);
         }
     }
 
@@ -419,7 +462,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button7);
+            changeColorRed(button7);
         }
     }
 
@@ -449,7 +492,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button8);
+            changeColorRed(button8);
         }
     }
 
@@ -479,7 +522,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button9);
+            changeColorRed(button9);
         }
     }
 
@@ -509,7 +552,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button10);
+            changeColorRed(button10);
         }
     }
 
@@ -539,7 +582,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button11);
+            changeColorRed(button11);
         }
     }
 
@@ -569,7 +612,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button12);
+            changeColorRed(button12);
         }
     }
 
@@ -599,7 +642,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button13);
+            changeColorRed(button13);
         }
     }
 
@@ -629,7 +672,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button14);
+            changeColorRed(button14);
         }
     }
 
@@ -659,7 +702,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button15);
+            changeColorRed(button15);
         }
     }
 
@@ -689,7 +732,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button16);
+            changeColorRed(button16);
         }
     }
 
@@ -719,7 +762,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button17);
+            changeColorRed(button17);
         }
     }
 
@@ -749,7 +792,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button18);
+            changeColorRed(button18);
         }
     }
 
@@ -779,7 +822,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button19);
+            changeColorRed(button19);
         }
     }
 
@@ -809,7 +852,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button20);
+            changeColorRed(button20);
         }
     }
 
@@ -839,7 +882,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button21);
+            changeColorRed(button21);
         }
     }
 
@@ -869,7 +912,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button22);
+            changeColorRed(button22);
         }
     }
 
@@ -899,7 +942,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button23);
+            changeColorRed(button23);
         }
     }
 
@@ -929,7 +972,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button24);
+            changeColorRed(button24);
         }
     }
 
@@ -959,7 +1002,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button25);
+            changeColorRed(button25);
         }
     }
 
@@ -989,7 +1032,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button26);
+            changeColorRed(button26);
         }
     }
 
@@ -1019,7 +1062,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button27);
+            changeColorRed(button27);
         }
     }
 
@@ -1048,7 +1091,7 @@ CALENDAR METHODS - methods regarding calendar
             exc.printStackTrace();
         }
         if (events.size() != 0){
-            changeColor(button28);
+            changeColorRed(button28);
         }
     }
 
@@ -1078,7 +1121,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button29);
+            changeColorRed(button29);
         }
     }
 
@@ -1108,7 +1151,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button30);
+            changeColorRed(button30);
         }
     }
 
@@ -1138,7 +1181,7 @@ CALENDAR METHODS - methods regarding calendar
         }
 
         if (events.size() != 0){
-            changeColor(button31);
+            changeColorRed(button31);
         }
     }
 
